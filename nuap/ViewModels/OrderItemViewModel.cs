@@ -8,19 +8,34 @@
 
     public class OrderItemViewModel : Order
     {
-        public ICommand GetProductsCommand
+        public ICommand OrderDetailCommand
         {
             get
             {
-                return new RelayCommand(GetProducts);
+                return new RelayCommand(OrderDetail);
             }
         }
 
-        private void GetProducts()
+        private async void OrderDetail()
         {
-           /* var mainViewModel = MainViewModel.GetInstance();
-            mainViewModel.ProductCommerce = new ProductCommerceViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new ProductCommercePage());*/
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.OrderDetail = new OrderDetailViewModel(this);
+            await Application.Current.MainPage.Navigation.PushAsync(new OrderDetailPage());
+        }
+
+        public ICommand SalesDetailCommand
+        {
+            get
+            {
+                return new RelayCommand(SalesDetail);
+            }
+        }
+
+        private async void SalesDetail()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.SalesDetail = new SalesDetailViewModel(this);
+            await Application.Current.MainPage.Navigation.PushAsync(new SalesDetailPage());
         }
     }
 }

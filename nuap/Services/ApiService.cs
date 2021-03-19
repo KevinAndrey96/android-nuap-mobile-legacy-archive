@@ -42,7 +42,8 @@
         public async Task<LoginResponse> GetUser(
             string urlBase,
             string email,
-            string password
+            string password,
+            string type
         ) {
             try
             {
@@ -50,8 +51,8 @@
                 client.BaseAddress = new Uri(urlBase);
                 var response = await client.PostAsync("/api/users/init",
                     new StringContent(string.Format(
-                    "email={0}&password={1}",
-                    email, password),
+                    "email={0}&password={1}&type={2}",
+                    email, password, type),
                     Encoding.UTF8, "application/x-www-form-urlencoded"));
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<LoginResponse>(resultJSON);
@@ -390,6 +391,249 @@
                     Encoding.UTF8, "application/x-www-form-urlencoded"));
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<OrderProductResponse> GetProductsByOrder(
+            string accessToken,
+            string urlBase,
+            int orderId
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/users/orders/" + orderId + "/products");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<OrderProductResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ProfileCommerceResponse> GetSellerDetail(
+            string accessToken,
+            int sellerID,
+            string urlBase
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/users/seller/"+sellerID+ "/info");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ProfileCommerceResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ReplyTicketResponse> RatingOrder(
+            string accessToken,
+            string urlBase,
+            int orderID,
+            int rating,
+            string comment
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/users/rating",
+                    new StringContent(string.Format(
+                    "order_id={0}&rating={1}&comment={2}",
+                    orderID, rating, comment),
+                    Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<OrderResponse> GetSales(
+            string accessToken,
+            string urlBase
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/commerces/sales");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<OrderResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ReplyTicketResponse> UpdateStatus(
+            string accessToken,
+            string urlBase,
+            int orderID
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/commerces/order/" + orderID+"/update");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<AddressResponse> GetAddress(
+            string accessToken,
+            string urlBase
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/users/location");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<AddressResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<CategoryResponse> GetValidCategories(
+            string accessToken,
+            string urlBase
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/products/valid/categories");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<CategoryResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<StoreProductResponse> GetStores(
+            string accessToken,
+            string urlBase,
+            int address
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/products/stores/address/"+address);
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<StoreProductResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ProductResponse> GetSales(
+            string accessToken,
+            string urlBase,
+            int address
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/products/sales/address/" + address);
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ProductResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ProductResponse> GetFeatured(
+            string accessToken,
+            string urlBase,
+            int address
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/products/featured/address/" + address);
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ProductResponse>(resultJSON);
 
                 return result;
             }

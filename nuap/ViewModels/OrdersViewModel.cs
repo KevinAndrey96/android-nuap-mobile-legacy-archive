@@ -161,7 +161,10 @@
                 Status = o.Status,
                 Rating = o.Rating,
                 RatingImage = o.RatingImage,
-                StatusColor = o.StatusColor
+                StatusColor = o.StatusColor,
+                AddressId = o.AddressId,
+                Address = o.Address,
+                DistributorName = o.DistributorName
             });
         }
     }

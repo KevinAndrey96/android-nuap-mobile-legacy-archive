@@ -39,7 +39,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start" 
-                            Source="ic_man_user">
+                            Source="ic_ver_perfil">
                         </Image>
                         <Button
                             Text="Editar Perfil"
@@ -58,7 +58,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start" 
-                            Source="ic_pin">
+                            Source="ic_mis_ubicaciones">
                         </Image>
                             <Button
                                 Text="Mis Direcciones"
@@ -77,7 +77,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start"
-                            Source="ic_shopping_cart">
+                            Source="ic_historial_de_pedidos">
                         </Image>
                         <Button
                             Text="Historial de Pedidos"

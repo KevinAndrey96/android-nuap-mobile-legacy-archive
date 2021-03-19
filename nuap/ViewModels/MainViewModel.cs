@@ -83,6 +83,48 @@
             set;
         }
 
+        public OrderDetailViewModel OrderDetail
+        {
+            get;
+            set;
+        }
+
+        public SellerDetailViewModel SellerDetail
+        {
+            get;
+            set;
+        }
+
+        public RatingViewModel Rating
+        {
+            get;
+            set;
+        }
+
+        public SalesViewModel Sales
+        {
+            get;
+            set;
+        }
+
+        public SalesDetailViewModel SalesDetail
+        {
+            get;
+            set;
+        }
+
+        public UpdateOrderStatusViewModel UpdateOrderStatus
+        {
+            get;
+            set;
+        }
+
+        public CategoryViewModel AllCategories
+        {
+            get;
+            set;
+        }
+
         public User User
         {
             get;
@@ -114,6 +156,31 @@
         }
 
         public int CategoryProductID
+        {
+            get;
+            set;
+        }
+
+        public int SellerID
+        {
+            get;
+            set;
+        }
+
+        public int OrderID
+        {
+            get;
+            set;
+        }
+
+        public string OrderStatus
+        {
+            get;
+            set;
+        }
+
+
+        public string OrderAddress
         {
             get;
             set;

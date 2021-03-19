@@ -73,25 +73,6 @@
                                 Command="{Binding LoginCommand}">
                         </Button>
                     </StackLayout>
-                    <StackLayout
-                        Orientation="Horizontal">
-                        <Image 
-                            HorizontalOptions="Start"
-                            Source="ic_shopping_cart">
-                        </Image>
-                        <Button
-                            Text="Historial de Pedidos"
-                            FontFamily="Poppins-Bold"
-                            TextTransform="None"
-                            HeightRequest="60"
-                            TextColor="#2a4d9c"
-                            BackgroundColor="Transparent"
-                            Padding="0,15"
-                            FontSize="16"
-                            HorizontalOptions="Start"
-                            Command="{Binding LoginCommand}">
-                        </Button>
-                    </StackLayout>
                 </StackLayout>
             </Frame>
         </StackLayout>

@@ -7,6 +7,15 @@
         [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }
 
+        [JsonProperty(PropertyName = "address_id")]
+        public int AddressId { get; set; }
+
+        [JsonProperty(PropertyName = "address")]
+        public string Address { get; set; }
+
+        [JsonProperty(PropertyName = "distributor_name")]
+        public string DistributorName { get; set; }
+
         [JsonProperty(PropertyName = "user_id")]
         public int UserId { get; set; }
 

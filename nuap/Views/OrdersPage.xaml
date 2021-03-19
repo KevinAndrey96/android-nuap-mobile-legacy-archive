@@ -32,7 +32,7 @@
                                 HasShadow="true"
                                 Margin="15,8,15,5">
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding GetProductsCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding OrderDetailCommand}"/>
                                 </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -83,11 +83,6 @@
                                             FontSize="14">
                                         </Button>
                                     </StackLayout>
-                                    <Image 
-                                        Grid.Column="3"
-                                        HorizontalOptions="End" 
-                                        Source="ic_chevron_right_gray">
-                                    </Image>
                                 </Grid>
                             </Frame>
                         </ViewCell>

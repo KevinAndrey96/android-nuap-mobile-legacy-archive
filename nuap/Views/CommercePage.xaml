@@ -32,7 +32,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start" 
-                            Source="ic_caja">
+                            Source="ic_inventario">
                         </Image>
                         <Button
                             Text="Inventario de Productos"
@@ -51,7 +51,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start" 
-                            Source="ic_bolsa_de_la_compra">
+                            Source="ic_mis_pedidos">
                         </Image>
                         <Button
                             Text="Mis Pedidos"
@@ -71,7 +71,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start" 
-                            Source="ic_ventas">
+                            Source="ic_mis_ventas">
                         </Image>
                         <Button
                             Text="Mis Ventas"
@@ -84,14 +84,14 @@
                             FontSize="16"
                             VerticalOptions="Start"
                             HorizontalOptions="StartAndExpand"
-                            Command="{Binding LoginCommand}">
+                            Command="{Binding SalesCommand}">
                         </Button>
                     </StackLayout>
                     <StackLayout
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start"
-                            Source="ic_pagar">
+                            Source="ic_balances__y_pagos">
                         </Image>
                         <Button
                             Text="Balances y Pagos"
@@ -110,7 +110,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start"
-                            Source="ic_retirada">
+                            Source="ic_solicitar_retiro">
                         </Image>
                         <Button
                             Text="Solicitar Retiro"

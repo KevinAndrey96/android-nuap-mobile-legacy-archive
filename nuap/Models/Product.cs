@@ -69,5 +69,8 @@
 
         [JsonProperty(PropertyName = "status_color")]
         public string StatusColor { get; set; }
+
+        [JsonProperty(PropertyName = "quantity")]
+        public int Quantity { get; set; }
     }
 }

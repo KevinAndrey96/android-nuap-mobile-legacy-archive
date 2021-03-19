@@ -8489,181 +8489,271 @@ namespace nuap.Droid
 			public const int avd_show_password = 2131165275;
 			
 			// aapt resource value: 0x7F07005C
-			public const int design_bottom_navigation_item_background = 2131165276;
+			public const int banner = 2131165276;
 			
 			// aapt resource value: 0x7F07005D
-			public const int design_fab_background = 2131165277;
+			public const int Caegorias = 2131165277;
 			
 			// aapt resource value: 0x7F07005E
-			public const int design_ic_visibility = 2131165278;
+			public const int carousel_one = 2131165278;
 			
 			// aapt resource value: 0x7F07005F
-			public const int design_ic_visibility_off = 2131165279;
+			public const int carousel_two = 2131165279;
 			
 			// aapt resource value: 0x7F070060
-			public const int design_password_eye = 2131165280;
+			public const int circle_blue = 2131165280;
 			
 			// aapt resource value: 0x7F070061
-			public const int design_snackbar_background = 2131165281;
+			public const int circle_gray = 2131165281;
 			
 			// aapt resource value: 0x7F070062
-			public const int ic_account_box = 2131165282;
+			public const int circle_red = 2131165282;
 			
 			// aapt resource value: 0x7F070063
-			public const int ic_address = 2131165283;
+			public const int design_bottom_navigation_item_background = 2131165283;
 			
 			// aapt resource value: 0x7F070064
-			public const int ic_bolsa_de_la_compra = 2131165284;
+			public const int design_fab_background = 2131165284;
 			
 			// aapt resource value: 0x7F070065
-			public const int ic_caja = 2131165285;
+			public const int design_ic_visibility = 2131165285;
 			
 			// aapt resource value: 0x7F070066
-			public const int ic_carrito_de_compras = 2131165286;
+			public const int design_ic_visibility_off = 2131165286;
 			
 			// aapt resource value: 0x7F070067
-			public const int ic_chevron_right = 2131165287;
+			public const int design_password_eye = 2131165287;
 			
 			// aapt resource value: 0x7F070068
-			public const int ic_chevron_right_gray = 2131165288;
+			public const int design_snackbar_background = 2131165288;
 			
 			// aapt resource value: 0x7F070069
-			public const int ic_entrega = 2131165289;
+			public const int ic_account_box = 2131165289;
 			
 			// aapt resource value: 0x7F07006A
-			public const int ic_envelope = 2131165290;
+			public const int ic_actual = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int ic_home = 2131165291;
+			public const int ic_actual_gray = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
-			public const int ic_launcher = 2131165292;
+			public const int ic_actual_red = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
-			public const int ic_lock = 2131165293;
+			public const int ic_address = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
-			public const int ic_man_user = 2131165294;
+			public const int ic_balances__y_pagos = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int ic_message = 2131165295;
+			public const int ic_bolsa_de_la_compra = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int ic_mtrl_chip_checked_black = 2131165296;
+			public const int ic_caja = 2131165296;
 			
 			// aapt resource value: 0x7F070071
-			public const int ic_mtrl_chip_checked_circle = 2131165297;
+			public const int ic_carrito_de_compras = 2131165297;
 			
 			// aapt resource value: 0x7F070072
-			public const int ic_mtrl_chip_close_circle = 2131165298;
+			public const int ic_chevron_right = 2131165298;
 			
 			// aapt resource value: 0x7F070073
-			public const int ic_pagar = 2131165299;
+			public const int ic_chevron_right_gray = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int ic_pin = 2131165300;
+			public const int ic_entrega = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int ic_porcentaje = 2131165301;
+			public const int ic_envelope = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int ic_question_answer = 2131165302;
+			public const int ic_esquema_de_la_casa = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int ic_retirada = 2131165303;
+			public const int ic_estrella = 2131165303;
 			
 			// aapt resource value: 0x7F070078
-			public const int ic_shopping_cart = 2131165304;
+			public const int ic_estrella_disabled = 2131165304;
 			
 			// aapt resource value: 0x7F070079
-			public const int ic_smartphone = 2131165305;
+			public const int ic_historial_de_pedidos = 2131165305;
 			
 			// aapt resource value: 0x7F07007A
-			public const int ic_start_five = 2131165306;
+			public const int ic_hogar = 2131165306;
 			
 			// aapt resource value: 0x7F07007B
-			public const int ic_start_four = 2131165307;
+			public const int ic_home = 2131165307;
 			
 			// aapt resource value: 0x7F07007C
-			public const int ic_start_one = 2131165308;
+			public const int ic_inventario = 2131165308;
 			
 			// aapt resource value: 0x7F07007D
-			public const int ic_start_three = 2131165309;
+			public const int ic_launcher = 2131165309;
 			
 			// aapt resource value: 0x7F07007E
-			public const int ic_start_two = 2131165310;
+			public const int ic_linea = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int ic_user = 2131165311;
+			public const int ic_lock = 2131165311;
 			
 			// aapt resource value: 0x7F070080
-			public const int ic_ventas = 2131165312;
+			public const int ic_man_user = 2131165312;
 			
 			// aapt resource value: 0x7F070081
-			public const int Inventario = 2131165313;
+			public const int ic_marcador_de_posicion = 2131165313;
 			
 			// aapt resource value: 0x7F070082
-			public const int logo = 2131165314;
+			public const int ic_message = 2131165314;
 			
 			// aapt resource value: 0x7F070083
-			public const int Mis_pedidos = 2131165315;
+			public const int ic_mis_pedidos = 2131165315;
 			
 			// aapt resource value: 0x7F070084
-			public const int mtrl_snackbar_background = 2131165316;
+			public const int ic_mis_ubicaciones = 2131165316;
 			
 			// aapt resource value: 0x7F070085
-			public const int mtrl_tabs_default_indicator = 2131165317;
+			public const int ic_mis_ventas = 2131165317;
 			
 			// aapt resource value: 0x7F070086
-			public const int navigation_empty_icon = 2131165318;
+			public const int ic_mtrl_chip_checked_black = 2131165318;
 			
 			// aapt resource value: 0x7F070087
-			public const int notification_action_background = 2131165319;
+			public const int ic_mtrl_chip_checked_circle = 2131165319;
 			
 			// aapt resource value: 0x7F070088
-			public const int notification_bg = 2131165320;
+			public const int ic_mtrl_chip_close_circle = 2131165320;
 			
 			// aapt resource value: 0x7F070089
-			public const int notification_bg_low = 2131165321;
+			public const int ic_pagar = 2131165321;
 			
 			// aapt resource value: 0x7F07008A
-			public const int notification_bg_low_normal = 2131165322;
+			public const int ic_pin = 2131165322;
 			
 			// aapt resource value: 0x7F07008B
-			public const int notification_bg_low_pressed = 2131165323;
+			public const int ic_porcentaje = 2131165323;
 			
 			// aapt resource value: 0x7F07008C
-			public const int notification_bg_normal = 2131165324;
+			public const int ic_question_answer = 2131165324;
 			
 			// aapt resource value: 0x7F07008D
-			public const int notification_bg_normal_pressed = 2131165325;
+			public const int ic_reloj = 2131165325;
 			
 			// aapt resource value: 0x7F07008E
-			public const int notification_icon_background = 2131165326;
+			public const int ic_retirada = 2131165326;
 			
 			// aapt resource value: 0x7F07008F
-			public const int notification_template_icon_bg = 2131165327;
+			public const int ic_shopping_cart = 2131165327;
 			
 			// aapt resource value: 0x7F070090
-			public const int notification_template_icon_low_bg = 2131165328;
+			public const int ic_smartphone = 2131165328;
 			
 			// aapt resource value: 0x7F070091
-			public const int notification_tile_bg = 2131165329;
+			public const int ic_solicitar_retiro = 2131165329;
 			
 			// aapt resource value: 0x7F070092
-			public const int notify_panel_notification_icon_bg = 2131165330;
+			public const int ic_start_five = 2131165330;
 			
 			// aapt resource value: 0x7F070093
-			public const int Register_2 = 2131165331;
+			public const int ic_start_four = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int splash = 2131165332;
+			public const int ic_start_one = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int tooltip_frame_dark = 2131165333;
+			public const int ic_start_three = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int tooltip_frame_light = 2131165334;
+			public const int ic_start_two = 2131165334;
+			
+			// aapt resource value: 0x7F070097
+			public const int ic_user = 2131165335;
+			
+			// aapt resource value: 0x7F070098
+			public const int ic_ventas = 2131165336;
+			
+			// aapt resource value: 0x7F070099
+			public const int ic_ver_perfil = 2131165337;
+			
+			// aapt resource value: 0x7F07009A
+			public const int Inventario = 2131165338;
+			
+			// aapt resource value: 0x7F07009B
+			public const int linea_azul = 2131165339;
+			
+			// aapt resource value: 0x7F07009C
+			public const int linea_gray = 2131165340;
+			
+			// aapt resource value: 0x7F07009D
+			public const int linea_red = 2131165341;
+			
+			// aapt resource value: 0x7F07009E
+			public const int logo = 2131165342;
+			
+			// aapt resource value: 0x7F07009F
+			public const int mapa = 2131165343;
+			
+			// aapt resource value: 0x7F0700A0
+			public const int Mis_pedidos = 2131165344;
+			
+			// aapt resource value: 0x7F0700A1
+			public const int mtrl_snackbar_background = 2131165345;
+			
+			// aapt resource value: 0x7F0700A2
+			public const int mtrl_tabs_default_indicator = 2131165346;
+			
+			// aapt resource value: 0x7F0700A3
+			public const int navigation_empty_icon = 2131165347;
+			
+			// aapt resource value: 0x7F0700A4
+			public const int notification_action_background = 2131165348;
+			
+			// aapt resource value: 0x7F0700A5
+			public const int notification_bg = 2131165349;
+			
+			// aapt resource value: 0x7F0700A6
+			public const int notification_bg_low = 2131165350;
+			
+			// aapt resource value: 0x7F0700A7
+			public const int notification_bg_low_normal = 2131165351;
+			
+			// aapt resource value: 0x7F0700A8
+			public const int notification_bg_low_pressed = 2131165352;
+			
+			// aapt resource value: 0x7F0700A9
+			public const int notification_bg_normal = 2131165353;
+			
+			// aapt resource value: 0x7F0700AA
+			public const int notification_bg_normal_pressed = 2131165354;
+			
+			// aapt resource value: 0x7F0700AB
+			public const int notification_icon_background = 2131165355;
+			
+			// aapt resource value: 0x7F0700AC
+			public const int notification_template_icon_bg = 2131165356;
+			
+			// aapt resource value: 0x7F0700AD
+			public const int notification_template_icon_low_bg = 2131165357;
+			
+			// aapt resource value: 0x7F0700AE
+			public const int notification_tile_bg = 2131165358;
+			
+			// aapt resource value: 0x7F0700AF
+			public const int notify_panel_notification_icon_bg = 2131165359;
+			
+			// aapt resource value: 0x7F0700B0
+			public const int Register_2 = 2131165360;
+			
+			// aapt resource value: 0x7F0700B1
+			public const int splash = 2131165361;
+			
+			// aapt resource value: 0x7F0700B2
+			public const int tooltip_frame_dark = 2131165362;
+			
+			// aapt resource value: 0x7F0700B3
+			public const int tooltip_frame_light = 2131165363;
+			
+			// aapt resource value: 0x7F0700B4
+			public const int Ventas = 2131165364;
 			
 			static Drawable()
 			{
@@ -9621,98 +9711,152 @@ namespace nuap.Droid
 		public partial class Mipmap
 		{
 			
-			// aapt resource value: 0x7F0C001C
-			public const int icon = 2131492892;
+			// aapt resource value: 0x7F0C002E
+			public const int icon = 2131492910;
 			
-			// aapt resource value: 0x7F0C001D
-			public const int icon_round = 2131492893;
+			// aapt resource value: 0x7F0C002F
+			public const int icon_round = 2131492911;
 			
 			// aapt resource value: 0x7F0C0000
 			public const int ic_account_box = 2131492864;
 			
 			// aapt resource value: 0x7F0C0001
-			public const int ic_address = 2131492865;
+			public const int ic_actual = 2131492865;
 			
 			// aapt resource value: 0x7F0C0002
-			public const int ic_bolsa_de_la_compra = 2131492866;
+			public const int ic_actual_gray = 2131492866;
 			
 			// aapt resource value: 0x7F0C0003
-			public const int ic_caja = 2131492867;
+			public const int ic_actual_red = 2131492867;
 			
 			// aapt resource value: 0x7F0C0004
-			public const int ic_carrito_de_compras = 2131492868;
+			public const int ic_address = 2131492868;
 			
 			// aapt resource value: 0x7F0C0005
-			public const int ic_chevron_right = 2131492869;
+			public const int ic_balances__y_pagos = 2131492869;
 			
 			// aapt resource value: 0x7F0C0006
-			public const int ic_chevron_right_gray = 2131492870;
+			public const int ic_bolsa_de_la_compra = 2131492870;
 			
 			// aapt resource value: 0x7F0C0007
-			public const int ic_entrega = 2131492871;
+			public const int ic_caja = 2131492871;
 			
 			// aapt resource value: 0x7F0C0008
-			public const int ic_envelope = 2131492872;
+			public const int ic_carrito_de_compras = 2131492872;
 			
 			// aapt resource value: 0x7F0C0009
-			public const int ic_home = 2131492873;
+			public const int ic_chevron_right = 2131492873;
 			
 			// aapt resource value: 0x7F0C000A
-			public const int ic_launcher = 2131492874;
+			public const int ic_chevron_right_gray = 2131492874;
 			
 			// aapt resource value: 0x7F0C000B
-			public const int ic_lock = 2131492875;
+			public const int ic_entrega = 2131492875;
 			
 			// aapt resource value: 0x7F0C000C
-			public const int ic_man_user = 2131492876;
+			public const int ic_envelope = 2131492876;
 			
 			// aapt resource value: 0x7F0C000D
-			public const int ic_message = 2131492877;
+			public const int ic_esquema_de_la_casa = 2131492877;
 			
 			// aapt resource value: 0x7F0C000E
-			public const int ic_pagar = 2131492878;
+			public const int ic_estrella = 2131492878;
 			
 			// aapt resource value: 0x7F0C000F
-			public const int ic_pin = 2131492879;
+			public const int ic_estrella_disabled = 2131492879;
 			
 			// aapt resource value: 0x7F0C0010
-			public const int ic_porcentaje = 2131492880;
+			public const int ic_historial_de_pedidos = 2131492880;
 			
 			// aapt resource value: 0x7F0C0011
-			public const int ic_question_answer = 2131492881;
+			public const int ic_hogar = 2131492881;
 			
 			// aapt resource value: 0x7F0C0012
-			public const int ic_retirada = 2131492882;
+			public const int ic_home = 2131492882;
 			
 			// aapt resource value: 0x7F0C0013
-			public const int ic_shopping_cart = 2131492883;
+			public const int ic_inventario = 2131492883;
 			
 			// aapt resource value: 0x7F0C0014
-			public const int ic_smartphone = 2131492884;
+			public const int ic_launcher = 2131492884;
 			
 			// aapt resource value: 0x7F0C0015
-			public const int ic_start_five = 2131492885;
+			public const int ic_linea = 2131492885;
 			
 			// aapt resource value: 0x7F0C0016
-			public const int ic_start_four = 2131492886;
+			public const int ic_lock = 2131492886;
 			
 			// aapt resource value: 0x7F0C0017
-			public const int ic_start_one = 2131492887;
+			public const int ic_man_user = 2131492887;
 			
 			// aapt resource value: 0x7F0C0018
-			public const int ic_start_three = 2131492888;
+			public const int ic_marcador_de_posicion = 2131492888;
 			
 			// aapt resource value: 0x7F0C0019
-			public const int ic_start_two = 2131492889;
+			public const int ic_message = 2131492889;
 			
 			// aapt resource value: 0x7F0C001A
-			public const int ic_user = 2131492890;
+			public const int ic_mis_pedidos = 2131492890;
 			
 			// aapt resource value: 0x7F0C001B
-			public const int ic_ventas = 2131492891;
+			public const int ic_mis_ubicaciones = 2131492891;
+			
+			// aapt resource value: 0x7F0C001C
+			public const int ic_mis_ventas = 2131492892;
+			
+			// aapt resource value: 0x7F0C001D
+			public const int ic_pagar = 2131492893;
 			
 			// aapt resource value: 0x7F0C001E
-			public const int launcher_foreground = 2131492894;
+			public const int ic_pin = 2131492894;
+			
+			// aapt resource value: 0x7F0C001F
+			public const int ic_porcentaje = 2131492895;
+			
+			// aapt resource value: 0x7F0C0020
+			public const int ic_question_answer = 2131492896;
+			
+			// aapt resource value: 0x7F0C0021
+			public const int ic_reloj = 2131492897;
+			
+			// aapt resource value: 0x7F0C0022
+			public const int ic_retirada = 2131492898;
+			
+			// aapt resource value: 0x7F0C0023
+			public const int ic_shopping_cart = 2131492899;
+			
+			// aapt resource value: 0x7F0C0024
+			public const int ic_smartphone = 2131492900;
+			
+			// aapt resource value: 0x7F0C0025
+			public const int ic_solicitar_retiro = 2131492901;
+			
+			// aapt resource value: 0x7F0C0026
+			public const int ic_start_five = 2131492902;
+			
+			// aapt resource value: 0x7F0C0027
+			public const int ic_start_four = 2131492903;
+			
+			// aapt resource value: 0x7F0C0028
+			public const int ic_start_one = 2131492904;
+			
+			// aapt resource value: 0x7F0C0029
+			public const int ic_start_three = 2131492905;
+			
+			// aapt resource value: 0x7F0C002A
+			public const int ic_start_two = 2131492906;
+			
+			// aapt resource value: 0x7F0C002B
+			public const int ic_user = 2131492907;
+			
+			// aapt resource value: 0x7F0C002C
+			public const int ic_ventas = 2131492908;
+			
+			// aapt resource value: 0x7F0C002D
+			public const int ic_ver_perfil = 2131492909;
+			
+			// aapt resource value: 0x7F0C0030
+			public const int launcher_foreground = 2131492912;
 			
 			static Mipmap()
 			{

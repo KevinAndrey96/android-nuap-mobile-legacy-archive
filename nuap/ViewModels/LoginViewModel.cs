@@ -43,6 +43,8 @@
         {
             this.apiService = new ApiService();
             this.IsEnabled = true;
+            this.Email = "comercio@test.com";
+            this.Password = "Nuap2021@";
         }
 
         public ICommand LoginCommand
@@ -95,7 +97,8 @@
             var response = await this.apiService.GetUser(
                 "https://thenuap.com",
                 this.Email,
-                this.Password);
+                this.Password,
+                "comercio");
 
             if (response == null)
             {
