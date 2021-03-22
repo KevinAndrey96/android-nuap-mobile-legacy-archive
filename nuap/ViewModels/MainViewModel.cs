@@ -125,6 +125,30 @@
             set;
         }
 
+        public CategoryProductViewModel CategoryProduct
+        {
+            get;
+            set;
+        }
+
+        public ProductDetailViewModel ProductDetail
+        {
+            get;
+            set;
+        }
+
+        public CartViewModel Cart
+        {
+            get;
+            set;
+        }
+
+        public CartEmptyViewModel CartEmpty
+        {
+            get;
+            set;
+        }
+
         public User User
         {
             get;
@@ -138,6 +162,18 @@
         }
 
         public List<Category> CategoryList
+        {
+            get;
+            set;
+        }
+
+        public List<Cart> CartList
+        {
+            get;
+            set;
+        }
+
+        public List<Product> ProductCategoryList
         {
             get;
             set;

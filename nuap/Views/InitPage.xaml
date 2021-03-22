@@ -12,14 +12,35 @@
                 BindingContext="{Binding HomeCommerce}">
                 <StackLayout
                     Padding="0,0,0,20"
-                    HorizontalOptions="End"
                     Orientation="Horizontal">
+                    <Image 
+                        Margin="20,15,0,0"
+                        HeightRequest="30"
+                        Source="compras" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CartCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label
+                        Text="Ver carrito"
+                        Padding="0,15,0,0"
+                        TextColor="#2E3192" 
+                        FontFamily="Poppins"
+                        FontSize="14"
+                        VerticalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CartCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                     <Label
                         Text="Hola,"
                         Padding="20,15,0,0"
                         TextColor="#3a3a3a" 
                         FontFamily="Poppins-Bold"
                         FontSize="16"
+                        HorizontalOptions="EndAndExpand"
                         VerticalOptions="Center">
                     </Label>
                     <Label
@@ -28,6 +49,7 @@
                         TextColor="#3a3a3a" 
                         FontFamily="Poppins-Bold"
                         FontSize="16"
+                        HorizontalOptions="End"
                         VerticalOptions="Center">
                     </Label>
                 </StackLayout>
@@ -239,9 +261,9 @@
                 <StackLayout
                     Padding="0,15,0,0">
                     <Image
-                        Source="carousel_one"
+                        Source="comercio01"
                         HorizontalOptions="FillAndExpand"
-                        HeightRequest="160">
+                        HeightRequest="185">
                     </Image>
                 </StackLayout>
                 <StackLayout
@@ -281,6 +303,9 @@
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GetCategoryProductsC1Command}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
                                         HeightRequest="70"
                                         WidthRequest="70"
@@ -305,6 +330,9 @@
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GetCategoryProductsC2Command}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
                                         HeightRequest="70"
                                         WidthRequest="70"
@@ -329,6 +357,9 @@
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GetCategoryProductsC3Command}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
                                         HeightRequest="70"
                                         WidthRequest="70"
@@ -353,6 +384,9 @@
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GetCategoryProductsC4Command}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
                                         HeightRequest="70"
                                         WidthRequest="70"
@@ -377,6 +411,9 @@
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GetCategoryProductsC5Command}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
                                         HeightRequest="70"
                                         WidthRequest="70"
@@ -571,6 +608,9 @@
                             Orientation="Horizontal">
                             <Grid
                                 IsVisible="{Binding O1}">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductO1Command}"/>
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -646,6 +686,9 @@
                             </Grid>
                             <Grid
                                 IsVisible="{Binding O2}">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductO2Command}"/>
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -719,6 +762,9 @@
                             </Grid>
                             <Grid
                                 IsVisible="{Binding O3}">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductO3Command}"/>
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -792,6 +838,9 @@
                             </Grid>
                             <Grid
                                 IsVisible="{Binding O4}">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductO4Command}"/>
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -865,6 +914,9 @@
                             </Grid>
                             <Grid
                                 IsVisible="{Binding O5}">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductO5Command}"/>
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -961,6 +1013,9 @@
                             <StackLayout
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding D1}">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductD1Command}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Image 
                                     HeightRequest="100"
                                     Source="{Binding D1i}" 
@@ -998,6 +1053,9 @@
                             <StackLayout
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding D2}">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductD2Command}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Image 
                                     HeightRequest="100"
                                     Source="{Binding D2i}" 
@@ -1035,6 +1093,9 @@
                             <StackLayout
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding D3}">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductD3Command}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Image 
                                     HeightRequest="100"
                                     Source="{Binding D3i}" 
@@ -1072,6 +1133,9 @@
                             <StackLayout
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding D4}">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductD4Command}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Image 
                                     HeightRequest="100"
                                     Source="{Binding D4i}" 
@@ -1109,6 +1173,9 @@
                             <StackLayout
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding D5}">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddProductD5Command}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Image 
                                     HeightRequest="100"
                                     Source="{Binding D5i}" 

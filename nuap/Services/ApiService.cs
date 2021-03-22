@@ -642,5 +642,30 @@
                 return null;
             }
         }
+
+        public async Task<ProductResponse> GetCategoryProducts(
+            string accessToken,
+            string urlBase,
+            int category,
+            int address
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/products/category/"+category+"/address/" + address);
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ProductResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

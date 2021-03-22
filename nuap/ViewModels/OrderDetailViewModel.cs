@@ -146,7 +146,7 @@
                 this.InitText = "Genial, ya casi abasteces tu negocio";
             } else
             {
-                this.InitText = "Otro texto";
+                this.InitText = "Genial, ya casi obtienes tus productos";
             }
 
             this.Address = this.Order.Address;

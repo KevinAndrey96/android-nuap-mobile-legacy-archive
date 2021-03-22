@@ -761,6 +761,134 @@
             }
         }
 
+        public ICommand GetCategoryProductsC1Command
+        {
+            get
+            {
+                return new RelayCommand(GetCategoryProductsC1);
+            }
+        }
+
+        public ICommand GetCategoryProductsC2Command
+        {
+            get
+            {
+                return new RelayCommand(GetCategoryProductsC2);
+            }
+        }
+
+        public ICommand GetCategoryProductsC3Command
+        {
+            get
+            {
+                return new RelayCommand(GetCategoryProductsC3);
+            }
+        }
+
+        public ICommand GetCategoryProductsC4Command
+        {
+            get
+            {
+                return new RelayCommand(GetCategoryProductsC4);
+            }
+        }
+
+        public ICommand GetCategoryProductsC5Command
+        {
+            get
+            {
+                return new RelayCommand(GetCategoryProductsC5);
+            }
+        }
+
+        public ICommand AddProductO1Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductO1);
+            }
+        }
+
+        public ICommand AddProductO2Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductO2);
+            }
+        }
+
+        public ICommand AddProductO3Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductO3);
+            }
+        }
+
+        public ICommand AddProductO4Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductO4);
+            }
+        }
+
+        public ICommand AddProductO5Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductO5);
+            }
+        }
+
+        public ICommand AddProductD1Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductD1);
+            }
+        }
+
+        public ICommand AddProductD2Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductD2);
+            }
+        }
+
+        public ICommand AddProductD3Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductD3);
+            }
+        }
+
+        public ICommand AddProductD4Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductD4);
+            }
+        }
+
+        public ICommand AddProductD5Command
+        {
+            get
+            {
+                return new RelayCommand(AddProductD5);
+            }
+        }
+
+        public ICommand CartCommand
+        {
+            get
+            {
+                return new RelayCommand(Cart);
+            }
+        }
+
         public HomeCommerceViewModel()
         {
             this.apiService = new ApiService();
@@ -774,11 +902,398 @@
             this.IsRefreshing = false;
         }
 
+        private async void GetCategoryProductsC1()
+        {
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetValidCategories(
+                mainViewModel.User.api_token,
+                "https://thenuap.com");
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    response.Errors.First().Detail,
+                    "Aceptar"); 
+                return;
+            }
+
+            var list = (List<Category>)response.Data;
+
+
+            foreach (var item in list)
+            {
+                if (item.Name == this.C1n)
+                {
+                    mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
+                }
+            }
+        }
+
+        private async void GetCategoryProductsC2()
+        {
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetValidCategories(
+                mainViewModel.User.api_token,
+                "https://thenuap.com");
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = (List<Category>)response.Data;
+
+
+            foreach (var item in list)
+            {
+                if (item.Name == this.C2n)
+                {
+                    mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
+                }
+            }
+        }
+
+        private async void GetCategoryProductsC3()
+        {
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetValidCategories(
+                mainViewModel.User.api_token,
+                "https://thenuap.com");
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = (List<Category>)response.Data;
+
+
+            foreach (var item in list)
+            {
+                if (item.Name == this.C3n)
+                {
+                    mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
+                }
+            }
+        }
+
+        private async void GetCategoryProductsC4()
+        {
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetValidCategories(
+                mainViewModel.User.api_token,
+                "https://thenuap.com");
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = (List<Category>)response.Data;
+
+
+            foreach (var item in list)
+            {
+                if (item.Name == this.C4n)
+                {
+                    mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
+                }
+            }
+        }
+
+        private async void GetCategoryProductsC5()
+        {
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetValidCategories(
+                mainViewModel.User.api_token,
+                "https://thenuap.com");
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = (List<Category>)response.Data;
+
+
+            foreach (var item in list)
+            {
+                if (item.Name == this.C5n)
+                {
+                    mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
+                }
+            }
+        }
+
+        private void AddProductO1()
+        {
+            this.GetProduct(this.O1n);
+        }
+
+        private void AddProductO2()
+        {
+            this.GetProduct(this.O2n);
+        }
+
+        private void AddProductO3()
+        {
+            this.GetProduct(this.O3n);
+        }
+
+        private void AddProductO4()
+        {
+            this.GetProduct(this.O4n);
+        }
+
+        private void AddProductO5()
+        {
+            this.GetProduct(this.O5n);
+        }
+
+        private void AddProductD1()
+        {
+            this.GetProduct(this.D1n);
+        }
+
+        private void AddProductD2()
+        {
+            this.GetProduct(this.D2n);
+        }
+
+        private void AddProductD3()
+        {
+            this.GetProduct(this.D3n);
+        }
+
+        private void AddProductD4()
+        {
+            this.GetProduct(this.D4n);
+        }
+
+        private void AddProductD5()
+        {
+            this.GetProduct(this.D5n);
+        }
+
+        private async void GetProduct(string product)
+        {
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetSales(
+                mainViewModel.User.api_token,
+                "https://thenuap.com",
+                19);
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = (List<Product>)response.Data;
+
+
+            foreach (var item in list)
+            {
+                if (item.Name == product)
+                {
+                    mainViewModel.ProductDetail = new ProductDetailViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new ProductDetailPage());
+                }
+            }
+        }
+
         private async void CreateTicket()
         {
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.CreateTicket = new CreateTicketViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new CreateTicketPage());
+        }
+
+        private async void Cart()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            if (mainViewModel.CartList == null)
+            {
+                mainViewModel.CartEmpty = new CartEmptyViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new CartEmptyPage());
+            } else
+            {
+                mainViewModel.Cart = new CartViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new CartPage());
+            }
         }
 
         private async void LoadTickets()

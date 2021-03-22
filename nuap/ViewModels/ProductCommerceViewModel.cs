@@ -9,7 +9,6 @@
     using Xamarin.Forms;
     using Models;
     using Views;
-    using System;
 
     public class ProductCommerceViewModel : BaseViewModel
     {

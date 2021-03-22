@@ -90,9 +90,9 @@
                 foreach (var item in this.Categories)
                 {
                     if ((count % 2) == 0)
-                        listTwo.Add(item);
-                    else
                         listOne.Add(item);
+                    else
+                        listTwo.Add(item);
 
                     count++;
                 }
@@ -151,9 +151,9 @@
             foreach (var item in mainViewModel.CategoryList)
             {
                 if ((count % 2) == 0)
-                    this.listLeft.Add(item);
-                else
                     this.list.Add(item);
+                else
+                    this.listLeft.Add(item);
 
                 count++;
             }
