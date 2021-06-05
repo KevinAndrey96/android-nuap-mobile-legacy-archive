@@ -78,16 +78,8 @@
                         <StackLayout
                             Orientation="Horizontal">
                             <Label
-                                Text="$"
+                                Text="{Binding TotalPrice}"
                                 Padding="20,5,0,0"
-                                TextColor="white" 
-                                FontFamily="Poppins-Bold"
-                                FontSize="18"
-                                VerticalOptions="Center">
-                            </Label>
-                            <Label
-                                Text="{Binding Price}"
-                                Padding="0,5,0,0"
                                 TextColor="white" 
                                 FontFamily="Poppins-Bold"
                                 FontSize="18"

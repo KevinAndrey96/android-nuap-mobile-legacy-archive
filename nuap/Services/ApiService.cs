@@ -44,7 +44,8 @@
             string email,
             string password,
             string type
-        ) {
+        )
+        {
             try
             {
                 var client = new HttpClient();
@@ -69,17 +70,18 @@
             string accessToken,
             string urlBase,
             int ticketId
-        ) {
+        )
+        {
             try
             {
                 var client = new HttpClient();
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
-                var response = await client.GetAsync("/api/users/ticket/"+ticketId+"/messages");
+                var response = await client.GetAsync("/api/users/ticket/" + ticketId + "/messages");
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<TicketMessageResponse>(resultJSON);
-      
+
                 return result;
             }
             catch
@@ -105,7 +107,7 @@
 
                 return result;
             }
-            catch 
+            catch
             {
                 return null;
             }
@@ -280,7 +282,7 @@
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
-                var response = await client.GetAsync("/api/products/category/"+categoryID);
+                var response = await client.GetAsync("/api/products/category/" + categoryID);
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<ProductResponse>(resultJSON);
 
@@ -320,7 +322,7 @@
            string urlBase,
            int categoryID,
            string name,
-           string sku, 
+           string sku,
            string brand,
            string description,
            int stock,
@@ -436,7 +438,7 @@
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
-                var response = await client.GetAsync("/api/users/seller/"+sellerID+ "/info");
+                var response = await client.GetAsync("/api/users/seller/" + sellerID + "/info");
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<ProfileCommerceResponse>(resultJSON);
 
@@ -513,7 +515,7 @@
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
-                var response = await client.GetAsync("/api/commerces/order/" + orderID+"/update");
+                var response = await client.GetAsync("/api/commerces/order/" + orderID + "/update");
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);
 
@@ -583,7 +585,7 @@
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
-                var response = await client.GetAsync("/api/products/stores/address/"+address);
+                var response = await client.GetAsync("/api/products/stores/address/" + address);
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<StoreProductResponse>(resultJSON);
 
@@ -656,9 +658,197 @@
                 client.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
-                var response = await client.GetAsync("/api/products/category/"+category+"/address/" + address);
+                var response = await client.GetAsync("/api/products/category/" + category + "/address/" + address);
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<ProductResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ReplyTicketResponse> RegisterUser(
+            string urlBase,
+            string email,
+            string password,
+            string phone,
+            string name,
+            string last_name,
+            string identity_number
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/users/register/client",
+                    new StringContent(string.Format(
+                    "email={0}&password={1}&phone={2}&name={3}&last_name={4}&identity_number={5}",
+                    email, password, phone, name, last_name, identity_number),
+                    Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<CalculateDeliveryResponse> CalculateDelivery(
+            string urlBase,
+            string accessToken,
+            CartDataService listCart
+        )
+        {
+            try
+            {
+                var request = JsonConvert.SerializeObject(listCart);
+                var content = new StringContent(
+                    request, Encoding.UTF8,
+                    "application/json");
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/products/calculate-delivery", content);
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<CalculateDeliveryResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<CreateOrderResponse> CreateOrder(
+            string urlBase,
+            string accessToken,
+            int address,
+            CartDataService listCart
+        )
+        {
+            try
+            {
+                var request = JsonConvert.SerializeObject(listCart);
+                var content = new StringContent(
+                    request, Encoding.UTF8,
+                    "application/json");
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/products/create-order/address/" + address, content);
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<CreateOrderResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<ReplyTicketResponse> GenerateOTP(
+           string urlBase,
+           string phone
+       )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/users/generate-otp",
+                    new StringContent(string.Format(
+                    "phone={0}",
+                    phone),
+                    Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ReplyTicketResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<LoginResponse> VerifyOTP(
+           string urlBase,
+           string phone,
+           string code
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/users/verify-otp",
+                    new StringContent(string.Format(
+                    "phone={0}&code={1}",
+                    phone, code),
+                    Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<LoginResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<PaymentResponse> GetPayments(
+            string accessToken,
+            string urlBase
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.GetAsync("/api/commerces/payments");
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<PaymentResponse>(resultJSON);
+
+                return result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public async Task<RequestPaymentResponse> RequestPayment(
+            string accessToken,
+            string urlBase,
+            string value
+        )
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                   new AuthenticationHeaderValue("Bearer", accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var response = await client.PostAsync("/api/commerces/request-payment",
+                    new StringContent(string.Format(
+                    "value={0}",value),
+                    Encoding.UTF8, "application/x-www-form-urlencoded"));
+                var resultJSON = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<RequestPaymentResponse>(resultJSON);
 
                 return result;
             }

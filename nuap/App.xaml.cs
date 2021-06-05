@@ -5,29 +5,42 @@
     using Helpers;
     using ViewModels;
     using System;
+    using nuap.Models;
+    using Newtonsoft.Json;
+    using System.Collections.Generic;
 
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new LoginPage());
-            /*if (string.IsNullOrEmpty(Settings.Token))
+
+            if (string.IsNullOrEmpty(Settings.Token))
             {
                 MainPage = new NavigationPage(new LoginPage());
-                Console.WriteLine("error");
-            } else
+            }
+            else
             {
-                Console.WriteLine("errordeded");
                 var mainViewModel = MainViewModel.GetInstance();
-                mainViewModel.User.api_token = Settings.Token;
-                mainViewModel.User.role = Settings.UserType;
-                mainViewModel.User.phone = Settings.Phone;
-                mainViewModel.User.email = Settings.Email;
 
-                mainViewModel.Home = new HomeViewModel();
-                MainPage = new HomeTabbedPage();
-            }*/
+                User Usuario = new User();
+                Usuario.api_token = Settings.Token;
+                Usuario.role = Settings.UserType;
+                Usuario.phone = Settings.Phone;
+                Usuario.email = Settings.Email;
+                Usuario.balance = Settings.Balance;
+                Usuario.id = Int32.Parse(Settings.Id);
+
+                mainViewModel.User = Usuario;
+
+                if (!string.IsNullOrEmpty(Settings.CartList))
+                {
+                    mainViewModel.CartList = JsonConvert.DeserializeObject<List<Cart>>(Settings.CartList);
+                }
+
+                mainViewModel.HomeCommerce = new HomeCommerceViewModel();
+                MainPage = new NavigationPage(new HomeCommerceTabbedPage());
+            }
         }
 
         protected override void OnStart()

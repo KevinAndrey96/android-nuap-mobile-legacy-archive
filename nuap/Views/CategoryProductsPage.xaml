@@ -94,14 +94,7 @@
                                                         VerticalOptions="Center"
                                                         FontFamily="Poppins-Bold"
                                                         FontSize="18" 
-                                                        Text="$"
-                                                        TextColor="#0274bc">
-                                                    </Label>
-                                                    <Label 
-                                                        VerticalOptions="Center"
-                                                        FontFamily="Poppins-Bold"
-                                                        FontSize="18" 
-                                                        Text="{Binding SalePrice}"
+                                                        Text="{Binding TotalPrice}"
                                                         TextColor="#0274bc">
                                                     </Label>
                                                 </StackLayout>
@@ -176,21 +169,14 @@
                                                         FontFamily="Poppins-Bold"
                                                         TextDecorations="Strikethrough"
                                                         FontSize="15" 
-                                                        Text="{Binding SalePrice}"
+                                                        Text="{Binding FormatSalePrice}"
                                                         TextColor="#c4c4c4">
                                                     </Label>
                                                     <Label 
                                                         VerticalOptions="Center"
                                                         FontFamily="Poppins-Bold"
                                                         FontSize="18" 
-                                                        Text="$"
-                                                        TextColor="#0274bc">
-                                                    </Label>
-                                                    <Label 
-                                                        VerticalOptions="Center"
-                                                        FontFamily="Poppins-Bold"
-                                                        FontSize="18" 
-                                                        Text="{Binding Status}"
+                                                        Text="{Binding TotalPrice}"
                                                         TextColor="#0274bc">
                                                     </Label>
                                                 </StackLayout>
@@ -203,7 +189,7 @@
                     </ListView>
                     <Label
                         IsVisible="{Binding ProductsSubcategoryVisibility}"
-                        Text="{Binding SubcategoryName}"
+                        Text="{Binding SubcategoryNameText}"
                         Padding="20,45,0,0"
                         TextColor="#3a3a3a" 
                         FontFamily="Poppins-Bold"
@@ -264,14 +250,7 @@
                                                         VerticalOptions="Center"
                                                         FontFamily="Poppins-Bold"
                                                         FontSize="18" 
-                                                        Text="$"
-                                                        TextColor="#0274bc">
-                                                    </Label>
-                                                    <Label 
-                                                        VerticalOptions="Center"
-                                                        FontFamily="Poppins-Bold"
-                                                        FontSize="18" 
-                                                        Text="{Binding SalePrice}"
+                                                        Text="{Binding TotalPrice}"
                                                         TextColor="#0274bc">
                                                     </Label>
                                                 </StackLayout>
@@ -284,7 +263,7 @@
                     </ListView>
                     <Label
                         IsVisible="{Binding ProductsSubcategoryOneVisibility}"
-                        Text="{Binding SubcategoryName}"
+                        Text="{Binding SubcategoryNameOneText}"
                         Padding="20,45,0,0"
                         TextColor="#3a3a3a" 
                         FontFamily="Poppins-Bold"
@@ -352,7 +331,7 @@
                                                         VerticalOptions="Center"
                                                         FontFamily="Poppins-Bold"
                                                         FontSize="18" 
-                                                        Text="{Binding SalePrice}"
+                                                        Text="{Binding TotalPrice}"
                                                         TextColor="#0274bc">
                                                     </Label>
                                                 </StackLayout>

@@ -245,10 +245,28 @@
                                 FontSize="16"
                                 VerticalOptions="Center">
                             </Label>
-                            <Switch
-                                IsToggled="{Binding IsFeatured, Mode=TwoWay}"
+                            <StackLayout
+                                Orientation="Horizontal"
                                 HorizontalOptions="CenterAndExpand">
-                            </Switch>
+                                <Label
+                                    Text="NO"
+                                    FontFamily="Poppins"
+                                    TextColor="#949494"
+                                    FontSize="14"
+                                    VerticalOptions="Center">
+                                </Label>
+                                <Switch
+                                    ThumbColor="#ffc33a"
+                                    IsToggled="{Binding IsFeatured, Mode=TwoWay}">
+                                </Switch>
+                                <Label
+                                    Text="SI"
+                                    FontFamily="Poppins"
+                                    TextColor="#949494"
+                                    FontSize="14"
+                                    VerticalOptions="Center">
+                                </Label>
+                            </StackLayout>
                             <Label
                                 Text="Activar Descuento"
                                 FontFamily="Poppins"
@@ -256,10 +274,28 @@
                                 FontSize="16"
                                 VerticalOptions="Center">
                             </Label>
-                            <Switch
-                                IsToggled="{Binding HasSpecialPrice, Mode=TwoWay}"
+                            <StackLayout
+                                Orientation="Horizontal"
                                 HorizontalOptions="CenterAndExpand">
-                            </Switch>
+                                <Label
+                                    Text="NO"
+                                    FontFamily="Poppins"
+                                    TextColor="#949494"
+                                    FontSize="14"
+                                    VerticalOptions="Center">
+                                </Label>
+                                <Switch
+                                    ThumbColor="#ffc33a"
+                                    IsToggled="{Binding HasSpecialPrice, Mode=TwoWay}">
+                                </Switch>
+                                <Label
+                                    Text="SI"
+                                    FontFamily="Poppins"
+                                    TextColor="#949494"
+                                    FontSize="14"
+                                    VerticalOptions="Center">
+                                </Label>
+                            </StackLayout>
                         </StackLayout>
                     </ScrollView>
                 </StackLayout>

@@ -113,7 +113,7 @@
                     VerticalOptions="Center">
                 </Label>
                 <Label
-                    Text="No existen ordenes en este estado."
+                    Text=""
                     IsVisible="{Binding OrdersInitiatedText}"
                     Padding="20,0,0,0"
                     TextColor="#3a3a3a" 
@@ -123,7 +123,7 @@
                 </Label>
                 <ListView 
                     IsVisible="{Binding OrdersInitiatedList}"
-                    HeightRequest="{Binding OrdersInitiatedCount}"
+                    HeightRequest="{Binding ListHeight}"
                     HasUnevenRows="true" 
                     IsPullToRefreshEnabled="true"
                     IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
@@ -199,7 +199,7 @@
                     VerticalOptions="Center">
                 </Label>
                 <Label
-                    Text="No existen ordenes en este estado."
+                    Text=""
                     IsVisible="{Binding OrdersAceptedText}"
                     Padding="20,0,0,0"
                     TextColor="#3a3a3a" 
@@ -285,7 +285,7 @@
                     VerticalOptions="Center">
                 </Label>
                 <Label
-                    Text="No existen ordenes en este estado."
+                    Text=""
                     IsVisible="{Binding OrdersEnlistmentText}"
                     Padding="20,0,0,0"
                     TextColor="#3a3a3a" 
@@ -371,7 +371,7 @@
                     VerticalOptions="Center">
                 </Label>
                 <Label
-                    Text="No existen ordenes en este estado."
+                    Text=""
                     IsVisible="{Binding OrdersCirculationText}"
                     Padding="20,0,0,0"
                     TextColor="#3a3a3a" 
@@ -457,7 +457,7 @@
                     VerticalOptions="Center">
                 </Label>
                 <Label
-                    Text="No existen ordenes en este estado."
+                    Text=""
                     IsVisible="{Binding OrdersDeliveredText}"
                     Padding="20,0,0,0"
                     TextColor="#3a3a3a" 
@@ -543,7 +543,7 @@
                     VerticalOptions="Center">
                 </Label>
                 <Label
-                    Text="No existen ordenes en este estado."
+                    Text=""
                     IsVisible="{Binding OrdersCanceledText}"
                     Padding="20,0,0,0"
                     TextColor="#3a3a3a" 

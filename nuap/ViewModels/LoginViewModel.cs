@@ -44,7 +44,7 @@
             this.apiService = new ApiService();
             this.IsEnabled = true;
             this.Email = "comercio@test.com";
-            this.Password = "Nuap2021@";
+            this.Password = "Nuap2020@";
         }
 
         public ICommand LoginCommand
@@ -125,22 +125,26 @@
                     "Aceptar");
                 return;
             }
-            
+
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.User = response.Data;
-            Settings.Token = response.Data.api_token;
-            Settings.UserType = response.Data.role;
-            Settings.Phone = response.Data.phone;
-            Settings.Email = response.Data.email;
 
             this.IsEnabled = true;
 
-            if (response.Data.role == "Usuario")
+            if (response.Data.phone_validated == 1)
             {
-                mainViewModel.Home = new HomeViewModel();
-                await Application.Current.MainPage.Navigation.PushAsync(new HomeTabbedPage());
-            } else
+                mainViewModel.GenerateOTP = new GenerateOtpViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new GenerateOtpPage());
+            }
+            else
             {
+                Settings.Token = response.Data.api_token;
+                Settings.UserType = response.Data.role;
+                Settings.Phone = response.Data.phone;
+                Settings.Email = response.Data.email;
+                Settings.Id = response.Data.id.ToString();
+                Settings.Balance = response.Data.balance;
+
                 mainViewModel.HomeCommerce = new HomeCommerceViewModel();
                 await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
             }

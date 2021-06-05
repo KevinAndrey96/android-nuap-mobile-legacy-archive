@@ -11,6 +11,18 @@
             set;
         }
 
+        public VoucherViewModel VoucherPopup
+        {
+            get;
+            set;
+        }
+
+        public string VoucherImage
+        {
+            get;
+            set;
+        }
+
         public HomeViewModel Home
         {
             get;
@@ -113,6 +125,12 @@
             set;
         }
 
+        public PaymentDetailViewModel PaymentDetail
+        {
+            get;
+            set;
+        }
+
         public UpdateOrderStatusViewModel UpdateOrderStatus
         {
             get;
@@ -137,6 +155,12 @@
             set;
         }
 
+        public AddressViewModel Address
+        {
+            get;
+            set;
+        }
+
         public CartViewModel Cart
         {
             get;
@@ -148,6 +172,49 @@
             get;
             set;
         }
+
+        public PaymentGatewayViewModel PaymentGateway
+        {
+            get;
+            set;
+        }
+
+        public CreateAddressViewModel CreateAddress
+        {
+            get;
+            set;
+        }
+
+        public GenerateOtpViewModel GenerateOTP
+        {
+            get;
+            set;
+        }
+
+        public VerifyOtpViewModel VerifyOTP
+        {
+            get;
+            set;
+        }
+
+        public PaymentsViewModel Payments
+        {
+            get;
+            set;
+        }
+
+        public PaymentRequestViewModel PaymentRequest
+        {
+            get;
+            set;
+        }
+
+        public PaymentConfirmViewModel PaymentConfirm
+        {
+            get;
+            set;
+        }
+
 
         public User User
         {
@@ -215,6 +282,11 @@
             set;
         }
 
+        public string UserName
+        {
+            get;
+            set;
+        }
 
         public string OrderAddress
         {

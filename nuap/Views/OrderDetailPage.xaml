@@ -200,20 +200,32 @@
                                             Text="{Binding Name}"
                                             TextColor="#3a3a3a">
                                         </Label>
-                                        <Label 
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="StartAndExpand"
-                                            FontFamily="Poppins"
-                                            FontSize="15" 
-                                            Text="{Binding Quantity}"
-                                            TextColor="#3a3a3a">
-                                        </Label>
+                                        <StackLayout
+                                            Orientation="Horizontal">
+                                            <Label 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="StartAndExpand"
+                                                FontFamily="Poppins"
+                                                FontSize="15" 
+                                                Text="{Binding Quantity}"
+                                                TextColor="#3a3a3a">
+                                            </Label>
+                                            <Label 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Start"
+                                                FontFamily="Poppins"
+                                                FontSize="15" 
+                                                Text="unidades"
+                                                TextColor="#3a3a3a">
+                                            </Label>
+                                        </StackLayout>
+                                       
                                         <Label 
                                             VerticalOptions="Center"
                                             HorizontalOptions="StartAndExpand"
                                             FontFamily="Poppins-Bold"
                                             FontSize="15" 
-                                            Text="{Binding SalePrice}"
+                                            Text="{Binding TotalPrice}"
                                             TextColor="#1b1464">
                                         </Label>
                                     </StackLayout>
@@ -224,6 +236,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout
+                IsVisible="{Binding IsEnabled}"
                 BackgroundColor="White">
                 <Button
                     VerticalOptions="EndAndExpand"

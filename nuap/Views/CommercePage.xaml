@@ -32,7 +32,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start" 
-                            Source="ic_inventario">
+                            Source="miinventario">
                         </Image>
                         <Button
                             Text="Inventario de Productos"
@@ -51,7 +51,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start" 
-                            Source="ic_mis_pedidos">
+                            Source="pedidos">
                         </Image>
                         <Button
                             Text="Mis Pedidos"
@@ -71,7 +71,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start" 
-                            Source="ic_mis_ventas">
+                            Source="misventas">
                         </Image>
                         <Button
                             Text="Mis Ventas"
@@ -91,7 +91,7 @@
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start"
-                            Source="ic_balances__y_pagos">
+                            Source="balances">
                         </Image>
                         <Button
                             Text="Balances y Pagos"
@@ -103,14 +103,14 @@
                             Padding="0,15"
                             FontSize="16"
                             HorizontalOptions="StartAndExpand"
-                            Command="{Binding LoginCommand}">
+                            Command="{Binding PaymentCommand}">
                         </Button>
                     </StackLayout>
                     <StackLayout
                         Orientation="Horizontal">
                         <Image 
                             HorizontalOptions="Start"
-                            Source="ic_solicitar_retiro">
+                            Source="retiro">
                         </Image>
                         <Button
                             Text="Solicitar Retiro"
@@ -122,7 +122,7 @@
                             Padding="0,15"
                             FontSize="16"
                             HorizontalOptions="StartAndExpand"
-                            Command="{Binding LoginCommand}">
+                            Command="{Binding RequestPaymentCommand}">
                         </Button>
                     </StackLayout>
                 </StackLayout>

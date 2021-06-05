@@ -8,7 +8,6 @@
     using System.Linq;
     using Xamarin.Forms;
     using Models;
-    using Views;
 
     public class CategoryProductViewModel: BaseViewModel
     {
@@ -34,6 +33,8 @@
         private string filter;
         private int subcategoryName;
         private int subcategoryNameOne;
+        private string subcategoryNameText;
+        private string subcategoryNameOneText;
 
         public Category Category
         {
@@ -135,6 +136,18 @@
             set { SetValue(ref this.categoryName, value); }
         }
 
+        public string SubcategoryNameText
+        {
+            get { return this.subcategoryNameText; }
+            set { SetValue(ref this.subcategoryNameText, value); }
+        }
+
+        public string SubcategoryNameOneText
+        {
+            get { return this.subcategoryNameOneText; }
+            set { SetValue(ref this.subcategoryNameOneText, value); }
+        }
+
         public int SubcategoryName
         {
             get { return this.subcategoryName; }
@@ -226,12 +239,14 @@
                 if (item.CategoryId != this.Category.Id && this.SubcategoryName == 0)
                 {
                     this.SubcategoryName = item.CategoryId;
+                    this.SubcategoryNameText = item.CategoryName;
                     continue;
                 }
 
                 if (item.CategoryId != this.Category.Id && this.SubcategoryNameOne == 0)
                 {
                     this.SubcategoryNameOne = item.CategoryId;
+                    this.SubcategoryNameOneText = item.CategoryName;
                 }
             }
 
@@ -263,10 +278,10 @@
                 }
             }
 
-            this.SalesProductsCount = (this.salesProductsList.Count() * 115) + 115;
-            this.ProductsCategoryCount = (this.productsCategoryList.Count() * 115) + 115;
-            this.ProductsSubcategoryCount = (this.productsSubcategoryList.Count() * 115) + 115;
-            this.ProductsSubcategoryOneCount = (this.productsSubcategoryOneList.Count() * 115) + 115;
+            this.SalesProductsCount = (this.salesProductsList.Count() * 115) + 50;
+            this.ProductsCategoryCount = (this.productsCategoryList.Count() * 115) + 50;
+            this.ProductsSubcategoryCount = (this.productsSubcategoryList.Count() * 115) + 50;
+            this.ProductsSubcategoryOneCount = (this.productsSubcategoryOneList.Count() * 115) + 50;
 
             this.SalesProducts = new ObservableCollection <ProductCommerceItemViewModel>(ToProductCommerceViewModel(this.salesProductsList));
             this.ProductsCategory = new ObservableCollection <ProductCommerceItemViewModel>(ToProductCommerceViewModel(this.productsCategoryList));
@@ -300,7 +315,9 @@
                 Image = "https://thenuap.com/" + p.Image,
                 Position = p.Position,
                 StatusText = p.StatusText,
-                StatusColor = p.StatusColor
+                StatusColor = p.StatusColor,
+                TotalPrice = p.TotalPrice,
+                FormatSalePrice = p.FormatSalePrice
             });
         }
     }

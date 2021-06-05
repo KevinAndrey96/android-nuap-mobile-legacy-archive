@@ -646,16 +646,6 @@
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
                                             FontSize="16" 
-                                            Text="$"
-                                            TextDecorations="Strikethrough"
-                                            TextColor="#c4c4c4">
-                                        </Label>
-                                        <Label 
-                                            LineHeight="2"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="16" 
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O1rp}"
                                             TextColor="#c4c4c4">
@@ -663,15 +653,6 @@
                                     </StackLayout>
                                     <StackLayout
                                         Orientation="Horizontal">
-                                        <Label 
-                                            LineHeight="2"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="20" 
-                                            Text="$"
-                                            TextColor="#0274bc">
-                                        </Label>
                                         <Label 
                                             LineHeight="2"
                                             VerticalOptions="Center"
@@ -724,16 +705,6 @@
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
                                             FontSize="16" 
-                                            Text="$"
-                                            TextDecorations="Strikethrough"
-                                            TextColor="#c4c4c4">
-                                        </Label>
-                                        <Label 
-                                            LineHeight="2"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="16" 
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O2rp}"
                                             TextColor="#c4c4c4">
@@ -741,14 +712,6 @@
                                     </StackLayout>
                                     <StackLayout
                                         Orientation="Horizontal">
-                                        <Label 
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="20" 
-                                            Text="$"
-                                            TextColor="#0274bc">
-                                        </Label>
                                         <Label 
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
@@ -800,16 +763,6 @@
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
                                             FontSize="16" 
-                                            Text="$"
-                                            TextDecorations="Strikethrough"
-                                            TextColor="#c4c4c4">
-                                        </Label>
-                                        <Label 
-                                            LineHeight="2"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="16" 
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O3rp}"
                                             TextColor="#c4c4c4">
@@ -817,14 +770,6 @@
                                     </StackLayout>
                                     <StackLayout
                                         Orientation="Horizontal">
-                                        <Label 
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="20" 
-                                            Text="$"
-                                            TextColor="#0274bc">
-                                        </Label>
                                         <Label 
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
@@ -876,16 +821,6 @@
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
                                             FontSize="16" 
-                                            Text="$"
-                                            TextDecorations="Strikethrough"
-                                            TextColor="#c4c4c4">
-                                        </Label>
-                                        <Label 
-                                            LineHeight="2"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="16" 
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O4rp}"
                                             TextColor="#c4c4c4">
@@ -893,14 +828,6 @@
                                     </StackLayout>
                                     <StackLayout
                                         Orientation="Horizontal">
-                                        <Label 
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="20" 
-                                            Text="$"
-                                            TextColor="#0274bc">
-                                        </Label>
                                         <Label 
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
@@ -952,16 +879,6 @@
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
                                             FontSize="16" 
-                                            Text="$"
-                                            TextDecorations="Strikethrough"
-                                            TextColor="#c4c4c4">
-                                        </Label>
-                                        <Label 
-                                            LineHeight="2"
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="16" 
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O5rp}"
                                             TextColor="#c4c4c4">
@@ -969,14 +886,6 @@
                                     </StackLayout>
                                     <StackLayout
                                         Orientation="Horizontal">
-                                        <Label 
-                                            VerticalOptions="Center"
-                                            HorizontalOptions="Start"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="20" 
-                                            Text="$"
-                                            TextColor="#0274bc">
-                                        </Label>
                                         <Label 
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
@@ -1037,14 +946,6 @@
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
                                         FontSize="20" 
-                                        Text="$"
-                                        TextColor="#0274bc">
-                                    </Label>
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="20" 
                                         Text="{Binding D1p}"
                                         TextColor="#0274bc">
                                     </Label>
@@ -1072,14 +973,6 @@
                                 </Label>
                                 <StackLayout
                                     Orientation="Horizontal">
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="20" 
-                                        Text="$"
-                                        TextColor="#0274bc">
-                                    </Label>
                                     <Label 
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
@@ -1117,14 +1010,6 @@
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
                                         FontSize="20" 
-                                        Text="$"
-                                        TextColor="#0274bc">
-                                    </Label>
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="20" 
                                         Text="{Binding D3p}"
                                         TextColor="#0274bc">
                                     </Label>
@@ -1157,14 +1042,6 @@
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
                                         FontSize="20" 
-                                        Text="$"
-                                        TextColor="#0274bc">
-                                    </Label>
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="20" 
                                         Text="{Binding D4p}"
                                         TextColor="#0274bc">
                                     </Label>
@@ -1192,14 +1069,6 @@
                                 </Label>
                                 <StackLayout
                                     Orientation="Horizontal">
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="20" 
-                                        Text="$"
-                                        TextColor="#0274bc">
-                                    </Label>
                                     <Label 
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"

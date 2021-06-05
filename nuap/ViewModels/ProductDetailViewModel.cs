@@ -7,8 +7,10 @@
     using GalaSoft.MvvmLight.Command;
     using System.Collections.Generic;
     using Views;
+    using Helpers;
+    using Newtonsoft.Json;
 
-    public class ProductDetailViewModel: BaseViewModel
+    public class ProductDetailViewModel : BaseViewModel
     {
         private ApiService apiService;
 
@@ -24,6 +26,7 @@
         private double width;
         private double height;
         private double price;
+        private string totalPrice;
         private int hasSpecialPrice;
         private Product product;
 
@@ -43,6 +46,12 @@
         {
             get { return this.image; }
             set { SetValue(ref this.image, value); }
+        }
+
+        public string TotalPrice
+        {
+            get { return this.totalPrice; }
+            set { SetValue(ref this.totalPrice, value); }
         }
 
         public string Brand
@@ -155,7 +164,8 @@
                     "No puedes agregar menos de 0 productos",
                     "Aceptar");
                 return;
-            } else
+            }
+            else
             {
                 this.Quantity = this.Quantity - 1;
                 this.Total = this.Price * this.Quantity;
@@ -168,7 +178,7 @@
             {
                 await Application.Current.MainPage.DisplayAlert(
                     "Alerta",
-                    "No puedes agregar más de "+ this.Product.Stock + " productos",
+                    "No puedes agregar más de " + this.Product.Stock + " productos",
                     "Aceptar");
                 return;
             }
@@ -196,7 +206,8 @@
                     "No puedes agregar menos de 0 productos",
                     "Aceptar");
                 return;
-            } else
+            }
+            else
             {
                 this.Total = this.Price * this.Quantity;
             }
@@ -204,12 +215,21 @@
 
         private async void AddCart()
         {
+            if (this.Quantity == 0)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "",
+                    "No puedes agregar 0 productos al carrito",
+                    "Aceptar");
+                return;
+            }
+
             Cart cart = new Cart();
             cart.Id = this.Product.Id;
             cart.Quantity = this.Quantity;
             cart.Image = this.Image;
             cart.Price = this.Price;
-            cart.Name = this.Name; 
+            cart.Name = this.Name;
 
             var mainViewModel = MainViewModel.GetInstance();
             if (mainViewModel.CartList == null)
@@ -217,13 +237,15 @@
                 mainViewModel.CartList = new List<Cart>();
                 mainViewModel.CartList.Add(cart);
                 await Application.Current.MainPage.DisplayAlert(
-                    "Alerta",
+                    "",
                     "Hemos agregado este producto a tu carrito",
                     "Aceptar");
 
-                mainViewModel.HomeCommerce = new HomeCommerceViewModel();
-                await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
-            } else
+                Settings.CartList = JsonConvert.SerializeObject(mainViewModel.CartList);
+                mainViewModel.Home = new HomeViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new HomeTabbedPage());
+            }
+            else
             {
                 List<Cart> cartList = new List<Cart>();
                 foreach (var item in mainViewModel.CartList)
@@ -232,7 +254,8 @@
                     {
                         cartList.Add(item);
                         continue;
-                    } else
+                    }
+                    else
                     {
                         cart.Quantity = cart.Quantity + item.Quantity;
                     }
@@ -241,13 +264,14 @@
                 cartList.Add(cart);
                 mainViewModel.CartList = new List<Cart>();
                 mainViewModel.CartList = cartList;
+                Settings.CartList = JsonConvert.SerializeObject(mainViewModel.CartList);
                 await Application.Current.MainPage.DisplayAlert(
-                    "Alerta",
+                    "",
                     "Hemos agregado este producto a tu carrito",
                     "Aceptar");
 
-                mainViewModel.HomeCommerce = new HomeCommerceViewModel();
-                await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
+                mainViewModel.Home = new HomeViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new HomeTabbedPage());
             }
         }
 
@@ -262,10 +286,13 @@
             this.Length = this.Product.Length;
             this.Width = this.Product.Width;
             this.Height = this.Product.Height;
+            this.TotalPrice = this.Product.TotalPrice;
+
             if (this.Product.HasSpecialPrice == 1)
             {
                 this.Price = this.Product.SalePrice - (this.Product.SalePrice * this.Product.SpecialPrice / 100);
-            } else
+            }
+            else
             {
                 this.Price = this.Product.SalePrice;
             }
@@ -274,11 +301,12 @@
             if (this.Product.Image.Contains("https://thenuap.com/"))
             {
                 this.Image = this.Product.Image;
-            } else
+            }
+            else
             {
                 this.Image = "https://thenuap.com/" + this.Product.Image;
             }
-            
+
         }
     }
 }

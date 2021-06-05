@@ -28,6 +28,37 @@
                     </SearchBar>
                 </Frame>
             </StackLayout>
+            <ScrollView
+                HorizontalScrollBarVisibility="Never"
+                Orientation="Horizontal">
+                <StackLayout
+                    Padding="0,2,0,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal">
+                    <Button
+                        Command="{Binding ApproveCommand}"
+                        Text="Aprobados"
+                        FontFamily="Poppins-Bold"
+                        TextTransform="None"
+                        BackgroundColor="#4dbc65"
+                        HeightRequest="40"
+                        TextColor="White"
+                        BorderRadius="12"
+                        FontSize="12">
+                    </Button>
+                    <Button
+                        Command="{Binding PendingCommand}"
+                        Text="Pendientes"
+                        FontFamily="Poppins-Bold"
+                        TextTransform="None"
+                        BackgroundColor="#f26c69"
+                        HeightRequest="40"
+                        TextColor="White"
+                        BorderRadius="12"
+                        FontSize="12">
+                    </Button>
+                </StackLayout>
+            </ScrollView>
             <Label
                 Text="{Binding CategoryName}"
                 Padding="20,20,0,0"
@@ -103,7 +134,7 @@
                                             HorizontalOptions="StartAndExpand"
                                             FontFamily="Poppins-Bold"
                                             FontSize="15" 
-                                            Text="{Binding SalePrice}"
+                                            Text="{Binding TotalPrice}"
                                             TextColor="#1b1464">
                                         </Label>
                                     </StackLayout>
@@ -111,14 +142,18 @@
                                         Grid.Column="3"
                                         Padding="20,0,0,0"
                                         VerticalOptions="Center">
-                                        <Label 
-                                            VerticalOptions="Center"
+                                        <Button
                                             HorizontalOptions="EndAndExpand"
-                                            FontFamily="Poppins-Bold"
-                                            FontSize="14" 
+                                            Padding="0,2,0,0"
                                             Text="{Binding StatusText}"
-                                            TextColor="{Binding StatusColor}">
-                                        </Label>
+                                            FontFamily="Poppins-Bold"
+                                            TextTransform="None"
+                                            BackgroundColor="{Binding StatusColor}"
+                                            HeightRequest="40"
+                                            TextColor="White"
+                                            BorderRadius="12"
+                                            FontSize="12">
+                                        </Button>
                                     </StackLayout>
                                 </Grid>
                             </Frame>

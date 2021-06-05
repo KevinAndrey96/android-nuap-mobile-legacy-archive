@@ -9,7 +9,7 @@
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
     using Views;
-    using System;
+    using nuap.Helpers;
 
     public class HomeCommerceViewModel : BaseViewModel
     {
@@ -80,24 +80,24 @@
 
         private string o1n;
         private string o1i;
-        private int o1p;
-        private int o1rp;
+        private string o1p;
+        private string o1rp;
         private string o2n;
         private string o2i;
-        private int o2p;
-        private int o2rp;
+        private string o2p;
+        private string o2rp;
         private string o3n;
         private string o3i;
-        private int o3p;
-        private int o3rp;
+        private string o3p;
+        private string o3rp;
         private string o4n;
         private string o4i;
-        private int o4p;
-        private int o4rp;
+        private string o4p;
+        private string o4rp;
         private string o5n;
         private string o5i;
-        private int o5p;
-        private int o5rp;
+        private string o5p;
+        private string o5rp;
 
         private bool d1;
         private bool d2;
@@ -107,19 +107,19 @@
 
         private string d1n;
         private string d1i;
-        private int d1p;
+        private string d1p;
         private string d2n;
         private string d2i;
-        private int d2p;
+        private string d2p;
         private string d3n;
         private string d3i;
-        private int d3p;
+        private string d3p;
         private string d4n;
         private string d4i;
-        private int d4p;
+        private string d4p;
         private string d5n;
         private string d5i;
-        private int d5p;
+        private string d5p;
 
         public ObservableCollection<TicketItemViewModel> Tickets
         {
@@ -361,7 +361,7 @@
             set { SetValue(ref this.d1i, value); }
         }
 
-        public int D1p
+        public string D1p
         {
             get { return this.d1p; }
             set { SetValue(ref this.d1p, value); }
@@ -379,7 +379,7 @@
             set { SetValue(ref this.d2i, value); }
         }
 
-        public int D2p
+        public string D2p
         {
             get { return this.d2p; }
             set { SetValue(ref this.d2p, value); }
@@ -397,7 +397,7 @@
             set { SetValue(ref this.d3i, value); }
         }
 
-        public int D3p
+        public string D3p
         {
             get { return this.d3p; }
             set { SetValue(ref this.d3p, value); }
@@ -415,7 +415,7 @@
             set { SetValue(ref this.d4i, value); }
         }
 
-        public int D4p
+        public string D4p
         {
             get { return this.d4p; }
             set { SetValue(ref this.d4p, value); }
@@ -433,7 +433,7 @@
             set { SetValue(ref this.d5i, value); }
         }
 
-        public int D5p
+        public string D5p
         {
             get { return this.d5p; }
             set { SetValue(ref this.d5p, value); }
@@ -451,13 +451,13 @@
             set { SetValue(ref this.o1i, value); }
         }
 
-        public int O1p
+        public string O1p
         {
             get { return this.o1p; }
             set { SetValue(ref this.o1p, value); }
         }
 
-        public int O1rp
+        public string O1rp
         {
             get { return this.o1rp; }
             set { SetValue(ref this.o1rp, value); }
@@ -475,13 +475,13 @@
             set { SetValue(ref this.o2i, value); }
         }
 
-        public int O2p
+        public string O2p
         {
             get { return this.o2p; }
             set { SetValue(ref this.o2p, value); }
         }
 
-        public int O2rp
+        public string O2rp
         {
             get { return this.o2rp; }
             set { SetValue(ref this.o2rp, value); }
@@ -499,13 +499,13 @@
             set { SetValue(ref this.o3i, value); }
         }
 
-        public int O3p
+        public string O3p
         {
             get { return this.o3p; }
             set { SetValue(ref this.o3p, value); }
         }
 
-        public int O3rp
+        public string O3rp
         {
             get { return this.o3rp; }
             set { SetValue(ref this.o3rp, value); }
@@ -523,13 +523,13 @@
             set { SetValue(ref this.o4i, value); }
         }
 
-        public int O4p
+        public string O4p
         {
             get { return this.o4p; }
             set { SetValue(ref this.o4p, value); }
         }
 
-        public int O4rp
+        public string O4rp
         {
             get { return this.o4rp; }
             set { SetValue(ref this.o4rp, value); }
@@ -547,13 +547,13 @@
             set { SetValue(ref this.o5i, value); }
         }
 
-        public int O5p
+        public string O5p
         {
             get { return this.o5p; }
             set { SetValue(ref this.o5p, value); }
         }
 
-        public int O5rp
+        public string O5rp
         {
             get { return this.o5rp; }
             set { SetValue(ref this.o5rp, value); }
@@ -889,6 +889,38 @@
             }
         }
 
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                return new RelayCommand(Logout);
+            }
+        }
+
+        public ICommand AddressCommand
+        {
+            get
+            {
+                return new RelayCommand(AddressList);
+            }
+        }
+
+        public ICommand PaymentCommand
+        {
+            get
+            {
+                return new RelayCommand(Payments);
+            }
+        }
+
+        public ICommand RequestPaymentCommand
+        {
+            get
+            {
+                return new RelayCommand(RequestPayment);
+            }
+        }
+
         public HomeCommerceViewModel()
         {
             this.apiService = new ApiService();
@@ -900,6 +932,40 @@
             this.LoadSales();
             this.LoadFeatured();
             this.IsRefreshing = false;
+        }
+
+        private async void Logout()
+        {
+            Settings.Email = string.Empty;
+            Settings.Token = string.Empty;
+            Settings.Phone = string.Empty;
+            Settings.UserType = string.Empty;
+
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.User = null;
+            mainViewModel.Login = new LoginViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+        }
+
+        private async void RequestPayment()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.PaymentRequest = new PaymentRequestViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new PaymentRequestPage());
+        }
+
+        private async void AddressList()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Address = new AddressViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new AddressPage());
+        }
+
+        private async void Payments()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Payments = new PaymentsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new PaymentsPage());
         }
 
         private async void GetCategoryProductsC1()
@@ -1740,40 +1806,40 @@
                     this.O1n = item.Name;
                     this.O1i = "https://thenuap.com/" + item.Image;
                     this.O1 = true;
-                    this.O1p = item.SalePrice - (item.SalePrice * item.SpecialPrice/100);
-                    this.O1rp = item.SalePrice;
+                    this.O1p = item.TotalPrice;
+                    this.O1rp = item.FormatSalePrice;
                 }
                 if (count == 1)
                 {
                     this.O2n = item.Name;
                     this.O2i = "https://thenuap.com/" + item.Image;
                     this.O2 = true;
-                    this.O2p = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
-                    this.O2rp = item.SalePrice;
+                    this.O2p = item.TotalPrice;
+                    this.O2rp = item.FormatSalePrice;
                 }
                 if (count == 2)
                 {
                     this.O3n = item.Name;
                     this.O3i = "https://thenuap.com/" + item.Image;
                     this.O3 = true;
-                    this.O3p = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
-                    this.O3rp = item.SalePrice;
+                    this.O3p = item.TotalPrice;
+                    this.O3rp = item.FormatSalePrice;
                 }
                 if (count == 3)
                 {
                     this.O4n = item.Name;
                     this.O4i = "https://thenuap.com/" + item.Image;
                     this.O4 = true;
-                    this.O4p = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
-                    this.O4rp = item.SalePrice;
+                    this.O4p = item.TotalPrice;
+                    this.O4rp = item.FormatSalePrice;
                 }
                 if (count == 4)
                 {
                     this.O5n = item.Name;
                     this.O5i = "https://thenuap.com/" + item.Image;
                     this.O5 = true;
-                    this.O5p = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
-                    this.O5rp = item.SalePrice;
+                    this.O5p = item.TotalPrice;
+                    this.O5rp = item.FormatSalePrice;
                 }
                 count++;
             }
@@ -1839,69 +1905,35 @@
                     this.D1n = item.Name;
                     this.D1i = "https://thenuap.com/" + item.Image;
                     this.D1 = true;
-                    if (item.IsFeatured == 1)
-                    {
-                        this.D1p = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
-                    } else
-                    {
-                        this.D1p = item.SalePrice;
-                    }
+                    this.D1p = item.TotalPrice;
                 }
                 if (count == 1)
                 {
                     this.D2n = item.Name;
                     this.D2i = "https://thenuap.com/" + item.Image;
                     this.D2 = true;
-                    if (item.IsFeatured == 1)
-                    {
-                        this.D2p = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
-                    }
-                    else
-                    {
-                        this.D2p = item.SalePrice;
-                    }
+                    this.D2p = item.TotalPrice;
                 }
                 if (count == 2)
                 {
                     this.D3n = item.Name;
                     this.D3i = "https://thenuap.com/" + item.Image;
                     this.D3 = true;
-                    if (item.IsFeatured == 1)
-                    {
-                        this.D3p = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
-                    }
-                    else
-                    {
-                        this.D3p = item.SalePrice;
-                    }
+                    this.D3p = item.TotalPrice;
                 }
                 if (count == 3)
                 {
                     this.D4n = item.Name;
                     this.D4i = "https://thenuap.com/" + item.Image;
                     this.D4 = true;
-                    if (item.IsFeatured == 1)
-                    {
-                        this.D4p = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
-                    }
-                    else
-                    {
-                        this.D4p = item.SalePrice;
-                    }
+                    this.D4p = item.TotalPrice;
                 }
                 if (count == 4)
                 {
                     this.D5n = item.Name;
                     this.D5i = "https://thenuap.com/" + item.Image;
                     this.D5 = true;
-                    if (item.IsFeatured == 1)
-                    {
-                        this.D5p = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
-                    }
-                    else
-                    {
-                        this.D5p = item.SalePrice;
-                    }
+                    this.D5p = item.TotalPrice;
                 }
                 count++;
             }

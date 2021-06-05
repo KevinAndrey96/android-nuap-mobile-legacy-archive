@@ -13,6 +13,9 @@
         [JsonProperty(PropertyName = "category_id")]
         public int CategoryId { get; set; }
 
+        [JsonProperty(PropertyName = "category_name")]
+        public string CategoryName { get; set; }
+
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
@@ -72,5 +75,14 @@
 
         [JsonProperty(PropertyName = "quantity")]
         public int Quantity { get; set; }
+
+        [JsonProperty(PropertyName = "format_purchase_price")]
+        public string FormatPurchasePrice { get; set; }
+
+        [JsonProperty(PropertyName = "format_sale_price")]
+        public string FormatSalePrice { get; set; }
+
+        [JsonProperty(PropertyName = "total_price")]
+        public string TotalPrice { get; set; }
     }
 }

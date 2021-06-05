@@ -87,7 +87,6 @@
             set { SetValue(ref this.ordersCirculationList, value); }
         }
 
-        //validación 
         public string OrdersDeliveredText
         {
             get { return this.ordersDeliveredText; }
@@ -292,8 +291,6 @@
             var response = await this.apiService.GetSales(
                 mainViewModel.User.api_token,
                 "https://thenuap.com");
-
-
 
             if (response == null)
             {

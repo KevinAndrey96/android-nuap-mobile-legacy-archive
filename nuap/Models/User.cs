@@ -24,5 +24,8 @@
 
         [JsonProperty(PropertyName = "api_token")]
         public string api_token { get; set; }
+
+        [JsonProperty(PropertyName = "balance")]
+        public string balance { get; set; }
     }
 }

@@ -76,7 +76,22 @@
             }
         }
 
-        
+        public ICommand ApproveCommand
+        {
+            get
+            {
+                return new RelayCommand(Approve);
+            }
+        }
+
+        public ICommand PendingCommand
+        {
+            get
+            {
+                return new RelayCommand(Pending);
+            }
+        }
+
         public ProductCommerceViewModel(Category category)
         {
             this.Category = category;
@@ -97,6 +112,18 @@
                     (ToProductCommerceViewModel().Where(p => p.Name.ToLower().Contains(this.Filter.ToLower()) ||
                                                              p.Brand.ToLower().Contains(this.Filter.ToLower())));
             }
+        }
+
+        private void Approve()
+        {
+            this.Products = new ObservableCollection<ProductCommerceItemViewModel>
+                (ToProductCommerceViewModel().Where(p => p.Status.Equals(1)));
+        }
+
+        private void Pending()
+        {
+            this.Products = new ObservableCollection<ProductCommerceItemViewModel>
+                (ToProductCommerceViewModel().Where(p => p.Status.Equals(0)));
         }
 
         private async void CreateProduct()
@@ -155,12 +182,12 @@
             {
                 if (item.Status == 1)
                 {
-                    item.StatusColor = "#21b441";
+                    item.StatusColor = "#4dbc65";
                     item.StatusText = "Aprobado";
                 }
                 else
                 {
-                    item.StatusColor = "#f24f4c";
+                    item.StatusColor = "#f26c69";
                     item.StatusText = "Pendiente";
                 }
                 newList.Add(item);
@@ -196,7 +223,8 @@
                 Image = "https://thenuap.com/"+p.Image,
                 Position = p.Position,
                 StatusText = p.StatusText,
-                StatusColor = p.StatusColor
+                StatusColor = p.StatusColor,
+                TotalPrice = p.TotalPrice
             });
         }
     }
