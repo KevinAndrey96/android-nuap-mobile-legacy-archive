@@ -2,11 +2,36 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="nuap.Views.CartEmptyPage"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundImageSource="Cart2.png">
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <StackLayout
+            BackgroundColor="White"
             BindingContext="{Binding CartEmpty}">
+            <Image
+                Margin="0,130,0,0"
+                Source="emptycar"
+                WidthRequest="300">
+            </Image>
+            <Label
+                Text="Tu carro esta vacio"
+                Padding="20,0,20,0"
+                TextColor="#494949" 
+                FontFamily="Poppins-Bold"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center">
+            </Label>
+            <Label
+                Text="No ha agregado ningun articulo"
+                Padding="20,5,20,0"
+                TextColor="#494949" 
+                FontFamily="Poppins-Bold"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center">
+            </Label>
             <Button
                 Text="Comenzar a comprar"
                 FontFamily="Poppins"

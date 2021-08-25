@@ -5,6 +5,7 @@
     using System.Windows.Input;
     using Xamarin.Forms;
     using Views;
+    using Services;
 
     public class CategoryItemViewModel : Category
     {
@@ -27,14 +28,20 @@
         private async void GetProducts()
         {
             var mainViewModel = MainViewModel.GetInstance();
-            mainViewModel.ProductCommerce = new ProductCommerceViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new ProductCommercePage());
+            mainViewModel.CategoryID = this;
+
+            mainViewModel.Inventory = new InventoryViewModel();
+
+            await Application.Current.MainPage.Navigation.PushAsync(new InventoryPage());
         }
 
         private async void GetCategoryProducts()
         {
             var mainViewModel = MainViewModel.GetInstance();
+
             mainViewModel.CategoryProduct = new CategoryProductViewModel(this);
+
+            await Application.Current.MainPage.Navigation.PopAsync();
             await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
         }
     }

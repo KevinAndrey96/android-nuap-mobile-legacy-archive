@@ -8,9 +8,13 @@
     using nuap.Models;
     using Newtonsoft.Json;
     using System.Collections.Generic;
+    using Services;
+    using System.Linq;
 
     public partial class App : Application
     {
+        private ApiService apiService;
+
         public App()
         {
             InitializeComponent();
@@ -36,6 +40,11 @@
                 if (!string.IsNullOrEmpty(Settings.CartList))
                 {
                     mainViewModel.CartList = JsonConvert.DeserializeObject<List<Cart>>(Settings.CartList);
+                }
+
+                if (!string.IsNullOrEmpty(Settings.AddressDetail))
+                {
+                    mainViewModel.AddressDetail = JsonConvert.DeserializeObject<Address>(Settings.AddressDetail);
                 }
 
                 mainViewModel.HomeCommerce = new HomeCommerceViewModel();

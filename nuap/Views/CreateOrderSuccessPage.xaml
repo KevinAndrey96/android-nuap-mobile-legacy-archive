@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nuap.Views.CreateOrderSuccessPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="0,50,0,50"
+            BackgroundColor="#0274bc"
+            BindingContext="{Binding CreateOrderSuccess}">
+            <Frame
+                CornerRadius="35"
+                OutlineColor="White"
+                Padding="20,20,20,0"
+                VerticalOptions="FillAndExpand">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ReturnHomeCommand}"/>
+                </Frame.GestureRecognizers>
+                <StackLayout>
+                    <Image
+                        Margin="0,50,0,0"
+                        Source="logo"
+                        WidthRequest="200">
+                    </Image>
+                    <Label
+                        Text="Exitoso"
+                        Padding="0,15,0,0"
+                        TextColor="#0274bc" 
+                        FontFamily="Poppins-Bold"
+                        FontSize="30"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Text="Tu orden ha sido creada satisfactoriamente, el equipo de NuAp estara gestionandola"
+                        Padding="40,10,40,0"
+                        TextColor="#494949" 
+                        FontFamily="Poppins"
+                        FontSize="21"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center">
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -43,8 +43,8 @@
         {
             this.apiService = new ApiService();
             this.IsEnabled = true;
-            this.Email = "comercio@test.com";
-            this.Password = "Nuap2020@";
+            this.Email = "";
+            this.Password = "";
         }
 
         public ICommand LoginCommand
@@ -60,7 +60,7 @@
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        "Atención",
                         "Debes ingresar tu correo electrónico o celular",
                         "Aceptar"
                     );
@@ -70,7 +70,7 @@
             if (string.IsNullOrEmpty(this.Password))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        "Atención",
                         "Debes ingresar tu contraseña",
                         "Aceptar"
                     );
@@ -120,7 +120,7 @@
                 this.Password = string.Empty;
 
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;

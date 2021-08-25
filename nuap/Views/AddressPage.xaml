@@ -31,7 +31,7 @@
                                 HasShadow="true"
                                 Margin="2">
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding GetMessagesCommand}"/>
+                                    <TapGestureRecognizer Command="{Binding SetAddressCommand}"/>
                                 </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>

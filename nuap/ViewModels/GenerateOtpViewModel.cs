@@ -86,7 +86,7 @@
                 this.IsEnabled = true;
 
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;

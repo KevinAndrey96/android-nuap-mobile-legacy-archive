@@ -10,6 +10,7 @@
     using GalaSoft.MvvmLight.Command;
     using Views;
     using nuap.Helpers;
+    using Newtonsoft.Json;
 
     public class HomeCommerceViewModel : BaseViewModel
     {
@@ -20,17 +21,25 @@
         private bool isRefreshingInit;
         private string companyName;
         private string logo;
+        private int addressID = 0;
+
+        private string cartImage;
 
         private string addressOne;
         private string addressOneN;
+        private string addressOneColor;
         private string addressTwo;
         private string addressTwoN;
+        private string addressTwoColor;
         private string addressThree;
         private string addressThreeN;
+        private string addressThreeColor;
         private string addressFour;
         private string addressFourN;
+        private string addressFourColor;
         private string addressFive;
         private string addressFiveN;
+        private string addressFiveColor;
 
         private bool viewAddressOne;
         private bool viewAddressTwo;
@@ -121,6 +130,148 @@
         private string d5i;
         private string d5p;
 
+        private bool enabled1;
+        private bool enabled2;
+        private bool enabled3;
+        private bool enabled4;
+        private bool enabled5;
+        private bool enabled6;
+        private bool enabled7;
+        private bool enabled8;
+        private bool enabled9;
+        private bool enabled10;
+
+        private bool enabled11;
+        private bool enabled12;
+        private bool enabled13;
+        private bool enabled14;
+        private bool enabled15;
+        private bool enabled16;
+        private bool enabled17;
+        private bool enabled18;
+        private bool enabled19;
+        private bool enabled20;
+
+        public bool Enabled1
+        {
+            get { return this.enabled1; }
+            set { SetValue(ref this.enabled1, value); }
+        }
+
+        public bool Enabled2
+        {
+            get { return this.enabled2; }
+            set { SetValue(ref this.enabled2, value); }
+        }
+
+        public bool Enabled3
+        {
+            get { return this.enabled3; }
+            set { SetValue(ref this.enabled3, value); }
+        }
+
+        public bool Enabled4
+        {
+            get { return this.enabled4; }
+            set { SetValue(ref this.enabled4, value); }
+        }
+
+        public bool Enabled5
+        {
+            get { return this.enabled5; }
+            set { SetValue(ref this.enabled5, value); }
+        }
+
+        public bool Enabled6
+        {
+            get { return this.enabled6; }
+            set { SetValue(ref this.enabled6, value); }
+        }
+
+        public bool Enabled7
+        {
+            get { return this.enabled7; }
+            set { SetValue(ref this.enabled7, value); }
+        }
+
+        public bool Enabled8
+        {
+            get { return this.enabled8; }
+            set { SetValue(ref this.enabled8, value); }
+        }
+
+        public bool Enabled9
+        {
+            get { return this.enabled9; }
+            set { SetValue(ref this.enabled9, value); }
+        }
+
+        public bool Enabled10
+        {
+            get { return this.enabled10; }
+            set { SetValue(ref this.enabled10, value); }
+        }
+
+        public bool Enabled11
+        {
+            get { return this.enabled11; }
+            set { SetValue(ref this.enabled11, value); }
+        }
+
+        public bool Enabled12
+        {
+            get { return this.enabled12; }
+            set { SetValue(ref this.enabled12, value); }
+        }
+
+        public bool Enabled13
+        {
+            get { return this.enabled13; }
+            set { SetValue(ref this.enabled13, value); }
+        }
+
+        public bool Enabled14
+        {
+            get { return this.enabled14; }
+            set { SetValue(ref this.enabled14, value); }
+        }
+
+        public bool Enabled15
+        {
+            get { return this.enabled15; }
+            set { SetValue(ref this.enabled15, value); }
+        }
+
+        public bool Enabled16
+        {
+            get { return this.enabled16; }
+            set { SetValue(ref this.enabled16, value); }
+        }
+
+        public bool Enabled17
+        {
+            get { return this.enabled17; }
+            set { SetValue(ref this.enabled17, value); }
+        }
+
+        public bool Enabled18
+        {
+            get { return this.enabled18; }
+            set { SetValue(ref this.enabled18, value); }
+        }
+
+        public bool Enabled19
+        {
+            get { return this.enabled19; }
+            set { SetValue(ref this.enabled19, value); }
+        }
+
+        public bool Enabled20
+        {
+            get { return this.enabled20; }
+            set { SetValue(ref this.enabled20, value); }
+        }
+
         public ObservableCollection<TicketItemViewModel> Tickets
         {
             get { return this.tickets; }
@@ -131,6 +282,12 @@
         {
             get { return this.address; }
             set { SetValue(ref this.address, value); }
+        }
+
+        public string CartImage
+        {
+            get { return this.cartImage; }
+            set { SetValue(ref this.cartImage, value); }
         }
 
         public string CompanyName
@@ -631,6 +788,36 @@
             set { SetValue(ref this.addressOneN, value); }
         }
 
+        public string AddressOneColor
+        {
+            get { return this.addressOneColor; }
+            set { SetValue(ref this.addressOneColor, value); }
+        }
+
+        public string AddressTwoColor
+        {
+            get { return this.addressTwoColor; }
+            set { SetValue(ref this.addressTwoColor, value); }
+        }
+
+        public string AddressThreeColor
+        {
+            get { return this.addressThreeColor; }
+            set { SetValue(ref this.addressThreeColor, value); }
+        }
+
+        public string AddressFourColor
+        {
+            get { return this.addressFourColor; }
+            set { SetValue(ref this.addressFourColor, value); }
+        }
+
+        public string AddressFiveColor
+        {
+            get { return this.addressFiveColor; }
+            set { SetValue(ref this.addressFiveColor, value); }
+        }
+
         public string AddressTwo
         {
             get { return this.addressTwo; }
@@ -801,6 +988,46 @@
             }
         }
 
+        public ICommand ViewStoreOneCommand
+        {
+            get
+            {
+                return new RelayCommand(GetStoreOne);
+            }
+        }
+
+        public ICommand ViewStoreTwoCommand
+        {
+            get
+            {
+                return new RelayCommand(GetStoreTwo);
+            }
+        }
+
+        public ICommand ViewStoreThreeCommand
+        {
+            get
+            {
+                return new RelayCommand(GetStoreThree);
+            }
+        }
+
+        public ICommand ViewStoreFourCommand
+        {
+            get
+            {
+                return new RelayCommand(GetStoreFour);
+            }
+        }
+
+        public ICommand ViewStoreFiveCommand
+        {
+            get
+            {
+                return new RelayCommand(GetStoreFive);
+            }
+        }
+
         public ICommand AddProductO1Command
         {
             get
@@ -897,6 +1124,14 @@
             }
         }
 
+        public ICommand AccountCommand
+        {
+            get
+            {
+                return new RelayCommand(Account);
+            }
+        }
+
         public ICommand AddressCommand
         {
             get
@@ -924,14 +1159,88 @@
         public HomeCommerceViewModel()
         {
             this.apiService = new ApiService();
+
+            this.EnabledButtons();
+            this.CheckAddress();
             this.GetCompanyName();
             this.LoadTickets();
-            this.LoadAddress();
-            this.LoadCategories();
-            this.LoadStores();
-            this.LoadSales();
-            this.LoadFeatured();
+
+            if (!string.IsNullOrEmpty(Settings.CartList)) {
+                this.CartImage = "cart";
+            } else
+            {
+                this.CartImage = "shoppingcart";
+            }
+            
             this.IsRefreshing = false;
+        }
+
+        private async void CheckAddress()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.CategoryID = null;
+
+            if (mainViewModel.AddressDetail != null)
+            {
+                this.addressID = mainViewModel.AddressDetail.Id;
+
+                this.LoadAddress();
+                this.LoadCategories();
+                this.LoadStores();
+                this.LoadSales();
+                this.LoadFeatured();
+            } else
+            {
+                var connection = await this.apiService.CheckConnection();
+
+                if (!connection.IsSuccess)
+                {
+                    await Application.Current.MainPage.DisplayAlert(
+                        "Error",
+                        connection.Message,
+                        "Aceptar");
+                    return;
+                }
+
+                var response = await this.apiService.GetAddress(
+                    mainViewModel.User.api_token,
+                    "https://thenuap.com");
+
+                if (response == null)
+                {
+                    await Application.Current.MainPage.DisplayAlert(
+                        "Error",
+                        "Ha ocurrido un error",
+                        "Aceptar");
+                    return;
+                }
+
+                if (response.Data == null)
+                {
+                    mainViewModel.CreateAddress = new CreateAddressViewModel();
+                    await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
+                } else
+                {
+                    var list = response.Data;
+                    mainViewModel.AddressDetail = list[0];
+                    Settings.AddressDetail = JsonConvert.SerializeObject(mainViewModel.AddressDetail);
+
+                    this.addressID = mainViewModel.AddressDetail.Id;
+
+                    this.LoadAddress();
+                    this.LoadCategories();
+                    this.LoadStores();
+                    this.LoadSales();
+                    this.LoadFeatured();
+                }
+            }
+        }
+
+        private async void Account()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Account = new AccountViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new AccountPage());
         }
 
         private async void Logout()
@@ -940,10 +1249,18 @@
             Settings.Token = string.Empty;
             Settings.Phone = string.Empty;
             Settings.UserType = string.Empty;
+            Settings.AddressDetail = null;
+            Settings.CartList = null;
 
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.User = null;
+            mainViewModel.AddressDetail = null;
+            mainViewModel.CartList = null;
+
             mainViewModel.Login = new LoginViewModel();
+
+            Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - 2]);
+            await Application.Current.MainPage.Navigation.PopAsync();
             await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
         }
 
@@ -970,6 +1287,8 @@
 
         private async void GetCategoryProductsC1()
         {
+            this.DisabledButtons();
+
             this.IsRefreshingInit = true;
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
@@ -981,7 +1300,6 @@
                     "Aceptar");
                 return;
             }
-
 
             var mainViewModel = MainViewModel.GetInstance();
 
@@ -1009,13 +1327,14 @@
                 return;
             }
 
-            var list = (List<Category>)response.Data;
-
+            var list = response.Data;
 
             foreach (var item in list)
             {
                 if (item.Name == this.C1n)
                 {
+                    this.EnabledButtons();
+
                     mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
                     await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
                 }
@@ -1024,6 +1343,8 @@
 
         private async void GetCategoryProductsC2()
         {
+            this.DisabledButtons();
+
             this.IsRefreshingInit = true;
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
@@ -1035,7 +1356,6 @@
                     "Aceptar");
                 return;
             }
-
 
             var mainViewModel = MainViewModel.GetInstance();
 
@@ -1063,13 +1383,15 @@
                 return;
             }
 
-            var list = (List<Category>)response.Data;
+            var list = response.Data;
 
 
             foreach (var item in list)
             {
                 if (item.Name == this.C2n)
                 {
+                    this.EnabledButtons();
+
                     mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
                     await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
                 }
@@ -1078,6 +1400,8 @@
 
         private async void GetCategoryProductsC3()
         {
+            this.DisabledButtons();
+
             this.IsRefreshingInit = true;
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
@@ -1089,7 +1413,6 @@
                     "Aceptar");
                 return;
             }
-
 
             var mainViewModel = MainViewModel.GetInstance();
 
@@ -1117,13 +1440,15 @@
                 return;
             }
 
-            var list = (List<Category>)response.Data;
+            var list = response.Data;
 
 
             foreach (var item in list)
             {
                 if (item.Name == this.C3n)
                 {
+                    this.EnabledButtons();
+
                     mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
                     await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
                 }
@@ -1132,6 +1457,8 @@
 
         private async void GetCategoryProductsC4()
         {
+            this.DisabledButtons();
+
             this.IsRefreshingInit = true;
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
@@ -1143,7 +1470,6 @@
                     "Aceptar");
                 return;
             }
-
 
             var mainViewModel = MainViewModel.GetInstance();
 
@@ -1178,6 +1504,8 @@
             {
                 if (item.Name == this.C4n)
                 {
+                    this.EnabledButtons();
+
                     mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
                     await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
                 }
@@ -1186,6 +1514,8 @@
 
         private async void GetCategoryProductsC5()
         {
+            this.DisabledButtons();
+
             this.IsRefreshingInit = true;
             var connection = await this.apiService.CheckConnection();
             if (!connection.IsSuccess)
@@ -1197,7 +1527,6 @@
                     "Aceptar");
                 return;
             }
-
 
             var mainViewModel = MainViewModel.GetInstance();
 
@@ -1225,15 +1554,304 @@
                 return;
             }
 
-            var list = (List<Category>)response.Data;
+            var list = response.Data;
 
 
             foreach (var item in list)
             {
                 if (item.Name == this.C5n)
                 {
+                    this.EnabledButtons();
+
                     mainViewModel.CategoryProduct = new CategoryProductViewModel(item);
                     await Application.Current.MainPage.Navigation.PushAsync(new CategoryProductsPage());
+                }
+            }
+        }
+
+        private async void GetStoreOne()
+        {
+            this.DisabledButtons();
+
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetStores(
+                mainViewModel.User.api_token,
+                "https://thenuap.com",
+                mainViewModel.AddressDetail.Id);
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Informacion",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = response.Data;
+
+
+            foreach (var item in list)
+            {
+                if (item.BusinessName == this.S1n)
+                {
+                    this.EnabledButtons();
+
+                    mainViewModel.Store = new StoreViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new StoreTabbedPage());
+                }
+            }
+        }
+
+        private async void GetStoreTwo()
+        {
+            this.DisabledButtons();
+
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetStores(
+                mainViewModel.User.api_token,
+                "https://thenuap.com",
+                mainViewModel.AddressDetail.Id);
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Informacion",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = response.Data;
+
+            foreach (var item in list)
+            {
+                if (item.BusinessName == this.S2n)
+                {
+                    this.EnabledButtons();
+
+                    mainViewModel.Store = new StoreViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new StoreTabbedPage());
+                }
+            }
+        }
+
+        private async void GetStoreThree()
+        {
+            this.DisabledButtons();
+
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetStores(
+                mainViewModel.User.api_token,
+                "https://thenuap.com",
+                mainViewModel.AddressDetail.Id);
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Informacion",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = response.Data;
+
+
+            foreach (var item in list)
+            {
+                if (item.BusinessName == this.S3n)
+                {
+                    this.EnabledButtons();
+
+                    mainViewModel.Store = new StoreViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new StoreTabbedPage());
+                }
+            }
+        }
+
+        private async void GetStoreFour()
+        {
+            this.DisabledButtons();
+
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetStores(
+                mainViewModel.User.api_token,
+                "https://thenuap.com",
+                mainViewModel.AddressDetail.Id);
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Informacion",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = response.Data;
+
+            foreach (var item in list)
+            {
+                if (item.BusinessName == this.S4n)
+                {
+                    this.EnabledButtons();
+
+                    mainViewModel.Store = new StoreViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new StoreTabbedPage());
+                }
+            }
+        }
+
+        private async void GetStoreFive()
+        {
+            this.DisabledButtons();
+
+            this.IsRefreshingInit = true;
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetStores(
+                mainViewModel.User.api_token,
+                "https://thenuap.com",
+                mainViewModel.AddressDetail.Id);
+
+            if (response == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                this.IsRefreshingInit = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Informacion",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            var list = response.Data;
+
+            foreach (var item in list)
+            {
+                if (item.BusinessName == this.S5n)
+                {
+                    this.EnabledButtons();
+
+                    mainViewModel.Store = new StoreViewModel(item);
+                    await Application.Current.MainPage.Navigation.PushAsync(new StoreTabbedPage());
                 }
             }
         }
@@ -1290,23 +1908,13 @@
 
         private async void GetProduct(string product)
         {
-            var connection = await this.apiService.CheckConnection();
-            if (!connection.IsSuccess)
-            {
-                this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    connection.Message,
-                    "Aceptar");
-                return;
-            }
-
+            this.DisabledButtons();
             var mainViewModel = MainViewModel.GetInstance();
 
             var response = await this.apiService.GetSales(
                 mainViewModel.User.api_token,
                 "https://thenuap.com",
-                19);
+                mainViewModel.AddressDetail.Id);
 
             if (response == null)
             {
@@ -1320,21 +1928,23 @@
 
             if (response.Data == null)
             {
-                this.IsRefreshingInit = false;
+                /*this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Errors.First().Detail,
-                    "Aceptar");
+                    "Aceptar");*/
                 return;
             }
 
-            var list = (List<Product>)response.Data;
+            var list = response.Data;
 
 
             foreach (var item in list)
             {
                 if (item.Name == product)
                 {
+                    this.EnabledButtons();
+
                     mainViewModel.ProductDetail = new ProductDetailViewModel(item);
                     await Application.Current.MainPage.Navigation.PushAsync(new ProductDetailPage());
                 }
@@ -1365,17 +1975,6 @@
         private async void LoadTickets()
         {
             this.IsRefreshing = true;
-            var connection = await this.apiService.CheckConnection();
-            if (!connection.IsSuccess)
-            {
-                this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    connection.Message,
-                    "Aceptar");
-                return;
-            }
-
 
             var mainViewModel = MainViewModel.GetInstance();
 
@@ -1395,11 +1994,11 @@
 
             if (response.Data == null)
             {
-                this.IsRefreshing = false;
+                /*this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Errors.First().Detail,
-                    "Aceptar");
+                    "Aceptar");*/
                 return;
             }
 
@@ -1410,16 +2009,6 @@
 
         private async void GetCompanyName()
         {
-            var connection = await this.apiService.CheckConnection();
-            if (!connection.IsSuccess)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    connection.Message,
-                    "Aceptar");
-                return;
-            }
-
             var mainViewModel = MainViewModel.GetInstance();
 
             var response = await this.apiService.GetCommerceProfile(
@@ -1479,6 +2068,7 @@
         private async void GetAllCategories()
         {
             var mainViewModel = MainViewModel.GetInstance();
+            
             mainViewModel.AllCategories = new CategoryViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new CategoryPage());
         }
@@ -1486,17 +2076,6 @@
         private async void LoadAddress()
         {
             this.IsRefreshingInit = true;
-            var connection = await this.apiService.CheckConnection();
-            if (!connection.IsSuccess)
-            {
-                this.IsRefreshingInit = false;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    connection.Message,
-                    "Aceptar");
-                return;
-            }
-
 
             var mainViewModel = MainViewModel.GetInstance();
 
@@ -1516,15 +2095,15 @@
 
             if (response.Data == null)
             {
-                this.IsRefreshingInit = false;
+                /*this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Errors.First().Detail,
-                    "Aceptar");
+                    "Aceptar");*/
                 return;
             }
 
-            var list = (List<Address>) response.Data;
+            var list = response.Data;
 
             this.ViewAddressOne = false;
             this.ViewAddressTwo = false;
@@ -1535,37 +2114,56 @@
             int count = 0;
             foreach (var item in list)
             {
-                if (count == 0)
+                if (string.IsNullOrEmpty(Settings.AddressText))
                 {
+                    this.AddressOneColor = "#b1d9fc";
+                    this.AddressOne = mainViewModel.AddressDetail.Addres;
+                    this.AddressOneN = mainViewModel.AddressDetail.Neighborhood;
+                    this.ViewAddressOne = true;
+                } else if (count == 0)
+                {
+                    this.AddressOneColor = "#e9e9e9";
                     this.AddressOne = item.Addres;
                     this.AddressOneN = item.Neighborhood;
                     this.ViewAddressOne = true;
                 }
-                if (count == 1)
+
+                if (count == 1 && item.Id != this.addressID)
                 {
+                    this.AddressTwoColor = "#e9e9e9";
                     this.AddressTwo = item.Addres;
                     this.AddressTwoN = item.Neighborhood;
                     this.ViewAddressTwo = true;
                 }
-                if (count == 2)
+
+                if (count == 2 && item.Id != this.addressID)
                 {
+                    this.AddressThreeColor = "#e9e9e9";
                     this.AddressThree = item.Addres;
                     this.AddressThreeN = item.Neighborhood;
                     this.ViewAddressThree = true;
                 }
-                if (count == 3)
+
+                if (count == 3 && item.Id != this.addressID)
                 {
+                    this.AddressFourColor = "#e9e9e9";
                     this.AddressFour = item.Addres;
                     this.AddressFourN = item.Neighborhood;
                     this.ViewAddressFour = true;
                 }
-                if (count == 4)
+
+                if (count == 4 && item.Id != this.addressID)
                 {
+                    this.AddressFiveColor = "#e9e9e9";
                     this.AddressFive = item.Addres;
                     this.AddressFiveN = item.Neighborhood;
                     this.viewAddressFive = true;
                 }
-                count++;
+
+                if ((item.Id != this.addressID) || count == 0)
+                {
+                    count++;
+                }
             }
 
             this.Address = new ObservableCollection<Address>(list);
@@ -1605,15 +2203,15 @@
 
             if (response.Data == null)
             {
-                this.IsRefreshingInit = false;
+                /*this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Errors.First().Detail,
-                    "Aceptar");
+                    "Aceptar*/
                 return;
             }
 
-            var list = (List<Category>)response.Data;
+            var list = response.Data;
 
             this.C1 = false;
             this.C2 = false;
@@ -1680,7 +2278,7 @@
             var response = await this.apiService.GetStores(
                 mainViewModel.User.api_token,
                 "https://thenuap.com",
-                19);
+                mainViewModel.AddressDetail.Id);
 
             if (response == null)
             {
@@ -1694,15 +2292,15 @@
 
             if (response.Data == null)
             {
-                this.IsRefreshingInit = false;
+                /*this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Errors.First().Detail,
-                    "Aceptar");
+                    "Aceptar");*/
                 return;
             }
 
-            var list = (List<Commerce>)response.Data;
+            var list = response.Data;
 
             this.S1 = false;
             this.S2 = false;
@@ -1752,23 +2350,13 @@
         private async void LoadSales()
         {
             this.IsRefreshingInit = true;
-            var connection = await this.apiService.CheckConnection();
-            if (!connection.IsSuccess)
-            {
-                this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    connection.Message,
-                    "Aceptar");
-                return;
-            }
 
             var mainViewModel = MainViewModel.GetInstance();
 
             var response = await this.apiService.GetSales(
                 mainViewModel.User.api_token,
                 "https://thenuap.com",
-                19);
+                mainViewModel.AddressDetail.Id);
 
             if (response == null)
             {
@@ -1782,15 +2370,15 @@
 
             if (response.Data == null)
             {
-                this.IsRefreshingInit = false;
+                /*this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Errors.First().Detail,
-                    "Aceptar");
+                    "Aceptar");*/
                 return;
             }
 
-            var list = (List<Product>)response.Data;
+            var list = response.Data;
 
             this.O1 = false;
             this.O2 = false;
@@ -1801,10 +2389,20 @@
             int count = 0;
             foreach (var item in list)
             {
+                string url;
+                if (item.Image.Contains("https"))
+                {
+                    url = item.Image;
+                }
+                else
+                {
+                    url = "https://thenuap.com/" + item.Image;
+                }
+
                 if (count == 0)
                 {
                     this.O1n = item.Name;
-                    this.O1i = "https://thenuap.com/" + item.Image;
+                    this.O1i = url;
                     this.O1 = true;
                     this.O1p = item.TotalPrice;
                     this.O1rp = item.FormatSalePrice;
@@ -1812,7 +2410,7 @@
                 if (count == 1)
                 {
                     this.O2n = item.Name;
-                    this.O2i = "https://thenuap.com/" + item.Image;
+                    this.O2i = url;
                     this.O2 = true;
                     this.O2p = item.TotalPrice;
                     this.O2rp = item.FormatSalePrice;
@@ -1820,7 +2418,7 @@
                 if (count == 2)
                 {
                     this.O3n = item.Name;
-                    this.O3i = "https://thenuap.com/" + item.Image;
+                    this.O3i = url;
                     this.O3 = true;
                     this.O3p = item.TotalPrice;
                     this.O3rp = item.FormatSalePrice;
@@ -1828,7 +2426,7 @@
                 if (count == 3)
                 {
                     this.O4n = item.Name;
-                    this.O4i = "https://thenuap.com/" + item.Image;
+                    this.O4i = url;
                     this.O4 = true;
                     this.O4p = item.TotalPrice;
                     this.O4rp = item.FormatSalePrice;
@@ -1836,7 +2434,7 @@
                 if (count == 4)
                 {
                     this.O5n = item.Name;
-                    this.O5i = "https://thenuap.com/" + item.Image;
+                    this.O5i = url;
                     this.O5 = true;
                     this.O5p = item.TotalPrice;
                     this.O5rp = item.FormatSalePrice;
@@ -1850,24 +2448,12 @@
         private async void LoadFeatured()
         {
             this.IsRefreshingInit = true;
-            var connection = await this.apiService.CheckConnection();
-            if (!connection.IsSuccess)
-            {
-                this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    connection.Message,
-                    "Aceptar");
-                return;
-            }
-
-
             var mainViewModel = MainViewModel.GetInstance();
 
             var response = await this.apiService.GetSales(
                 mainViewModel.User.api_token,
                 "https://thenuap.com",
-                19);
+                mainViewModel.AddressDetail.Id);
 
             if (response == null)
             {
@@ -1881,15 +2467,15 @@
 
             if (response.Data == null)
             {
-                this.IsRefreshingInit = false;
+                /*this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Errors.First().Detail,
-                    "Aceptar");
+                    "Aceptar");*/
                 return;
             }
 
-            var list = (List<Product>)response.Data;
+            var list = response.Data;
 
             this.D1 = false;
             this.D2 = false;
@@ -1900,38 +2486,47 @@
             int count = 0;
             foreach (var item in list)
             {
+                string url;
+                if (item.Image.Contains("https"))
+                {
+                    url = item.Image;
+                } else
+                {
+                    url = "https://thenuap.com/" + item.Image;
+                }
+                
                 if (count == 0)
                 {
                     this.D1n = item.Name;
-                    this.D1i = "https://thenuap.com/" + item.Image;
+                    this.D1i = url;
                     this.D1 = true;
                     this.D1p = item.TotalPrice;
                 }
                 if (count == 1)
                 {
                     this.D2n = item.Name;
-                    this.D2i = "https://thenuap.com/" + item.Image;
+                    this.D2i = url;
                     this.D2 = true;
                     this.D2p = item.TotalPrice;
                 }
                 if (count == 2)
                 {
                     this.D3n = item.Name;
-                    this.D3i = "https://thenuap.com/" + item.Image;
+                    this.D3i = url;
                     this.D3 = true;
                     this.D3p = item.TotalPrice;
                 }
                 if (count == 3)
                 {
                     this.D4n = item.Name;
-                    this.D4i = "https://thenuap.com/" + item.Image;
+                    this.D4i = url;
                     this.D4 = true;
                     this.D4p = item.TotalPrice;
                 }
                 if (count == 4)
                 {
                     this.D5n = item.Name;
-                    this.D5i = "https://thenuap.com/" + item.Image;
+                    this.D5i = url;
                     this.D5 = true;
                     this.D5p = item.TotalPrice;
                 }
@@ -1954,6 +2549,54 @@
                 Status = t.Status,
                 Description = t.Description
             });
+        }
+
+        private void EnabledButtons()
+        {
+            this.Enabled1 = true;
+            this.Enabled2 = true;
+            this.Enabled3 = true;
+            this.Enabled4 = true;
+            this.Enabled5 = true;
+            this.Enabled6 = true;
+            this.Enabled7 = true;
+            this.Enabled8 = true;
+            this.Enabled9 = true;
+            this.Enabled10 = true;
+            this.Enabled11 = true;
+            this.Enabled12 = true;
+            this.Enabled13 = true;
+            this.Enabled14 = true;
+            this.Enabled15 = true;
+            this.Enabled16 = true;
+            this.Enabled17 = true;
+            this.Enabled18 = true;
+            this.Enabled19 = true;
+            this.Enabled20 = true;
+        }
+
+        private void DisabledButtons()
+        {
+            this.Enabled1 = false;
+            this.Enabled2 = false;
+            this.Enabled3 = false;
+            this.Enabled4 = false;
+            this.Enabled5 = false;
+            this.Enabled6 = false;
+            this.Enabled7 = false;
+            this.Enabled8 = false;
+            this.Enabled9 = false;
+            this.Enabled10 = false;
+            this.Enabled11 = false;
+            this.Enabled12 = false;
+            this.Enabled13 = false;
+            this.Enabled14 = false;
+            this.Enabled15 = false;
+            this.Enabled16 = false;
+            this.Enabled17 = false;
+            this.Enabled18 = false;
+            this.Enabled19 = false;
+            this.Enabled20 = false;
         }
     }
 }

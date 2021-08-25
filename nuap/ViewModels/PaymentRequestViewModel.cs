@@ -52,6 +52,46 @@ namespace nuap.ViewModels
             var mainViewModel = MainViewModel.GetInstance();
             this.Balance = mainViewModel.User.balance;
             this.CommerceID = mainViewModel.User.id;
+            this.GetCommerceProfile();
+        }
+
+        private async void GetCommerceProfile()
+        {
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetCommerceProfile(
+                mainViewModel.User.api_token,
+                "https://thenuap.com");
+
+            if (response == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Información",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            this.Balance = response.Data.Balance;
         }
 
         private async void RequestPayment()
@@ -85,7 +125,6 @@ namespace nuap.ViewModels
 
             if (response == null)
             {
-                this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     "Ha ocurrido un error",
@@ -93,24 +132,25 @@ namespace nuap.ViewModels
                 return;
             }
 
-            if (response.Data == null)
+            if (response.Errors != null)
             {
-                this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;
             }
-
-            await Application.Current.MainPage.DisplayAlert(
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert(
                 "",
                 "Hemos creado tu solicitud exitosamente",
                 "Aceptar");
 
-            mainViewModel.User.balance = response.Data.Balance;
-            mainViewModel.PaymentConfirm = new PaymentConfirmViewModel(response.Data.Value);
-            await Application.Current.MainPage.Navigation.PushAsync(new PaymentConfirmPage());
+                await Application.Current.MainPage.Navigation.PopAsync();
+                mainViewModel.PaymentConfirm = new PaymentConfirmViewModel(this.Value);
+                await Application.Current.MainPage.Navigation.PushAsync(new PaymentConfirmPage());
+            }
         }
     }
 }

@@ -247,7 +247,7 @@
             {
                 this.Comment = "";
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;

@@ -162,7 +162,7 @@
             if (response.Errors != null)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;

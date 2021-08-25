@@ -230,7 +230,7 @@
                 this.IsEnabled = true;
 
                 await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        "Atención",
                         "Debes ingresar todos los datos",
                         "Aceptar"
                     );
@@ -295,7 +295,7 @@
                 this.IsEnabled = true;
 
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;
@@ -304,7 +304,7 @@
             this.IsEnabled = true;
 
             await Application.Current.MainPage.DisplayAlert(
-                "",
+                "Información",
                 "Se ha editado el producto exitosamente",
                 "Aceptar");
 

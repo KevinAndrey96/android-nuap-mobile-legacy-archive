@@ -19,8 +19,48 @@
         const string phone = "Phone";
         const string email = "Email";
         const string cartList = "CartList";
+        const string addressDetail = "AddressDetail";
         const string balance = "Balance";
+        const string addressID = "AddressID";
+        const string addressNeigborhood = "AddressNeighborhood";
+        const string addressText = "AddressText";
         static readonly string stringDefault = string.Empty;
+
+        public static string AddressID
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(addressID, null);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(addressID, value);
+            }
+        }
+
+        public static string AddressText
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(addressText, null);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(addressText, value);
+            }
+        }
+
+        public static string AddressNeighborhood
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(addressNeigborhood, null);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(addressNeigborhood, value);
+            }
+        }
 
         public static string Token
         {
@@ -79,6 +119,18 @@
             set
             {
                 AppSettings.AddOrUpdateValue(email, value);
+            }
+        }
+
+        public static string AddressDetail
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(addressDetail, stringDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(addressDetail, value);
             }
         }
 

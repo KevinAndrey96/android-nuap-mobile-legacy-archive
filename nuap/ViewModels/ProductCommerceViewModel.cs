@@ -17,6 +17,7 @@
         private bool isRefreshing;
         private string categoryName;
         private string filter;
+        private bool isEnabledStatus;
 
         public Category Category
         {
@@ -32,6 +33,12 @@
                 SetValue(ref this.filter, value);
                 this.Search();
             }
+        }
+
+        public bool IsEnabledStatus
+        {
+            get { return this.isEnabledStatus; }
+            set { SetValue(ref this.isEnabledStatus, value); }
         }
 
         public ObservableCollection<ProductCommerceItemViewModel> Products
@@ -94,6 +101,7 @@
 
         public ProductCommerceViewModel(Category category)
         {
+            this.IsEnabledStatus = false;
             this.Category = category;
             this.CategoryName = this.Category.Name;
             this.apiService = new ApiService();
@@ -117,16 +125,16 @@
         private void Approve()
         {
             this.Products = new ObservableCollection<ProductCommerceItemViewModel>
-                (ToProductCommerceViewModel().Where(p => p.Status.Equals(1)));
+            (ToProductCommerceViewModel().Where(p => p.Status.Equals(1)));
         }
 
         private void Pending()
         {
             this.Products = new ObservableCollection<ProductCommerceItemViewModel>
-                (ToProductCommerceViewModel().Where(p => p.Status.Equals(0)));
+            (ToProductCommerceViewModel().Where(p => p.Status.Equals(0)));
         }
 
-        private async void CreateProduct()
+         private async void CreateProduct()
         {
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.CategoryProductID = this.Category.Id;
@@ -169,7 +177,7 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;
@@ -180,6 +188,15 @@
 
             foreach (var item in list)
             {
+                if (item.Image.Contains("https"))
+                {
+                    item.Image = item.Image;
+                }
+                else
+                {
+                    item.Image = "https://thenuap.com/" + item.Image;
+                }
+
                 if (item.Status == 1)
                 {
                     item.StatusColor = "#4dbc65";
@@ -196,6 +213,11 @@
             mainViewModel.ProductList = newList;
             this.Products = new ObservableCollection<ProductCommerceItemViewModel>(ToProductCommerceViewModel());
             this.IsRefreshing = false;
+
+            if (this.Products.Count > 0)
+            {
+                this.IsEnabledStatus = true;
+            }
         }
 
         private IEnumerable<ProductCommerceItemViewModel> ToProductCommerceViewModel()
@@ -220,7 +242,7 @@
                 SalePrice = p.SalePrice,
                 SpecialPrice = p.SpecialPrice,
                 HasSpecialPrice = p.HasSpecialPrice,
-                Image = "https://thenuap.com/"+p.Image,
+                Image = p.Image,
                 Position = p.Position,
                 StatusText = p.StatusText,
                 StatusColor = p.StatusColor,

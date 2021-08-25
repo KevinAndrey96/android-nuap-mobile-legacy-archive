@@ -121,13 +121,14 @@
                 this.IsEnabled = true;
 
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;
             }
 
             var mainViewModel = MainViewModel.GetInstance();
+
             mainViewModel.User = response.Data;
 
             Settings.Token = response.Data.api_token;
@@ -142,3 +143,4 @@
         }
     }
 }
+

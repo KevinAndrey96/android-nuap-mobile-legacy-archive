@@ -5,6 +5,24 @@
 
     public class MainViewModel
     {
+        public string AddressText
+        {
+            get;
+            set;
+        }
+
+        public string AddressNeighborhood
+        {
+            get;
+            set;
+        }
+
+        public int AddressID
+        {
+            get;
+            set;
+        }
+
         public LoginViewModel Login
         {
             get;
@@ -17,6 +35,12 @@
             set;
         }
 
+        public SelectAddressViewModel SelectAddress
+        {
+            get;
+            set;
+        }
+
         public string VoucherImage
         {
             get;
@@ -24,6 +48,12 @@
         }
 
         public HomeViewModel Home
+        {
+            get;
+            set;
+        }
+
+        public StoreViewModel Store
         {
             get;
             set;
@@ -47,7 +77,25 @@
             set;
         }
 
+        public AccountViewModel Account
+        {
+            get;
+            set;
+        }
+
+        public CreateOrderSuccessViewModel CreateOrderSuccess
+        {
+            get;
+            set;
+        }
+
         public CreateTicketViewModel CreateTicket
+        {
+            get;
+            set;
+        }
+
+        public CreateOrderViewModel CreateOrder
         {
             get;
             set;
@@ -185,6 +233,12 @@
             set;
         }
 
+        public CreateDefaultAddressViewModel CreateAddressDefault
+        {
+            get;
+            set;
+        }
+
         public GenerateOtpViewModel GenerateOTP
         {
             get;
@@ -240,6 +294,12 @@
             set;
         }
 
+        public Address AddressDetail
+        {
+            get;
+            set;
+        }
+
         public List<Product> ProductCategoryList
         {
             get;
@@ -259,6 +319,12 @@
         }
 
         public int CategoryProductID
+        {
+            get;
+            set;
+        }
+
+        public Category CategoryID
         {
             get;
             set;

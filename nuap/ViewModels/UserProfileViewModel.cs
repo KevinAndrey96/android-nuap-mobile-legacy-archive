@@ -59,7 +59,7 @@
             if (string.IsNullOrEmpty(this.Email))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        "Atención",
                         "El campo email esta vacio",
                         "Aceptar"
                     );
@@ -69,7 +69,7 @@
             if (string.IsNullOrEmpty(this.Phone))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        "Atención",
                         "El campo teléfono esta vacio",
                         "Aceptar"
                     );
@@ -79,7 +79,7 @@
             if (string.IsNullOrEmpty(this.Phone))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                        "Error",
+                        "Atención",
                         "El campo nombre esta vacio",
                         "Aceptar"
                     );
@@ -123,7 +123,7 @@
             if (response.Errors != null)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;
@@ -168,7 +168,7 @@
             if (response.Data == null)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;

@@ -70,10 +70,15 @@
                                                 HorizontalOptions="Start"
                                                 VerticalOptions="Center">
                                                 <Image 
-                                                    HeightRequest="100"
-                                                    Source="{Binding Image}" 
+	                                                HeightRequest="100"
                                                     HorizontalOptions="CenterAndExpand"
                                                     VerticalOptions="CenterAndExpand">
+                                                    <Image.Source>
+                                                        <UriImageSource 
+                                                            Uri="{Binding Image}" 
+			                                                CacheValidity="14" 
+			                                                CachingEnabled="true"/>
+                                                    </Image.Source>
                                                 </Image>
                                             </StackLayout>
                                             <StackLayout 
@@ -84,7 +89,7 @@
                                                 <Label 
                                                     VerticalOptions="Center"
                                                     FontFamily="Poppins-Bold"
-                                                    FontSize="17" 
+                                                    FontSize="15" 
                                                     Text="{Binding Name}"
                                                     TextColor="#3a3a3a">
                                                 </Label>
@@ -93,7 +98,7 @@
                                                     <Label 
                                                         VerticalOptions="Center"
                                                         FontFamily="Poppins-Bold"
-                                                        FontSize="18" 
+                                                        FontSize="17" 
                                                         Text="{Binding TotalPrice}"
                                                         TextColor="#0274bc">
                                                     </Label>
@@ -144,10 +149,15 @@
                                                 HorizontalOptions="Start"
                                                 VerticalOptions="Center">
                                                 <Image 
-                                                    HeightRequest="100"
-                                                    Source="{Binding Image}" 
+	                                                HeightRequest="100"
                                                     HorizontalOptions="CenterAndExpand"
                                                     VerticalOptions="CenterAndExpand">
+                                                    <Image.Source>
+                                                        <UriImageSource 
+                                                            Uri="{Binding Image}" 
+			                                                CacheValidity="14" 
+			                                                CachingEnabled="true"/>
+                                                    </Image.Source>
                                                 </Image>
                                             </StackLayout>
                                             <StackLayout 
@@ -158,7 +168,7 @@
                                                 <Label 
                                                     VerticalOptions="Center"
                                                     FontFamily="Poppins-Bold"
-                                                    FontSize="17" 
+                                                    FontSize="15" 
                                                     Text="{Binding Name}"
                                                     TextColor="#3a3a3a">
                                                 </Label>
@@ -168,14 +178,14 @@
                                                         VerticalOptions="Center"
                                                         FontFamily="Poppins-Bold"
                                                         TextDecorations="Strikethrough"
-                                                        FontSize="15" 
+                                                        FontSize="14" 
                                                         Text="{Binding FormatSalePrice}"
                                                         TextColor="#c4c4c4">
                                                     </Label>
                                                     <Label 
                                                         VerticalOptions="Center"
                                                         FontFamily="Poppins-Bold"
-                                                        FontSize="18" 
+                                                        FontSize="17" 
                                                         Text="{Binding TotalPrice}"
                                                         TextColor="#0274bc">
                                                     </Label>
@@ -226,10 +236,15 @@
                                                 HorizontalOptions="Start"
                                                 VerticalOptions="Center">
                                                 <Image 
-                                                    HeightRequest="100"
-                                                    Source="{Binding Image}" 
+	                                                HeightRequest="100"
                                                     HorizontalOptions="CenterAndExpand"
                                                     VerticalOptions="CenterAndExpand">
+                                                    <Image.Source>
+                                                        <UriImageSource 
+                                                            Uri="{Binding Image}" 
+			                                                CacheValidity="14" 
+			                                                CachingEnabled="true"/>
+                                                    </Image.Source>
                                                 </Image>
                                             </StackLayout>
                                             <StackLayout 
@@ -240,7 +255,7 @@
                                                 <Label 
                                                     VerticalOptions="Center"
                                                     FontFamily="Poppins-Bold"
-                                                    FontSize="17" 
+                                                    FontSize="15" 
                                                     Text="{Binding Name}"
                                                     TextColor="#3a3a3a">
                                                 </Label>
@@ -249,7 +264,7 @@
                                                     <Label 
                                                         VerticalOptions="Center"
                                                         FontFamily="Poppins-Bold"
-                                                        FontSize="18" 
+                                                        FontSize="17" 
                                                         Text="{Binding TotalPrice}"
                                                         TextColor="#0274bc">
                                                     </Label>
@@ -300,10 +315,15 @@
                                                 HorizontalOptions="Start"
                                                 VerticalOptions="Center">
                                                 <Image 
-                                                    HeightRequest="100"
-                                                    Source="{Binding Image}" 
+	                                                HeightRequest="100"
                                                     HorizontalOptions="CenterAndExpand"
                                                     VerticalOptions="CenterAndExpand">
+                                                    <Image.Source>
+                                                        <UriImageSource 
+                                                            Uri="{Binding Image}" 
+			                                                CacheValidity="14" 
+			                                                CachingEnabled="true"/>
+                                                    </Image.Source>
                                                 </Image>
                                             </StackLayout>
                                             <StackLayout 
@@ -314,7 +334,7 @@
                                                 <Label 
                                                     VerticalOptions="Center"
                                                     FontFamily="Poppins-Bold"
-                                                    FontSize="17" 
+                                                    FontSize="15" 
                                                     Text="{Binding Name}"
                                                     TextColor="#3a3a3a">
                                                 </Label>
@@ -323,14 +343,7 @@
                                                     <Label 
                                                         VerticalOptions="Center"
                                                         FontFamily="Poppins-Bold"
-                                                        FontSize="18" 
-                                                        Text="$"
-                                                        TextColor="#0274bc">
-                                                    </Label>
-                                                    <Label 
-                                                        VerticalOptions="Center"
-                                                        FontFamily="Poppins-Bold"
-                                                        FontSize="18" 
+                                                        FontSize="17" 
                                                         Text="{Binding TotalPrice}"
                                                         TextColor="#0274bc">
                                                     </Label>

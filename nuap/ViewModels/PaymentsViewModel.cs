@@ -62,6 +62,7 @@
         {
             this.apiService = new ApiService();
             this.LoadPayments();
+            this.GetCommerceProfile();
         }
 
         private async void RequestPayment()
@@ -69,6 +70,45 @@
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.PaymentRequest = new PaymentRequestViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new PaymentRequestPage());
+        }
+
+        private async void GetCommerceProfile()
+        {
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Aceptar");
+                return;
+            }
+
+            var mainViewModel = MainViewModel.GetInstance();
+
+            var response = await this.apiService.GetCommerceProfile(
+                mainViewModel.User.api_token,
+                "https://thenuap.com");
+
+            if (response == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    "Ha ocurrido un error",
+                    "Aceptar");
+                return;
+            }
+
+            if (response.Data == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Información",
+                    response.Errors.First().Detail,
+                    "Aceptar");
+                return;
+            }
+
+            this.Balance = response.Data.Balance;
         }
 
         private async void LoadPayments()
@@ -86,7 +126,6 @@
             }
 
             var mainViewModel = MainViewModel.GetInstance();
-            this.Balance = mainViewModel.User.balance;
 
             var response = await this.apiService.GetPayments(
                 mainViewModel.User.api_token,
@@ -107,7 +146,7 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;

@@ -192,11 +192,12 @@
 
             var mainViewModel = MainViewModel.GetInstance();
 
+
             var response = await this.apiService.GetCategoryProducts(
                 mainViewModel.User.api_token,
                 "https://thenuap.com",
                 this.Category.Id,
-                19);
+                mainViewModel.AddressDetail.Id);
 
             if (response == null)
             {
@@ -212,7 +213,7 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;
@@ -252,6 +253,15 @@
 
             foreach (var item in list)
             {
+                if (item.Image.Contains("https"))
+                {
+                    item.Image = item.Image;
+                }
+                else
+                {
+                    item.Image = "https://thenuap.com/" + item.Image;
+                }
+
                 if (item.CategoryId == this.Category.Id)
                 {
                     this.ProductsCategoryVisibility = true;
@@ -312,7 +322,7 @@
                 SalePrice = p.SalePrice,
                 SpecialPrice = p.SpecialPrice,
                 HasSpecialPrice = p.HasSpecialPrice,
-                Image = "https://thenuap.com/" + p.Image,
+                Image = p.Image,
                 Position = p.Position,
                 StatusText = p.StatusText,
                 StatusColor = p.StatusColor,

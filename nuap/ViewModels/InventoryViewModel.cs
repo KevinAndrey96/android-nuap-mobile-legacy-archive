@@ -7,7 +7,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using Xamarin.Forms;
-    using Models;
+    using nuap.Views;
 
     public class InventoryViewModel: BaseViewModel
     {
@@ -46,7 +46,7 @@
         {
             this.IsRefreshing = true;
             var connection = await this.apiService.CheckConnection();
-            if (!connection.IsSuccess)
+            if (! connection.IsSuccess)
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
@@ -58,9 +58,16 @@
 
             var mainViewModel = MainViewModel.GetInstance();
 
+            int categoryID = 0;
+            if (mainViewModel.CategoryID != null)
+            {
+                categoryID = mainViewModel.CategoryID.Id;
+            }
+
             var response = await this.apiService.GetCategories(
                 mainViewModel.User.api_token,
-                "https://thenuap.com");
+                "https://thenuap.com",
+                categoryID);
 
             if (response == null)
             {
@@ -75,14 +82,28 @@
             if (response.Data == null)
             {
                 this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    response.Errors.First().Detail,
-                    "Aceptar");
-                return;
+
+                if (mainViewModel.CategoryID != null)
+                {
+                    mainViewModel.ProductCommerce = new ProductCommerceViewModel(mainViewModel.CategoryID);
+
+                    mainViewModel.CategoryID = null;
+                    await Application.Current.MainPage.Navigation.PopAsync();
+                    await Application.Current.MainPage.Navigation.PushAsync(new ProductCommercePage());
+
+                    return;
+                } else
+                {
+                    await Application.Current.MainPage.DisplayAlert(
+                        "Información",
+                        response.Errors.First().Detail,
+                        "Aceptar");
+                    return;
+                }
             }
 
-            mainViewModel.CategoryList = (List<Category>)response.Data;
+            mainViewModel.CategoryList = response.Data;
+
             this.Categories = new ObservableCollection<CategoryItemViewModel>(ToCategoryViewModel());
             this.IsRefreshing = false;
         }

@@ -107,7 +107,7 @@
                 this.Message = "";
 
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;
@@ -118,7 +118,7 @@
             this.Issues = "";
 
             await Application.Current.MainPage.DisplayAlert(
-                "",
+                "Información",
                 "Hemos enviado tu solicitud exitosamente",
                 "Aceptar");
             return;

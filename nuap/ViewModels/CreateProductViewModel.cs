@@ -8,6 +8,7 @@
     using System.Windows.Input;
     using Xamarin.Forms;
     using Views;
+    using Helpers;
 
     public class CreateProductViewModel: BaseViewModel
     {
@@ -160,8 +161,7 @@
                         "Desde donde quieres cargar la imagen",
                         "Cancelar",
                         null,
-                        "Cargar desde galeria",
-                        "Cámara"
+                        "Cargar desde galeria"
                     );
 
             if (source == "Cancelar")
@@ -170,7 +170,7 @@
                 return;
             }
 
-            if (source == "Tomar una nueva imagen")
+            if (source == "Cámara")
             {
                 this.file = await CrossMedia.Current.TakePhotoAsync(
                     new StoreCameraMediaOptions
@@ -223,6 +223,20 @@
                 return;
             }
 
+            if (this.file == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "Alerta",
+                    "No has seleccionado una imagen para este producto",
+                    "Aceptar");
+                return;
+            }
+
+
+            byte[] imageArray = null;
+            imageArray = FilesHelper.ReadFully(this.file.GetStream());
+            string s = System.Convert.ToBase64String(imageArray);
+
             var mainViewModel = MainViewModel.GetInstance();
 
             var response = await this.apiService.CreateProduct(
@@ -242,7 +256,8 @@
                  this.SalePrice,
                  this.SpecialPrice,
                  this.HasSpecialPrice,
-                 this.IsFeatured);
+                 this.IsFeatured,
+                 s);
 
 
             if (response == null)
@@ -261,7 +276,7 @@
                 this.IsEnabled = true;
 
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;
@@ -270,7 +285,7 @@
             this.IsEnabled = true;
 
             await Application.Current.MainPage.DisplayAlert(
-                "",
+                "Información",
                 "Se ha creado el producto exitosamente",
                 "Aceptar");
 

@@ -44,7 +44,8 @@
                         HeightRequest="40"
                         TextColor="White"
                         BorderRadius="12"
-                        FontSize="12">
+                        FontSize="12"
+                        IsEnabled="{Binding IsEnabledStatus, Mode=TwoWay}">
                     </Button>
                     <Button
                         Command="{Binding PendingCommand}"
@@ -55,7 +56,8 @@
                         HeightRequest="40"
                         TextColor="White"
                         BorderRadius="12"
-                        FontSize="12">
+                        FontSize="12"
+                        IsEnabled="{Binding IsEnabledStatus, Mode=TwoWay}">
                     </Button>
                 </StackLayout>
             </ScrollView>

@@ -72,11 +72,16 @@
                                                     <TapGestureRecognizer Command="{Binding GetCategoryProductsCommand}"/>
                                                 </Frame.GestureRecognizers>
                                                 <Image 
-                                                    HeightRequest="120"
-                                                    WidthRequest="120"
-                                                    Source="{Binding Image}" 
                                                     HorizontalOptions="CenterAndExpand"
-                                                    VerticalOptions="CenterAndExpand">
+                                                    VerticalOptions="CenterAndExpand"
+	                                                HeightRequest="120"
+                                                    WidthRequest="120">
+                                                    <Image.Source>
+                                                        <UriImageSource 
+                                                            Uri="{Binding Image}" 
+			                                                CacheValidity="14" 
+			                                                CachingEnabled="true"/>
+                                                    </Image.Source>
                                                 </Image>
                                             </Frame>
                                             <Label 
@@ -117,11 +122,16 @@
                                                     <TapGestureRecognizer Command="{Binding GetCategoryProductsCommand}"/>
                                                 </Frame.GestureRecognizers>
                                                 <Image 
-                                                    HeightRequest="120"
-                                                    WidthRequest="120"
-                                                    Source="{Binding Image}" 
                                                     HorizontalOptions="CenterAndExpand"
-                                                    VerticalOptions="CenterAndExpand">
+                                                    VerticalOptions="CenterAndExpand"
+	                                                HeightRequest="120"
+                                                    WidthRequest="120">
+                                                    <Image.Source>
+                                                        <UriImageSource 
+                                                            Uri="{Binding Image}" 
+			                                                CacheValidity="14" 
+			                                                CachingEnabled="true"/>
+                                                    </Image.Source>
                                                 </Image>
                                             </Frame>
                                             <Label 

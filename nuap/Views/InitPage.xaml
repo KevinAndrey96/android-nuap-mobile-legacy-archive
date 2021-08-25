@@ -16,7 +16,7 @@
                     <Image 
                         Margin="20,15,0,0"
                         HeightRequest="30"
-                        Source="compras" 
+                        Source="{Binding CartImage}" 
                         HorizontalOptions="Start"
                         VerticalOptions="Center">
                         <Image.GestureRecognizers>
@@ -26,8 +26,8 @@
                     <Label
                         Text="Ver carrito"
                         Padding="0,15,0,0"
-                        TextColor="#2E3192" 
-                        FontFamily="Poppins"
+                        TextColor="#0274BC" 
+                        FontFamily="Poppins-Bold"
                         FontSize="14"
                         VerticalOptions="Center">
                         <Label.GestureRecognizers>
@@ -58,203 +58,238 @@
                         HorizontalScrollBarVisibility="Never"
                         Orientation="Horizontal">
                         <StackLayout
-                            Padding="0,0,5,0"
+                            Padding="0,0,0,0"
                             Orientation="Horizontal">
-                            <Grid
-                                IsVisible="{Binding ViewAddressOne}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="110"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout 
+                            <Frame
+                                VerticalOptions="FillAndExpand"
+                                IsVisible="{Binding ViewAddressOne}"
+                                CornerRadius="25"
+                                BackgroundColor="{Binding AddressOneColor}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="110"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                        Padding="0,0,0,0"
+                                        Grid.Column="0"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center">
+                                        <Image
+                                            Source="mapa"
+                                            HeightRequest="50">
+                                        </Image>
+                                    </StackLayout>
+                                    <StackLayout 
+                                        Padding="5,0,5,0"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins-Bold"
+                                            FontSize="12" 
+                                            Text="{Binding AddressOneN}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins"
+                                            FontSize="12" 
+                                            Text="{Binding AddressOne}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                            <Frame
+                                IsVisible="{Binding ViewAddressTwo}"
+                                CornerRadius="30"
+                                BackgroundColor="{Binding AddressTwoColor}"
+                                VerticalOptions="FillAndExpand">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="110"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                            Padding="5,0,5,0"
+                                            Grid.Column="0"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center">
+                                        <Image
+                                            Source="mapa"
+                                            HeightRequest="50">
+                                        </Image>
+                                    </StackLayout>
+                                    <StackLayout 
+                                        Padding="5,0,5,0"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins-Bold"
+                                            FontSize="12" 
+                                            Text="{Binding AddressTwoN}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins"
+                                            FontSize="12" 
+                                            Text="{Binding AddressTwo}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                            <Frame
+                                VerticalOptions="FillAndExpand"
+                                IsVisible="{Binding ViewAddressThree}"
+                                CornerRadius="25"
+                                BackgroundColor="{Binding AddressThreeColor}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="110"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
                                         Padding="5,0,5,0"
                                         Grid.Column="0"
                                         HorizontalOptions="Start"
                                         VerticalOptions="Center">
-                                    <Image
-                                        Source="mapa"
-                                        HeightRequest="70">
-                                    </Image>
-                                </StackLayout>
-                                <StackLayout 
-                                    Padding="5,0,5,0"
-                                    Grid.Column="1"
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="Center">
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="13" 
-                                        Text="{Binding AddressOneN}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins"
-                                        FontSize="13" 
-                                        Text="{Binding AddressOne}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                </StackLayout>
-                            </Grid>
-                            <Grid
-                                IsVisible="{Binding ViewAddressTwo}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="110"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout 
+                                        <Image
+                                            Source="mapa"
+                                            HeightRequest="50">
+                                        </Image>
+                                    </StackLayout>
+                                    <StackLayout 
                                         Padding="5,0,5,0"
-                                        Grid.Column="0"
+                                        Grid.Column="1"
                                         HorizontalOptions="Start"
                                         VerticalOptions="Center">
-                                    <Image
-                                        Source="mapa"
-                                        HeightRequest="70">
-                                    </Image>
-                                </StackLayout>
-                                <StackLayout 
-                                    Padding="5,0,5,0"
-                                    Grid.Column="1"
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="Center">
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="13" 
-                                        Text="{Binding AddressTwoN}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins"
-                                        FontSize="13" 
-                                        Text="{Binding AddressTwo}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                </StackLayout>
-                            </Grid>
-                            <Grid
-                                IsVisible="{Binding ViewAddressThree}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="110"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout 
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins-Bold"
+                                            FontSize="12" 
+                                            Text="{Binding AddressThreeN}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins"
+                                            FontSize="12" 
+                                            Text="{Binding AddressThree}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                            <Frame
+                                IsVisible="{Binding ViewAddressFour}"
+                                CornerRadius="25"
+                                BackgroundColor="{Binding AddressFourColor}"
+                                VerticalOptions="FillAndExpand">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="110"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                            Padding="5,0,5,0"
+                                            Grid.Column="0"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center">
+                                        <Image
+                                            Source="mapa"
+                                            HeightRequest="50">
+                                        </Image>
+                                    </StackLayout>
+                                    <StackLayout 
                                         Padding="5,0,5,0"
-                                        Grid.Column="0"
+                                        Grid.Column="1"
                                         HorizontalOptions="Start"
                                         VerticalOptions="Center">
-                                    <Image
-                                        Source="mapa"
-                                        HeightRequest="70">
-                                    </Image>
-                                </StackLayout>
-                                <StackLayout 
-                                    Padding="5,0,5,0"
-                                    Grid.Column="1"
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="Center">
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="13" 
-                                        Text="{Binding AddressThreeN}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins"
-                                        FontSize="13" 
-                                        Text="{Binding AddressThree}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                </StackLayout>
-                            </Grid>
-                            <Grid
-                                IsVisible="{Binding ViewAddressFour}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="110"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout 
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins-Bold"
+                                            FontSize="12" 
+                                            Text="{Binding AddressFourN}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins"
+                                            FontSize="12" 
+                                            Text="{Binding AddressFour}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                            <Frame
+                                IsVisible="{Binding ViewAddressFive}"
+                                CornerRadius="25"
+                                BackgroundColor="{Binding AddressFiveColor}"
+                                VerticalOptions="FillAndExpand">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="110"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                            Padding="5,0,5,0"
+                                            Grid.Column="0"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center">
+                                        <Image
+                                            Source="mapa"
+                                            HeightRequest="50">
+                                        </Image>
+                                    </StackLayout>
+                                    <StackLayout 
                                         Padding="5,0,5,0"
-                                        Grid.Column="0"
+                                        Grid.Column="1"
                                         HorizontalOptions="Start"
                                         VerticalOptions="Center">
-                                    <Image
-                                        Source="mapa"
-                                        HeightRequest="70">
-                                    </Image>
-                                </StackLayout>
-                                <StackLayout 
-                                    Padding="5,0,5,0"
-                                    Grid.Column="1"
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="Center">
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="13" 
-                                        Text="{Binding AddressFourN}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins"
-                                        FontSize="13" 
-                                        Text="{Binding AddressFour}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                </StackLayout>
-                            </Grid>
-                            <Grid
-                                IsVisible="{Binding ViewAddressFive}">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="110"/>
-                                </Grid.ColumnDefinitions>
-                                <StackLayout 
-                                        Padding="5,0,5,0"
-                                        Grid.Column="0"
-                                        HorizontalOptions="Start"
-                                        VerticalOptions="Center">
-                                    <Image
-                                        Source="mapa"
-                                        HeightRequest="70">
-                                    </Image>
-                                </StackLayout>
-                                <StackLayout 
-                                    Padding="5,0,5,0"
-                                    Grid.Column="1"
-                                    HorizontalOptions="Start"
-                                    VerticalOptions="Center">
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins-Bold"
-                                        FontSize="13" 
-                                        Text="{Binding AddressFiveN}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                    <Label 
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Start"
-                                        FontFamily="Poppins"
-                                        FontSize="13" 
-                                        Text="{Binding AddressFive}"
-                                        TextColor="#3a3a3a">
-                                    </Label>
-                                </StackLayout>
-                            </Grid>
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins-Bold"
+                                            FontSize="12" 
+                                            Text="{Binding AddressFiveN}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                        <Label 
+                                            LineBreakMode="TailTruncation"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start"
+                                            FontFamily="Poppins"
+                                            FontSize="12" 
+                                            Text="{Binding AddressFive}"
+                                            TextColor="#3a3a3a">
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
                         </StackLayout>
                     </ScrollView>
                 </StackLayout>
@@ -299,19 +334,27 @@
                             <StackLayout
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding C1}">
-                                <Frame CornerRadius="20"
+                                <Frame 
+                                    IsEnabled="{Binding Enabled1}"
+                                    CornerRadius="20"
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
                                     <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding GetCategoryProductsC1Command}"/>
+                                        <TapGestureRecognizer
+                                            Command="{Binding GetCategoryProductsC1Command}"/>
                                     </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding C1i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding C1i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -326,7 +369,9 @@
                             <StackLayout
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding C2}">
-                                <Frame CornerRadius="20"
+                                <Frame 
+                                    IsEnabled="{Binding Enabled2}"
+                                    CornerRadius="20"
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
@@ -334,11 +379,16 @@
                                         <TapGestureRecognizer Command="{Binding GetCategoryProductsC2Command}"/>
                                     </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding C2i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding C2i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -353,7 +403,9 @@
                             <StackLayout
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding C3}">
-                                <Frame CornerRadius="20"
+                                <Frame 
+                                    IsEnabled="{Binding Enabled3}"
+                                    CornerRadius="20"
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
@@ -361,11 +413,16 @@
                                         <TapGestureRecognizer Command="{Binding GetCategoryProductsC3Command}"/>
                                     </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding C3i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding C3i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -379,6 +436,7 @@
                             </StackLayout>
                             <StackLayout
                                 Padding="0,0,15,0"
+                                IsEnabled="{Binding Enabled4}"
                                 IsVisible="{Binding C4}">
                                 <Frame CornerRadius="20"
                                     Padding="0"
@@ -388,11 +446,16 @@
                                         <TapGestureRecognizer Command="{Binding GetCategoryProductsC4Command}"/>
                                     </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding C4i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding C4i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -406,6 +469,7 @@
                             </StackLayout>
                             <StackLayout
                                 Padding="0,0,15,0"
+                                IsEnabled="{Binding Enabled5}"
                                 IsVisible="{Binding C5}">
                                 <Frame CornerRadius="20"
                                     Padding="0"
@@ -415,11 +479,16 @@
                                         <TapGestureRecognizer Command="{Binding GetCategoryProductsC5Command}"/>
                                     </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding C5i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding C5i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -445,7 +514,7 @@
                         FontSize="16"
                         VerticalOptions="Center">
                     </Label>
-                    <Button
+                    <!--<Button
                         VerticalOptions="EndAndExpand"
                         HorizontalOptions="EndAndExpand"
                         Text="Ver todo"
@@ -455,7 +524,7 @@
                         BackgroundColor="Transparent"
                         TextColor="#c4c4c4"
                         FontSize="13">
-                    </Button>
+                    </Button>-->
                 </StackLayout>
                 <StackLayout>
                     <ScrollView
@@ -466,17 +535,26 @@
                             Orientation="Horizontal">
                             <StackLayout
                                 Padding="0,0,15,0"
+                                IsEnabled="{Binding Enabled6}"
                                 IsVisible="{Binding S1}">
                                 <Frame CornerRadius="20"
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ViewStoreOneCommand}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding S1i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding S1i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -490,17 +568,26 @@
                             </StackLayout>
                             <StackLayout
                                 Padding="0,0,15,0"
+                                IsEnabled="{Binding Enabled7}"
                                 IsVisible="{Binding S2}">
                                 <Frame CornerRadius="20"
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ViewStoreTwoCommand}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding S2i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding S2i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -514,17 +601,26 @@
                             </StackLayout>
                             <StackLayout
                                 Padding="0,0,15,0"
+                                IsEnabled="{Binding Enabled8}"
                                 IsVisible="{Binding S3}">
                                 <Frame CornerRadius="20"
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ViewStoreThreeCommand}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding S3i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding S3i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -538,17 +634,26 @@
                             </StackLayout>
                             <StackLayout
                                 Padding="0,0,15,0"
+                                IsEnabled="{Binding Enabled9}"
                                 IsVisible="{Binding S4}">
                                 <Frame CornerRadius="20"
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ViewStoreFourCommand}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding S4i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding S4i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -562,17 +667,26 @@
                             </StackLayout>
                             <StackLayout
                                 Padding="0,0,15,0"
+                                IsEnabled="{Binding Enabled10}"
                                 IsVisible="{Binding S5}">
                                 <Frame CornerRadius="20"
                                     Padding="0"
                                     HorizontalOptions="Center"
                                     IsClippedToBounds="True">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ViewStoreFiveCommand}"/>
+                                    </Frame.GestureRecognizers>
                                     <Image 
-                                        HeightRequest="70"
-                                        WidthRequest="70"
-                                        Source="{Binding S5i}" 
                                         HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand">
+                                        VerticalOptions="CenterAndExpand"
+	                                    HeightRequest="70"
+                                        WidthRequest="70">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding S5i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </Frame>
                                 <Label 
@@ -607,6 +721,7 @@
                             Padding="20,0,0,0"
                             Orientation="Horizontal">
                             <Grid
+                                IsEnabled="{Binding Enabled11}"
                                 IsVisible="{Binding O1}">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductO1Command}"/>
@@ -620,9 +735,14 @@
                                         Grid.Column="1"
                                         HorizontalOptions="Start"
                                         VerticalOptions="Center">
-                                    <Image
-                                        Source="{Binding O1i}"
-                                        HeightRequest="80">
+                                    <Image 
+	                                    HeightRequest="80">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding O1i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </StackLayout>
                                 <StackLayout 
@@ -631,10 +751,12 @@
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center">
                                     <Label 
+                                        WidthRequest="120"
+                                        LineBreakMode="TailTruncation"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="15" 
+                                        FontSize="14" 
                                         Text="{Binding O1n}"
                                         TextColor="#3a3a3a">
                                     </Label>
@@ -645,7 +767,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="16" 
+                                            FontSize="15" 
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O1rp}"
                                             TextColor="#c4c4c4">
@@ -658,7 +780,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="20" 
+                                            FontSize="19"
                                             Text="{Binding O1p}"
                                             TextColor="#0274bc">
                                         </Label>
@@ -666,6 +788,7 @@
                                 </StackLayout>
                             </Grid>
                             <Grid
+                                IsEnabled="{Binding Enabled12}"
                                 IsVisible="{Binding O2}">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductO2Command}"/>
@@ -679,9 +802,14 @@
                                         Grid.Column="1"
                                         HorizontalOptions="Start"
                                         VerticalOptions="Center">
-                                    <Image
-                                        Source="{Binding O2i}"
-                                        HeightRequest="80">
+                                    <Image 
+	                                    HeightRequest="80">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding O2i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </StackLayout>
                                 <StackLayout 
@@ -690,10 +818,12 @@
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center">
                                     <Label 
+                                        WidthRequest="120"
+                                        LineBreakMode="TailTruncation"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="15" 
+                                        FontSize="14"
                                         Text="{Binding O2n}"
                                         TextColor="#3a3a3a">
                                     </Label>
@@ -704,7 +834,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="16" 
+                                            FontSize="15"
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O2rp}"
                                             TextColor="#c4c4c4">
@@ -716,7 +846,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="20" 
+                                            FontSize="19"
                                             Text="{Binding O2p}"
                                             TextColor="#0274bc">
                                         </Label>
@@ -724,6 +854,7 @@
                                 </StackLayout>
                             </Grid>
                             <Grid
+                                IsEnabled="{Binding Enabled13}"
                                 IsVisible="{Binding O3}">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductO3Command}"/>
@@ -737,9 +868,14 @@
                                         Grid.Column="1"
                                         HorizontalOptions="Start"
                                         VerticalOptions="Center">
-                                    <Image
-                                        Source="{Binding O3i}"
-                                        HeightRequest="80">
+                                    <Image 
+	                                    HeightRequest="80">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding O3i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </StackLayout>
                                 <StackLayout 
@@ -748,10 +884,12 @@
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center">
                                     <Label 
+                                        WidthRequest="120"
+                                        LineBreakMode="TailTruncation"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="15" 
+                                        FontSize="14" 
                                         Text="{Binding O3n}"
                                         TextColor="#3a3a3a">
                                     </Label>
@@ -762,7 +900,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="16" 
+                                            FontSize="15" 
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O3rp}"
                                             TextColor="#c4c4c4">
@@ -774,7 +912,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="20" 
+                                            FontSize="19" 
                                             Text="{Binding O3p}"
                                             TextColor="#0274bc">
                                         </Label>
@@ -782,6 +920,7 @@
                                 </StackLayout>
                             </Grid>
                             <Grid
+                                IsEnabled="{Binding Enabled14}"
                                 IsVisible="{Binding O4}">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductO4Command}"/>
@@ -795,9 +934,14 @@
                                         Grid.Column="1"
                                         HorizontalOptions="Start"
                                         VerticalOptions="Center">
-                                    <Image
-                                        Source="{Binding O4i}"
-                                        HeightRequest="80">
+                                    <Image 
+	                                    HeightRequest="80">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding O4i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </StackLayout>
                                 <StackLayout 
@@ -806,10 +950,12 @@
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center">
                                     <Label 
+                                        WidthRequest="120"
+                                        LineBreakMode="TailTruncation"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="15" 
+                                        FontSize="14" 
                                         Text="{Binding O4n}"
                                         TextColor="#3a3a3a">
                                     </Label>
@@ -820,7 +966,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="16" 
+                                            FontSize="15" 
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O4rp}"
                                             TextColor="#c4c4c4">
@@ -832,7 +978,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="20" 
+                                            FontSize="19" 
                                             Text="{Binding O4p}"
                                             TextColor="#0274bc">
                                         </Label>
@@ -840,6 +986,7 @@
                                 </StackLayout>
                             </Grid>
                             <Grid
+                                IsEnabled="{Binding Enabled15}"
                                 IsVisible="{Binding O5}">
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductO5Command}"/>
@@ -853,9 +1000,14 @@
                                         Grid.Column="1"
                                         HorizontalOptions="Start"
                                         VerticalOptions="Center">
-                                    <Image
-                                        Source="{Binding O5i}"
-                                        HeightRequest="80">
+                                    <Image 
+	                                    HeightRequest="80">
+                                        <Image.Source>
+                                            <UriImageSource 
+                                                Uri="{Binding O5i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                        </Image.Source>
                                     </Image>
                                 </StackLayout>
                                 <StackLayout 
@@ -864,10 +1016,12 @@
                                     HorizontalOptions="Start"
                                     VerticalOptions="Center">
                                     <Label 
+                                        WidthRequest="120"
+                                        LineBreakMode="TailTruncation"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="15" 
+                                        FontSize="14" 
                                         Text="{Binding O5n}"
                                         TextColor="#3a3a3a">
                                     </Label>
@@ -878,7 +1032,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="16" 
+                                            FontSize="15" 
                                             TextDecorations="Strikethrough"
                                             Text="{Binding O5rp}"
                                             TextColor="#c4c4c4">
@@ -890,7 +1044,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins-Bold"
-                                            FontSize="20" 
+                                            FontSize="19" 
                                             Text="{Binding O5p}"
                                             TextColor="#0274bc">
                                         </Label>
@@ -921,21 +1075,29 @@
                             Orientation="Horizontal">
                             <StackLayout
                                 Padding="0,0,15,0"
+                                IsEnabled="{Binding Enabled16}"
                                 IsVisible="{Binding D1}">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductD1Command}"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image 
-                                    HeightRequest="100"
-                                    Source="{Binding D1i}" 
+	                                HeightRequest="100"
                                     HorizontalOptions="CenterAndExpand"
                                     VerticalOptions="CenterAndExpand">
+                                    <Image.Source>
+                                        <UriImageSource 
+                                                Uri="{Binding D1i}" 
+			                                    CacheValidity="14" 
+			                                    CachingEnabled="true"/>
+                                    </Image.Source>
                                 </Image>
                                 <Label 
+                                    WidthRequest="130"
+                                    LineBreakMode="TailTruncation"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Start"
                                     FontFamily="Poppins-Bold"
-                                    FontSize="15" 
+                                    FontSize="14" 
                                     Text="{Binding D1n}"
                                     TextColor="#3a3a3a">
                                 </Label>
@@ -945,7 +1107,7 @@
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="20" 
+                                        FontSize="19" 
                                         Text="{Binding D1p}"
                                         TextColor="#0274bc">
                                     </Label>
@@ -953,21 +1115,29 @@
                             </StackLayout>
                             <StackLayout
                                 Padding="0,0,15,0"
+                                IsEnabled="{Binding Enabled17}"
                                 IsVisible="{Binding D2}">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductD2Command}"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image 
-                                    HeightRequest="100"
-                                    Source="{Binding D2i}" 
+	                                HeightRequest="100"
                                     HorizontalOptions="CenterAndExpand"
                                     VerticalOptions="CenterAndExpand">
+                                    <Image.Source>
+                                        <UriImageSource 
+                                            Uri="{Binding D2i}" 
+			                                CacheValidity="14" 
+			                                CachingEnabled="true"/>
+                                    </Image.Source>
                                 </Image>
                                 <Label 
+                                    WidthRequest="130"
+                                    LineBreakMode="TailTruncation"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Start"
                                     FontFamily="Poppins-Bold"
-                                    FontSize="15" 
+                                    FontSize="14" 
                                     Text="{Binding D2n}"
                                     TextColor="#3a3a3a">
                                 </Label>
@@ -977,29 +1147,37 @@
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="20" 
+                                        FontSize="19" 
                                         Text="{Binding D2p}"
                                         TextColor="#0274bc">
                                     </Label>
                                 </StackLayout>
                             </StackLayout>
                             <StackLayout
+                                IsEnabled="{Binding Enabled18}"
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding D3}">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductD3Command}"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image 
-                                    HeightRequest="100"
-                                    Source="{Binding D3i}" 
+	                                HeightRequest="100"
                                     HorizontalOptions="CenterAndExpand"
                                     VerticalOptions="CenterAndExpand">
+                                    <Image.Source>
+                                        <UriImageSource 
+                                            Uri="{Binding D3i}" 
+			                                CacheValidity="14" 
+			                                CachingEnabled="true"/>
+                                    </Image.Source>
                                 </Image>
                                 <Label 
+                                    WidthRequest="130"
+                                    LineBreakMode="TailTruncation"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Start"
                                     FontFamily="Poppins-Bold"
-                                    FontSize="15" 
+                                    FontSize="14" 
                                     Text="{Binding D3n}"
                                     TextColor="#3a3a3a">
                                 </Label>
@@ -1009,29 +1187,37 @@
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="20" 
+                                        FontSize="19" 
                                         Text="{Binding D3p}"
                                         TextColor="#0274bc">
                                     </Label>
                                 </StackLayout>
                             </StackLayout>
                             <StackLayout
+                                IsEnabled="{Binding Enabled19}"
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding D4}">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductD4Command}"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image 
-                                    HeightRequest="100"
-                                    Source="{Binding D4i}" 
+	                                HeightRequest="100"
                                     HorizontalOptions="CenterAndExpand"
                                     VerticalOptions="CenterAndExpand">
+                                    <Image.Source>
+                                        <UriImageSource 
+                                            Uri="{Binding D4i}" 
+			                                CacheValidity="14" 
+			                                CachingEnabled="true"/>
+                                    </Image.Source>
                                 </Image>
                                 <Label 
+                                    WidthRequest="130"
+                                    LineBreakMode="TailTruncation"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Start"
                                     FontFamily="Poppins-Bold"
-                                    FontSize="15" 
+                                    FontSize="14" 
                                     Text="{Binding D4n}"
                                     TextColor="#3a3a3a">
                                 </Label>
@@ -1041,29 +1227,37 @@
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="20" 
+                                        FontSize="19" 
                                         Text="{Binding D4p}"
                                         TextColor="#0274bc">
                                     </Label>
                                 </StackLayout>
                             </StackLayout>
                             <StackLayout
+                                IsEnabled="{Binding Enabled20}"
                                 Padding="0,0,15,0"
                                 IsVisible="{Binding D5}">
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding AddProductD5Command}"/>
                                 </StackLayout.GestureRecognizers>
                                 <Image 
-                                    HeightRequest="100"
-                                    Source="{Binding D5i}" 
+	                                HeightRequest="100"
                                     HorizontalOptions="CenterAndExpand"
                                     VerticalOptions="CenterAndExpand">
+                                    <Image.Source>
+                                        <UriImageSource 
+                                            Uri="{Binding D5i}" 
+			                                CacheValidity="14" 
+			                                CachingEnabled="true"/>
+                                    </Image.Source>
                                 </Image>
                                 <Label 
+                                    WidthRequest="130"
+                                    LineBreakMode="TailTruncation"
                                     VerticalOptions="Center"
                                     HorizontalOptions="Start"
                                     FontFamily="Poppins-Bold"
-                                    FontSize="15" 
+                                    FontSize="14" 
                                     Text="{Binding D5n}"
                                     TextColor="#3a3a3a">
                                 </Label>
@@ -1073,7 +1267,7 @@
                                         VerticalOptions="Center"
                                         HorizontalOptions="Start"
                                         FontFamily="Poppins-Bold"
-                                        FontSize="20" 
+                                        FontSize="19" 
                                         Text="{Binding D5p}"
                                         TextColor="#0274bc">
                                     </Label>

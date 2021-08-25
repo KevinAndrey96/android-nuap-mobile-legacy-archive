@@ -8,7 +8,7 @@
     using Xamarin.Forms;
     using Services;
     using System.Linq;
-    using System.Collections.Generic;
+    using Helpers;
 
     public class CartViewModel : BaseViewModel
     {
@@ -19,6 +19,13 @@
         private string total;
         private string delivery;
         private string discount;
+        private string addressText;
+
+        public string AddressText
+        {
+            get { return this.addressText; }
+            set { SetValue(ref this.addressText, value); }
+        }
 
         public bool IsRefreshing
         {
@@ -56,29 +63,27 @@
             set { SetValue(ref this.cart, value); }
         }
 
-        public ICommand DiminishCommand
+        public ICommand ChoosePaymentMethodCommand
         {
             get
             {
-                //return new RelayCommand(Diminish);
-                return new Command<string>((x) => Diminish(x));
+                return new RelayCommand(ChoosePaymentMethod);
             }
         }
 
-        public ICommand CreateOrderCommand
+        public ICommand AddProductsCommand
         {
             get
             {
-                return new RelayCommand(CreateOrder);
+                return new RelayCommand(AddProducts);
             }
         }
 
-
-        public ICommand IncreaseCommand
+        public ICommand RefreshCommand
         {
             get
             {
-                return new RelayCommand(Increase);
+                return new RelayCommand(LoadCart);
             }
         }
 
@@ -89,49 +94,11 @@
             this.LoadCart();
         }
 
-        private async void Diminish(string Id)
-        {
-            await Application.Current.MainPage.DisplayAlert(
-                    "Alerta",
-                    "Si sirvio" + Id,
-                    "Aceptar");
-            return;
-
-            /*if ((this.Quantity - 1) < 0)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Alerta",
-                    "No puedes agregar menos de 0 productos",
-                    "Aceptar");
-                return;
-            }
-            else
-            {
-                this.Quantity = this.Quantity - 1;
-                this.Total = this.Price * this.Quantity;
-            }*/
-        }
-
-        private async void Increase()
-        {
-            /*if ((this.Quantity + 1) > this.Product.Stock)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Alerta",
-                    "No puedes agregar más de " + this.Product.Stock + " productos",
-                    "Aceptar");
-                return;
-            }
-            else
-            {
-                this.Quantity = this.Quantity + 1;
-                this.Total = this.Price * this.Quantity;
-            }*/
-        }
-
         private void LoadCart()
         {
             var mainViewModel = MainViewModel.GetInstance();
+            this.AddressText = mainViewModel.AddressDetail.Addres;
+
             this.Cart = new ObservableCollection<Cart>(mainViewModel.CartList);
             this.IsRefreshing = false;
             this.CalculateDelivery();
@@ -170,76 +137,38 @@
 
             if (response.Errors != null)
             {
+                mainViewModel.CartList = null;
+                Settings.CartList = "";
+
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
-                return;
-            }
 
-            this.Delivery = response.Data.DeliveryTotal;
-            this.Total = response.Data.Total;
-            this.Discount = response.Data.Discount;
-               
-            this.IsEnabled = true;
+                mainViewModel.HomeCommerce = new HomeCommerceViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
+            } else
+            {
+                this.Delivery = response.Data.DeliveryTotal;
+                this.Total = response.Data.Total;
+                this.Discount = response.Data.Discount;
+
+                this.IsEnabled = true;
+            }
         }
 
-        private async void CreateOrder()
+        private async void ChoosePaymentMethod()
         {
-            var connection = await this.apiService.CheckConnection();
-            if (!connection.IsSuccess)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    connection.Message,
-                    "Aceptar");
-                return;
-            }
-
             var mainViewModel = MainViewModel.GetInstance();
-            var data = new CartDataService();
-            data.Products = mainViewModel.CartList;
+            mainViewModel.CreateOrder = new CreateOrderViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new ChoosePaymentMethodPage());
+        }
 
-            var response = await this.apiService.CreateOrder(
-                 "https://thenuap.com",
-                 mainViewModel.User.api_token,
-                 19,
-                 data);
-
-            if (response == null)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Ha ocurrido un error",
-                    "Aceptar");
-                return;
-            }
-
-            if (response.Errors != null)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    response.Errors.First().Detail,
-                    "Aceptar");
-                return;
-            }
-
-            List<int> orders = response.Data.Orders;
-            string url = "https://thenuap.com/payment-gateway?";
-            string user = "user=" + mainViewModel.User.id;
-            int count = 0;
-            foreach (var item in orders)
-            {
-                url += "orders[" + count + "]=" + item + "&";
-                count++;
-            }
-
-            url += user;
-
-            mainViewModel.CartList = null;
-
-            mainViewModel.PaymentGateway = new PaymentGatewayViewModel(url);
-            await Application.Current.MainPage.Navigation.PushAsync(new PaymentGatewayPage());
+        private async void AddProducts()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.HomeCommerce = new HomeCommerceViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
         }
     }
 }

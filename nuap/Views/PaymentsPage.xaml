@@ -23,7 +23,7 @@
                         Padding="0,5,0,0"
                         TextColor="#6fcf97" 
                         FontFamily="Poppins-Bold"
-                        FontSize="38"
+                        FontSize="34"
                         HorizontalOptions="Center"
                         VerticalOptions="Center">
                     </Label>
@@ -38,7 +38,7 @@
                     </Label>
                     <Label
                         Text="Estás viendo el valor actual disponible para retiro, puedes revisar el detalle de tus ventas para obtener mayor información. Ten en cuenta que un retiro puede verse reflejado en hasta 5 días hábiles dependiendo de tu banco."
-                        Padding="70,5,50,0"
+                        Padding="70,3,50,0"
                         TextColor="#494949" 
                         FontFamily="Poppins"
                         FontSize="15"

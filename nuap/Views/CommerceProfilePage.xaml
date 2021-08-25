@@ -142,29 +142,6 @@
                             Text="{Binding ShippingCost, Mode=TwoWay}">
                         </Label>
                     </StackLayout>
-                    <Label
-                        Text="¿Deseas cambiar tu contraseña?"
-                        TextColor="#0274bc" 
-                        FontFamily="Poppins-Bold"
-                        FontSize="15"
-                        VerticalOptions="Center">
-                    </Label>
-                    <StackLayout
-                        Padding="20,10,20,0">
-                        <Button
-                            Text="Cambiar Clave"
-                            FontFamily="Poppins"
-                            TextTransform="None"
-                            BackgroundColor="#ffc33a"
-                            HeightRequest="50"
-                            TextColor="#4d483a"
-                            BorderRadius="25"
-                            Padding="0,15"
-                            FontSize="16"
-                            Command="{Binding ChangePasswordCommand}"
-                            IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
-                        </Button>
-                    </StackLayout>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

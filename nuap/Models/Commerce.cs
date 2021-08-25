@@ -28,10 +28,16 @@
         [JsonProperty(PropertyName = "url_logo")]
         public string UrlLogo { get; set; }
 
+        [JsonProperty(PropertyName = "header")]
+        public string Header { get; set; }
+
         [JsonProperty(PropertyName = "shipping_cost")]
         public string ShippingCost { get; set; }
 
         [JsonProperty(PropertyName = "distance")]
         public string Distance { get; set; }
+
+        [JsonProperty(PropertyName = "balance")]
+        public string Balance { get; set; }
     }
 }

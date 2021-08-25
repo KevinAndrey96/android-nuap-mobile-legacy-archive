@@ -7,5 +7,8 @@
     {
         [JsonProperty(PropertyName = "products")]
         public List<Cart> Products { get; set; }
+
+        [JsonProperty(PropertyName = "is_cash")]
+        public bool IsCash { get; set; }
     }
 }

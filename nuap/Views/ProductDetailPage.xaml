@@ -42,7 +42,7 @@
                             Padding="20,0,0,0"
                             TextColor="white" 
                             FontFamily="Poppins-Bold"
-                            FontSize="16"
+                            FontSize="14"
                             VerticalOptions="Center">
                         </Label>
                         <Label
@@ -50,14 +50,6 @@
                             Padding="20,0,0,0"
                             TextColor="white" 
                             FontFamily="Poppins-Bold"
-                            FontSize="18"
-                            VerticalOptions="Center">
-                        </Label>
-                        <Label
-                            Text="Vendido por Nuap Store Centro"
-                            Padding="20,0,0,0"
-                            TextColor="white" 
-                            FontFamily="Poppins"
                             FontSize="14"
                             VerticalOptions="Center">
                         </Label>
@@ -67,7 +59,7 @@
                     HorizontalOptions="Start"
                     VerticalOptions="Center">
                     <Frame 
-                        Margin="180,2,0,0"
+                        Margin="180,8,0,0"
                         CornerRadius="20"
                         Padding="0,0,0,0"
                         HeightRequest="50"
@@ -82,7 +74,7 @@
                                 Padding="20,5,0,0"
                                 TextColor="white" 
                                 FontFamily="Poppins-Bold"
-                                FontSize="18"
+                                FontSize="16"
                                 VerticalOptions="Center">
                             </Label>
                         </StackLayout>
@@ -109,7 +101,7 @@
                             Padding="20,0,0,0"
                             TextColor="#c4c4c4" 
                             FontFamily="Poppins"
-                            FontSize="16"
+                            FontSize="15"
                             VerticalOptions="Center">
                         </Label>
                         <Label

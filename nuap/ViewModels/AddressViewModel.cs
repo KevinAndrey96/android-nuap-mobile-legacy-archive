@@ -85,23 +85,40 @@
             {
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    response.Errors.First().Detail,
+                    "",
+                    "Debes agregar una dirección para poder continuar",
                     "Aceptar");
-                return;
+
+                mainViewModel.CreateAddress = new CreateAddressViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
+            } else
+            {
+                this.list = response.Data;
+
+                this.Address = new ObservableCollection<Address>(ToAddressItemViewModel(this.list));
+                this.IsRefreshing = false;
             }
-
-            this.list = response.Data;
-
-            this.Address = new ObservableCollection<Address>((this.list));
-            this.IsRefreshing = false;
         }
 
         private async void CreateAddress()
         {
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.CreateAddress = new CreateAddressViewModel();
-            //await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
+        }
+
+        private IEnumerable<AddressItemViewModel> ToAddressItemViewModel(List<Address> list)
+        {
+            return list.Select(a => new AddressItemViewModel
+            {
+                Id = a.Id,
+                Addres = a.Addres,
+                Latitude = a.Latitude,
+                Longitude = a.Longitude,
+                City = a.City,
+                Location = a.Location,
+                Neighborhood = a.Neighborhood
+            });
         }
     }
 }

@@ -15,11 +15,18 @@
         private string shippingCost;
         private bool isEnabled;
         private string logo;
+        private string header;
 
         public string Email
         {
             get { return this.email; }
             set { SetValue(ref this.email, value); }
+        }
+
+        public string Header
+        {
+            get { return this.header; }
+            set { SetValue(ref this.header, value); }
         }
 
         public string Phone
@@ -96,7 +103,7 @@
             if (response.Data == null)
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
+                    "Información",
                     response.Errors.First().Detail,
                     "Aceptar");
                 return;

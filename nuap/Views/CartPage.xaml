@@ -33,7 +33,7 @@
                     Source="ic_marcador_de_posicion">
                 </Image>
                 <Label
-                    Text="Direccion 01"
+                    Text="{Binding AddressText}"
                     Margin="0,20,0,0"
                     TextColor="#3a3a3a" 
                     FontFamily="Poppins-Bold"
@@ -244,8 +244,25 @@
                     BorderRadius="18"
                     Padding="0,15"
                     FontSize="15"
-                    Command="{Binding CreateOrderCommand}"
+                    Command="{Binding ChoosePaymentMethodCommand}"
                     IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                </Button>
+            </StackLayout>
+            <StackLayout>
+                <Button
+                    Margin="0,0,10,10"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Agregar más productos"
+                    FontFamily="Poppins"
+                    TextTransform="None"
+                    BackgroundColor="#fd8700"
+                    HeightRequest="50"
+                    TextColor="White"
+                    BorderRadius="18"
+                    FontSize="15"
+                    Command="{Binding AddProductsCommand}"
+                    IsEnabled="{Binding IsEnabledProducts, Mode=TwoWay}">
                 </Button>
             </StackLayout>
         </StackLayout>

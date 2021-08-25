@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}"
+    x:Class="nuap.Views.AccountPage"
+    BackgroundImageSource="register.png">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="15,10,20,0"
+            BindingContext="{Binding Account}">
+            <Label
+                Padding="0,0,0,0"
+                Text="Necesitas una cuenta bancaria para solicitar un retiro"
+                TextColor="White" 
+                HorizontalTextAlignment="Center"
+                FontSize="18"
+                FontFamily="Poppins-Bold"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            </Label>
+            <Label
+                Text="Crea una cuenta para continuar"
+                TextColor="White" 
+                FontFamily="Poppins"
+                FontSize="15"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            </Label>
+            <ScrollView
+                HeightRequest="500">
+                <StackLayout
+                    Padding="20,60,0,0">
+                    <StackLayout
+                        Padding="0,2,0,0"
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal">
+                        <Button
+                            Text="{Binding Text}"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            BackgroundColor="{Binding Color}"
+                            HeightRequest="40"
+                            TextColor="White"
+                            BorderRadius="12"
+                            FontSize="12">
+                        </Button>
+                    </StackLayout>
+                    <Label
+                        Text="Titular"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Entry
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand" 
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding OwnerName, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
+                    <Label
+                        Text="Tipo de documento del titular"
+                        TextColor="#949494"
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Entry
+                            FontFamily="Poppins"
+                            FontSize="16"
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="#3a3a3a"
+                            Text="{Binding OwnerDocumentType, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
+                    <Label
+                        Text="Documeto del titular"
+                        TextColor="#949494"
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Entry
+                            Keyboard="Numeric"
+                            FontFamily="Poppins"
+                            FontSize="16"
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="#3a3a3a"
+                            Text="{Binding OwnerDocument, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
+                    <Label
+                        Text="Cuenta"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Entry
+                            Keyboard="Numeric"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand" 
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding Account, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
+                    <Label
+                        Text="Tipo de cuenta"
+                        TextColor="#949494"
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Entry
+                            FontFamily="Poppins"
+                            FontSize="16"
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="#3a3a3a"
+                            Text="{Binding AccountType, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
+                    <Label
+                        Text="Banco"
+                        TextColor="#949494"
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Entry
+                            FontFamily="Poppins"
+                            FontSize="16"
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="#3a3a3a"
+                            Text="{Binding Bank, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout>
+                <StackLayout
+                    VerticalOptions="EndAndExpand"
+                    Padding="40,80,40,10">
+                    <Button
+                        Text="Guardar cuenta"
+                        FontFamily="Poppins"
+                        TextTransform="None"
+                        BackgroundColor="#fd8700"
+                        HeightRequest="60"
+                        TextColor="White"
+                        BorderRadius="25"
+                        Padding="0,15"
+                        FontSize="16"
+                        VerticalOptions="End"
+                        Command="{Binding CreateAccountCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                    </Button>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
