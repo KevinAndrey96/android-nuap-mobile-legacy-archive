@@ -2,12 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="nuap.Views.CartPage"
-             BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundImageSource="CART1.png">
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <StackLayout
+            BackgroundColor="White"
             BindingContext="{Binding Cart}"
-            Padding="5,180,0,0">
+            Padding="5,0,0,0">
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flechaazul">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
             <Label
                 Text="Carrito de compras"
                 Padding="20,10,0,0"
@@ -64,6 +76,9 @@
                                 BorderColor="Transparent"
                                 CornerRadius="20"
                                 Margin="5,0,5,5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AddAndRemoveProductsCommand}"/>
+                                </Frame.GestureRecognizers>
                                 <StackLayout 
                                     Padding="5,0,0,0"
                                     HorizontalOptions="Start"
@@ -73,7 +88,7 @@
                                             VerticalOptions="Center"
                                             HorizontalOptions="Start"
                                             FontFamily="Poppins"
-                                            FontSize="15" 
+                                            FontSize="12" 
                                             Text="{Binding Name}"
                                             TextColor="#3a3a3a">
                                         </Label>
@@ -105,22 +120,11 @@
                                             <StackLayout
                                                 Padding="20,0,0,0"
                                                 Orientation="Horizontal">
-                                                <!--..<Image 
-                                                    HeightRequest="30"
-                                                    Source="menos" 
-                                                    HorizontalOptions="EndAndExpand"
-                                                    VerticalOptions="Center">
-                                                    <Image.GestureRecognizers>
-                                                        <TapGestureRecognizer Command="{Binding DiminishCommand}"
-                                                                              CommandParameter="{Binding Id}"/>
-                                                    </Image.GestureRecognizers>
-                                                </Image>
-                                                -->
                                                 <Entry
                                                     IsReadOnly="true"
                                                     Text="{Binding Quantity, Mode=TwoWay}"
                                                     FontFamily="Poppins-Bold"
-                                                    TextColor="#c4c4c4"
+                                                    TextColor="#494949"
                                                     Keyboard="Numeric"
                                                     WidthRequest="60"
                                                     Placeholder="0"
@@ -130,35 +134,17 @@
                                                 </Entry>
                                                 <Label
                                                     Text="und"
-                                                    TextColor="#c4c4c4" 
+                                                    TextColor="#494949" 
                                                     FontFamily="Poppins-Bold"
                                                     FontSize="16"
                                                     VerticalOptions="Center">
                                                 </Label>
-                                                <!--<Image 
-                                                    HeightRequest="30"
-                                                    Source="mas" 
-                                                    HorizontalOptions="EndAndExpand"
-                                                    VerticalOptions="Center">
-                                                    <Image.GestureRecognizers>
-                                                        <TapGestureRecognizer Command="{Binding IncreaseCommand}"
-                                                                              CommandParameter="{Binding Id}"/>
-                                                    </Image.GestureRecognizers>
-                                                </Image>-->
                                             </StackLayout>
                                             <StackLayout
                                                 Orientation="Horizontal"
                                                 HorizontalOptions="EndAndExpand">
                                                 <Label
-                                                    Text="$"
-                                                    Padding="20,2,0,0"
-                                                    TextColor="#1b1464" 
-                                                    FontFamily="Poppins-Bold"
-                                                    FontSize="18"
-                                                    VerticalOptions="Center">
-                                                </Label>
-                                                <Label
-                                                    Text="{Binding Price}"
+                                                    Text="{Binding TotalPrice}"
                                                     Padding="0,2,0,0"
                                                     TextColor="#1b1464" 
                                                     FontFamily="Poppins-Bold"
@@ -248,9 +234,25 @@
                     IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
                 </Button>
             </StackLayout>
-            <StackLayout>
+            <StackLayout
+                Orientation="Horizontal">
                 <Button
-                    Margin="0,0,10,10"
+                    Margin="0,0,0,10"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Vaciar carrito"
+                    FontFamily="Poppins"
+                    TextTransform="None"
+                    BackgroundColor="#c4c4c4"
+                    HeightRequest="50"
+                    TextColor="White"
+                    BorderRadius="18"
+                    FontSize="15"
+                    Command="{Binding CartEmptyCommand}"
+                    IsEnabled="{Binding IsEnabledProducts, Mode=TwoWay}">
+                </Button>
+                <Button
+                    Margin="0,0,0,10"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="CenterAndExpand"
                     Text="Agregar más productos"

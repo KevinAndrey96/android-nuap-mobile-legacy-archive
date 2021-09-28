@@ -8,7 +8,19 @@
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Orders}"
-            Padding="5,55,0,0">
+            Padding="5,10,0,0">
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
             <Label
                 Text="Mis pedidos"
                 Padding="20,160,0,0"

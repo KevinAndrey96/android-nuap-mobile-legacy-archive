@@ -47,8 +47,10 @@
                     mainViewModel.AddressDetail = JsonConvert.DeserializeObject<Address>(Settings.AddressDetail);
                 }
 
+                MainPage = new NavigationPage(new LoginPage());
+
                 mainViewModel.HomeCommerce = new HomeCommerceViewModel();
-                MainPage = new NavigationPage(new HomeCommerceTabbedPage());
+                Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
             }
         }
 

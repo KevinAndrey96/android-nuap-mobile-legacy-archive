@@ -37,6 +37,14 @@
             }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public ICommand CreateAddressCommand
         {
             get
@@ -119,6 +127,12 @@
                 Location = a.Location,
                 Neighborhood = a.Neighborhood
             });
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

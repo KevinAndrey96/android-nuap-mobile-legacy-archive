@@ -38,6 +38,14 @@
             }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public ICommand DeleteCommand
         {
             get
@@ -150,11 +158,6 @@
 
                     return;
                 }
-
-               /* mainViewModel.Address = new AddressViewModel();
-                await Application.Current.MainPage.Navigation.PushAsync(new AddressPage());
-
-                return;*/
             } else
             {
                 mainViewModel.HomeCommerce = new HomeCommerceViewModel();
@@ -162,6 +165,12 @@
             }
 
             return;
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

@@ -9,18 +9,32 @@
         <StackLayout
             Padding="15,10,20,0"
             BindingContext="{Binding Account}">
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    WidthRequest="30"
+                    Margin="0,0,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    Padding="5,0,0,0"
+                    Text="Necesitas una cuenta bancaria para solicitar un retiro"
+                    TextColor="White" 
+                    HorizontalTextAlignment="Center"
+                    FontSize="16"
+                    FontFamily="Poppins-Bold"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                </Label>
+            </StackLayout>
             <Label
-                Padding="0,0,0,0"
-                Text="Necesitas una cuenta bancaria para solicitar un retiro"
-                TextColor="White" 
-                HorizontalTextAlignment="Center"
-                FontSize="18"
-                FontFamily="Poppins-Bold"
-                FontAttributes="Bold"
-                VerticalOptions="Center"
-                HorizontalOptions="Center">
-            </Label>
-            <Label
+                Margin="40,0,0,40"
                 Text="Crea una cuenta para continuar"
                 TextColor="White" 
                 FontFamily="Poppins"

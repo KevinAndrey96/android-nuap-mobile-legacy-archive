@@ -1,7 +1,9 @@
 ﻿namespace nuap.ViewModels
 {
+    using GalaSoft.MvvmLight.Command;
     using Services;
     using System.Linq;
+    using System.Windows.Input;
     using Xamarin.Forms;
 
     public class CommerceProfileViewModel : BaseViewModel
@@ -44,6 +46,14 @@
         {
             get { return this.companyName; }
             set { SetValue(ref this.companyName, value); }
+        }
+
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
         }
 
         public string Logo
@@ -107,6 +117,12 @@
             this.Commission = response.Data.Commission;
             this.ShippingCost = response.Data.ShippingCost;
             this.Logo = "https://thenuap.com/" + response.Data.UrlLogo;
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

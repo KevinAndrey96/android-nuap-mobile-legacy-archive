@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage x:Class="nuap.Views.AddAndRemoveProductsPage"
+                 xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
+    </pages:PopupPage.Animation>
+    <StackLayout 
+        Margin="12"
+        Padding="24"
+        BackgroundColor="Transparent"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        BindingContext="{Binding AddAndRemoveProductsPopup}">
+        <Frame 
+            CornerRadius="20"
+            Margin="5"
+            BackgroundColor="White"
+            HorizontalOptions="Center"
+            IsClippedToBounds="True">
+            <StackLayout>
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Agregar o remover productos del carrito"
+                        Padding="10,0,10,0"
+                        TextColor="#2c3d55" 
+                        FontFamily="Poppins-Bold"
+                        FontSize="15"
+                        VerticalOptions="Center">
+                    </Label>
+                    <!--<Image 
+                        Margin="50,0,0,0"
+                        HeightRequest="30"
+                        WidthRequest="30"
+                        Source="comprobado" 
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AddCartCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>-->
+                </StackLayout>
+                <Image 
+                    HeightRequest="150"
+                    WidthRequest="150"
+                    Source="{Binding Image}" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand">
+                </Image>
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Padding="0,5,0,0"
+                    Orientation="Horizontal">
+                    <Image 
+                        HeightRequest="30"
+                        Source="menos" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding DiminishCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Entry
+                        Text="{Binding Quantity, Mode=TwoWay}"
+                        FontFamily="Poppins"
+                        TextColor="#494949"
+                        Keyboard="Numeric"
+                        WidthRequest="60"
+                        Placeholder="0"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center">
+                    </Entry>
+                    <Image 
+                        HeightRequest="30"
+                        Source="mas" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding IncreaseCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <Button
+                    HorizontalOptions="Center"
+                    Text="Confirmar"
+                    FontFamily="Poppins-Bold"
+                    TextTransform="None"
+                    BackgroundColor="#32ba7c"
+                    HeightRequest="50"
+                    TextColor="White"
+                    BorderRadius="20"
+                    FontSize="15"
+                    Command="{Binding AddCartCommand}"
+                    IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                </Button>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

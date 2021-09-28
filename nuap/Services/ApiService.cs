@@ -75,7 +75,6 @@
             try
             {
                 var client = new HttpClient();
-                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
                 var response = await client.GetAsync("/api/users/ticket/" + ticketId + "/messages?api_token="+accessToken);
                 var resultJSON = await response.Content.ReadAsStringAsync();
@@ -97,7 +96,6 @@
             try
             {
                 var client = new HttpClient();
-                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
                 var response = await client.GetAsync("/api/users/ticket?api_token=" + accessToken);
                 var resultJSON = await response.Content.ReadAsStringAsync();

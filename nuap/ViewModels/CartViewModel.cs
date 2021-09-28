@@ -9,6 +9,7 @@
     using Services;
     using System.Linq;
     using Helpers;
+    using System.Collections.Generic;
 
     public class CartViewModel : BaseViewModel
     {
@@ -71,6 +72,14 @@
             }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public ICommand AddProductsCommand
         {
             get
@@ -87,6 +96,14 @@
             }
         }
 
+        public ICommand CartEmptyCommand
+        {
+            get
+            {
+                return new RelayCommand(CartEmpty);
+            }
+        }
+
         public CartViewModel()
         {
             this.IsEnabled = false;
@@ -99,7 +116,7 @@
             var mainViewModel = MainViewModel.GetInstance();
             this.AddressText = mainViewModel.AddressDetail.Addres;
 
-            this.Cart = new ObservableCollection<Cart>(mainViewModel.CartList);
+            this.Cart = new ObservableCollection<Cart>(ToCartItemViewModel(mainViewModel.CartList));
             this.IsRefreshing = false;
             this.CalculateDelivery();
         }
@@ -157,6 +174,17 @@
             }
         }
 
+        private async void CartEmpty()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.CartList = null;
+            Settings.CartList = null;
+
+            mainViewModel.HomeCommerce = new HomeCommerceViewModel();
+            await Application.Current.MainPage.Navigation.PopAsync();
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
+        }
+
         private async void ChoosePaymentMethod()
         {
             var mainViewModel = MainViewModel.GetInstance();
@@ -169,6 +197,26 @@
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.HomeCommerce = new HomeCommerceViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
+        }
+
+        private IEnumerable<CartItemViewModel> ToCartItemViewModel(List<Cart> list)
+        {
+            return list.Select(c => new CartItemViewModel
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Quantity = c.Quantity,
+                Price = c.Price,
+                TotalPrice = c.TotalPrice,
+                Image = c.Image,
+                Stock = c.Stock
+            });
         }
     }
 }

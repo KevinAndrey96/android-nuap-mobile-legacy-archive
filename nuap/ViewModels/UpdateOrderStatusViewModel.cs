@@ -19,7 +19,6 @@
         private string circleFour;
         private string circleFive;
 
-
         public string OrderStatus
         {
             get { return this.orderStatus; }
@@ -69,6 +68,14 @@
             get
             {
                 return new RelayCommand(UpdateStatus);
+            }
+        }
+
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
             }
         }
 
@@ -177,6 +184,12 @@
 
             mainViewModel.Sales = new SalesViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new SalesPage());
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

@@ -155,6 +155,14 @@
             }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public ProductDetailViewModel(Product product)
         {
             this.Product = product;
@@ -238,6 +246,8 @@
             cart.Image = this.Image;
             cart.Price = this.Price;
             cart.Name = this.Name;
+            cart.TotalPrice = this.TotalPrice;
+            cart.Stock = this.Product.Stock;
 
             var mainViewModel = MainViewModel.GetInstance();
             if (mainViewModel.CartList == null)
@@ -253,7 +263,7 @@
                 mainViewModel.Cart = new CartViewModel();
 
                 await Application.Current.MainPage.Navigation.PopAsync();
-                await Application.Current.MainPage.Navigation.PushAsync(new CartPage()); 
+                await Application.Current.MainPage.Navigation.PushAsync(new CartPage());
             }
             else
             {
@@ -289,7 +299,7 @@
 
         private void SetProduct()
         {
-            this.Quantity = 0;
+            this.Quantity = 1;
             this.Name = this.Product.Name;
             this.Brand = this.Product.Brand;
             this.Description = this.Product.Description;
@@ -300,6 +310,16 @@
             this.Height = this.Product.Height;
             this.TotalPrice = this.Product.TotalPrice;
             this.Image = this.Product.Image;
+            this.Stock = this.Product.Stock;
+
+            if (this.Image.Contains("https"))
+            {
+                this.Image = this.Product.Image;
+            }
+            else
+            {
+                this.Image = "https://thenuap.com/" + this.Product.Image;
+            }
 
             if (this.Product.HasSpecialPrice == 1)
             {
@@ -310,6 +330,12 @@
                 this.Price = this.Product.SalePrice;
             }
             this.HasSpecialPrice = this.Product.HasSpecialPrice;
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

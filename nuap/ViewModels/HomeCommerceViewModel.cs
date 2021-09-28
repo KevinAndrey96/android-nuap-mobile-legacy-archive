@@ -1257,11 +1257,7 @@
             mainViewModel.AddressDetail = null;
             mainViewModel.CartList = null;
 
-            mainViewModel.Login = new LoginViewModel();
-
-            Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - 2]);
             await Application.Current.MainPage.Navigation.PopAsync();
-            await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
         }
 
         private async void RequestPayment()

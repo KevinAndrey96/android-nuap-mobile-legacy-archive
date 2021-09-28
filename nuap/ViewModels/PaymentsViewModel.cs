@@ -58,6 +58,14 @@
             }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public PaymentsViewModel()
         {
             this.apiService = new ApiService();
@@ -200,6 +208,12 @@
                 Voucher = o.Voucher,
                 StatusColor = o.StatusColor
             });
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

@@ -10,23 +10,36 @@
             BindingContext="{Binding CategoryProduct}"
             Padding="5,10,0,0">
             <StackLayout
-                Margin="20,0,20,0">
-                <Frame
-                    BorderColor="#e2e2e2"
-                    CornerRadius="20"
-                    HasShadow="true"
-                    Padding="5"
-                    BackgroundColor="#f6f8f9">
-                    <SearchBar
-                        FontFamily="Poppins"
-                        FontSize="15"
-                        TextColor="#3a3a3a"
-                        PlaceholderColor="#3a3a3a"
-                        Placeholder="Busca tu producto"
-                        Text="{Binding Filter, Mode=TwoWay}"
-                        SearchCommand="{Binding SearchCommand}" InputTransparent="False">
-                    </SearchBar>
-                </Frame>
+                Orientation="Horizontal">
+                <Image
+                    WidthRequest="30"
+                    Margin="5,10,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <StackLayout
+                    Margin="5,10,20,0">
+                    <Frame
+                        BorderColor="#e2e2e2"
+                        CornerRadius="20"
+                        HasShadow="true"
+                        Padding="5"
+                        BackgroundColor="#f6f8f9">
+                        <SearchBar
+                            FontFamily="Poppins"
+                            FontSize="15"
+                            TextColor="#3a3a3a"
+                            PlaceholderColor="#3a3a3a"
+                            Placeholder="Busca tu producto"
+                            Text="{Binding Filter, Mode=TwoWay}"
+                            SearchCommand="{Binding SearchCommand}" InputTransparent="False">
+                        </SearchBar>
+                    </Frame>
+                </StackLayout>
             </StackLayout>
             <ScrollView
                 Margin="5,58,0,0">

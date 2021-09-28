@@ -15,6 +15,14 @@ namespace nuap.ViewModels
         private string value;
         private int commerceID;
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public bool IsRefreshing
         {
             get { return this.isRefreshing; }
@@ -151,6 +159,12 @@ namespace nuap.ViewModels
                 mainViewModel.PaymentConfirm = new PaymentConfirmViewModel(this.Value);
                 await Application.Current.MainPage.Navigation.PushAsync(new PaymentConfirmPage());
             }
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

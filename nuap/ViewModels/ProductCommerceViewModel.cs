@@ -91,6 +91,14 @@
             }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public ICommand PendingCommand
         {
             get
@@ -248,6 +256,12 @@
                 StatusColor = p.StatusColor,
                 TotalPrice = p.TotalPrice
             });
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

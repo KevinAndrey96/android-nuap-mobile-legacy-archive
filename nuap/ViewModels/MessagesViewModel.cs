@@ -63,6 +63,14 @@
             this.LoadMessages();
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         private async void LoadMessages()
         {
             this.IsRefreshing = true;
@@ -124,6 +132,12 @@
 
             this.Messages = new ObservableCollection<Message>(newList);
             this.IsRefreshing = false;
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
 
         private async void SendMessage()

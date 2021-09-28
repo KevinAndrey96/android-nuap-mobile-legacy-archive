@@ -67,6 +67,7 @@
 
         private async void GenerateOtp()
         {
+            await Application.Current.MainPage.Navigation.PopAsync();
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.GenerateOTP = new GenerateOtpViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new GenerateOtpPage());
@@ -138,6 +139,7 @@
             Settings.Id = response.Data.id.ToString();
             Settings.Balance = response.Data.balance;
 
+            await Application.Current.MainPage.Navigation.PopAsync();
             mainViewModel.HomeCommerce = new HomeCommerceViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
         }

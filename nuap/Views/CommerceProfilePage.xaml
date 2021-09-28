@@ -7,7 +7,19 @@
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding CommerceProfile}">
-            <StackLayout Padding="40,40,40,10">
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,15,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <StackLayout Padding="40,0,40,10">
                 <Frame CornerRadius="100"
                     Padding="0"
                     HorizontalOptions="Center"

@@ -5,6 +5,7 @@
     using Rg.Plugins.Popup.Services;
     using System.Windows.Input;
     using Views;
+    using Xamarin.Forms;
 
     public class PaymentDetailViewModel: BaseViewModel
     {
@@ -87,6 +88,14 @@
             }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public PaymentDetailViewModel(Payment payment)
         {
             this.IsEnabled = false;
@@ -124,6 +133,12 @@
 
             var page = new VoucherPage();
             await PopupNavigation.Instance.PushAsync(page);
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

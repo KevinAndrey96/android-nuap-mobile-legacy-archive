@@ -36,6 +36,13 @@
                 return new RelayCommand(CreateOrderWithCash);
             }
         }
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
 
         public CreateOrderViewModel()
         {
@@ -149,6 +156,13 @@
             Settings.CartList = null;
             mainViewModel.CreateOrderSuccess = new CreateOrderSuccessViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new CreateOrderSuccessPage());
+        }
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Cart = new CartViewModel();
+            await Application.Current.MainPage.Navigation.PopAsync();
+            await Application.Current.MainPage.Navigation.PushAsync(new CartPage());
         }
     }
 }

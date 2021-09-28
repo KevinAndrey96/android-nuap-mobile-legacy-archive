@@ -5,7 +5,6 @@
     using System.Windows.Input;
     using Xamarin.Forms;
     using Views;
-    using Services;
 
     public class CategoryItemViewModel : Category
     {

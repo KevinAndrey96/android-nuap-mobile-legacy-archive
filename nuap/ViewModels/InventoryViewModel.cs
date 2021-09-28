@@ -27,6 +27,14 @@
             set { SetValue(ref this.isRefreshing, value); }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public ICommand RefreshCommand
         {
             get
@@ -117,6 +125,12 @@
                 Description = c.Description,
                 Image = "https://thenuap.com/"+c.Image
             });
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

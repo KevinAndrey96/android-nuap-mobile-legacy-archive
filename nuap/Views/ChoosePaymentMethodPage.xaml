@@ -5,9 +5,21 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <StackLayout
-            Padding="0,50,0,50"
+            Padding="0,10,0,50"
             BackgroundColor="#0274bc"
             BindingContext="{Binding CreateOrder}">
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
             <Frame
                 CornerRadius="35"
                 OutlineColor="White"
@@ -49,7 +61,7 @@
                             <Image 
                                 HeightRequest="140"
                                 WidthRequest="140"
-                                Source="withcash" 
+                                Source="contraentrega" 
                                 HorizontalOptions="Start"
                                 VerticalOptions="CenterAndExpand">
                             </Image>
@@ -71,7 +83,7 @@
                             <Image 
                                 HeightRequest="140"
                                 WidthRequest="140"
-                                Source="credit" 
+                                Source="online" 
                                 HorizontalOptions="Start"
                                 VerticalOptions="CenterAndExpand">
                             </Image>

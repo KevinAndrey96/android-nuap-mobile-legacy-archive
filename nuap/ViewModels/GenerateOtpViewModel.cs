@@ -92,6 +92,7 @@
                 return;
             }
 
+            await Application.Current.MainPage.Navigation.PopAsync();
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.VerifyOTP = new VerifyOtpViewModel(this.Phone);
             await Application.Current.MainPage.Navigation.PushAsync(new VerifyOtpPage());

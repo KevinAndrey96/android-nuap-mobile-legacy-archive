@@ -8,10 +8,22 @@
             BackgroundColor="#0274bc"
             Padding="20,0,20,40"
             BindingContext="{Binding CreateTicket}">
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="0,20,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
             <Frame
                 CornerRadius="35"
                 OutlineColor="White"
-                Padding="20,60,20,10"
+                Padding="20,40,20,10"
                 VerticalOptions="CenterAndExpand">
                 <StackLayout>
                     <Label

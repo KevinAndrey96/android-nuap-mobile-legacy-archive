@@ -8,6 +8,7 @@
     using System.Linq;
     using Xamarin.Forms;
     using Models;
+    using Views;
 
     public class SalesViewModel: BaseViewModel
     {
@@ -200,6 +201,14 @@
             get
             {
                 return new RelayCommand(LoadSales);
+            }
+        }
+
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
             }
         }
 
@@ -631,6 +640,12 @@
                     this.OrdersDeliveredList = "false";
                 }
             }
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

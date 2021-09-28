@@ -1,7 +1,9 @@
 ﻿namespace nuap.ViewModels
 {
+    using GalaSoft.MvvmLight.Command;
     using Services;
     using System.Linq;
+    using System.Windows.Input;
     using Xamarin.Forms;
 
     public class SellerDetailViewModel : BaseViewModel
@@ -65,6 +67,14 @@
             set { SetValue(ref this.isEnabled, value); }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         public SellerDetailViewModel()
         {
             this.apiService = new ApiService();
@@ -115,6 +125,12 @@
             this.Commission = response.Data.Commission;
             this.ShippingCost = response.Data.ShippingCost;
             this.Logo = "https://thenuap.com/" + response.Data.UrlLogo;
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

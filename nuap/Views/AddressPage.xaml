@@ -7,10 +7,22 @@
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Address}"
-            Padding="5,120,5,0">
+            Padding="5,20,5,0">
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,15,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
             <Label
                 Text="Mis direcciones"
-                Padding="15,15,0,0"
+                Padding="15,80,0,0"
                 TextColor="#0274bc" 
                 FontFamily="Poppins-Bold"
                 FontSize="18"

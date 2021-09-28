@@ -8,25 +8,38 @@
         <StackLayout
             BackgroundColor="White"
             BindingContext="{Binding ProductCommerce}"
-            Padding="5,10,5,0">
+            Padding="5,0,5,0">
             <StackLayout
-                Margin="0,20,0,0">
-                <Frame
-                    BorderColor="#e2e2e2"
-                    CornerRadius="20"
-                    HasShadow="true"
-                    Padding="5"
-                    BackgroundColor="#f6f8f9">
-                    <SearchBar
-                        FontFamily="Poppins"
-                        FontSize="15"
-                        TextColor="#3a3a3a"
-                        PlaceholderColor="#3a3a3a"
-                        Placeholder="Busca tu producto, marca"
-                        Text="{Binding Filter, Mode=TwoWay}"
-                        SearchCommand="{Binding SearchCommand}" InputTransparent="False">
-                    </SearchBar>
-                </Frame>
+                Orientation="Horizontal">
+                <Image
+                    WidthRequest="30"
+                    Margin="10,30,0,20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flechaazul">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <StackLayout
+                    Margin="10,20,0,0">
+                    <Frame
+                        BorderColor="#e2e2e2"
+                        CornerRadius="20"
+                        HasShadow="true"
+                        Padding="5"
+                        BackgroundColor="#f6f8f9">
+                        <SearchBar
+                            FontFamily="Poppins"
+                            FontSize="15"
+                            TextColor="#3a3a3a"
+                            PlaceholderColor="#3a3a3a"
+                            Placeholder="Busca tu producto, marca"
+                            Text="{Binding Filter, Mode=TwoWay}"
+                            SearchCommand="{Binding SearchCommand}" InputTransparent="False">
+                        </SearchBar>
+                    </Frame>
+                </StackLayout>
             </StackLayout>
             <ScrollView
                 HorizontalScrollBarVisibility="Never"

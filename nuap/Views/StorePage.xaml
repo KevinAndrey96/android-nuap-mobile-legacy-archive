@@ -8,6 +8,18 @@
         <StackLayout
             Background="White"
             BindingContext="{Binding Store}">
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flechaazul">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
             <!--<StackLayout>
                 <Frame CornerRadius="0"
                     HorizontalOptions="Center"
@@ -20,7 +32,7 @@
                     </Image>
                 </Frame>
             </StackLayout>-->
-            <StackLayout Padding="40,40,40,10">
+            <StackLayout Padding="40,20,40,10">
                 <Frame CornerRadius="100"
                     Padding="0"
                     HorizontalOptions="Center"

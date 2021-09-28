@@ -47,6 +47,14 @@
             }
         }
 
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
+
         private async void NewTicket()
         {
             if (string.IsNullOrEmpty(this.Issues))
@@ -122,6 +130,12 @@
                 "Hemos enviado tu solicitud exitosamente",
                 "Aceptar");
             return;
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

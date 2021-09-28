@@ -8,6 +8,7 @@
     using System.Linq;
     using Xamarin.Forms;
     using Models;
+    using Views;
 
     public class CategoryProductViewModel: BaseViewModel
     {
@@ -35,6 +36,14 @@
         private int subcategoryNameOne;
         private string subcategoryNameText;
         private string subcategoryNameOneText;
+
+        public ICommand ReturnCommand
+        {
+            get
+            {
+                return new RelayCommand(Return);
+            }
+        }
 
         public Category Category
         {
@@ -329,6 +338,14 @@
                 TotalPrice = p.TotalPrice,
                 FormatSalePrice = p.FormatSalePrice
             });
+        }
+
+        private async void Return()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.HomeCommerce = new HomeCommerceViewModel();
+            await Application.Current.MainPage.Navigation.PopAsync();
+            await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
         }
     }
 }

@@ -7,11 +7,23 @@
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding AllCategories}"
-            Padding="0,15,0,0">
+            Padding="0,0,0,0">
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
             <Image
-                Source="comercio03"
+                Source="banners04"
                 HorizontalOptions="FillAndExpand"
-                HeightRequest="175">
+                HeightRequest="170">
             </Image>
             <StackLayout
                 Margin="20,15,20,0">
@@ -32,14 +44,6 @@
                     </SearchBar>
                 </Frame>
             </StackLayout>
-            <Label
-                Text="Categorias"
-                Padding="20,15,0,0"
-                TextColor="White" 
-                FontFamily="Poppins-Bold"
-                FontSize="18"
-                VerticalOptions="Center">
-            </Label>
             <StackLayout
                 Padding="0,15,0,0">
                 <Grid>

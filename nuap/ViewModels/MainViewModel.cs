@@ -35,6 +35,12 @@
             set;
         }
 
+        public AddAndRemoveProductsViewModel AddAndRemoveProductsPopup
+        {
+            get;
+            set;
+        }
+
         public SelectAddressViewModel SelectAddress
         {
             get;
@@ -42,12 +48,6 @@
         }
 
         public string VoucherImage
-        {
-            get;
-            set;
-        }
-
-        public HomeViewModel Home
         {
             get;
             set;

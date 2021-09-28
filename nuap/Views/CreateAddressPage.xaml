@@ -11,19 +11,32 @@
         <local:CreateAddressViewModel/>
     </ContentPage.BindingContext>
     <StackLayout
-        Padding="15,25,20,0">
-        <StackLayout>
+        Padding="15,0,20,0">
+        <StackLayout
+            Orientation="Horizontal">
+            <Image
+                WidthRequest="30"
+                Margin="5,0,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="Start"
+                Source="flecha">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
             <Label
-                Padding="10,0,10,0"
+                Margin="0,20,10,30"
                 Text="Agrega una dirección para que entreguemos tus pedidos"
                 TextColor="White" 
                 HorizontalTextAlignment="Center"
-                FontSize="18"
+                FontSize="16"
                 FontFamily="Poppins-Bold"
                 FontAttributes="Bold"
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
             </Label>
+        </StackLayout>
+        <StackLayout>
             <Label
                 Text="Selecciona la ubicación en el mapa"
                 Padding="15,55,0,0"

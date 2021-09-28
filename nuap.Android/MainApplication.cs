@@ -1,12 +1,12 @@
-﻿#if DEBUG
-using System;
+﻿using System;
 using Android.App;
 using Android.Runtime;
 using Plugin.CurrentActivity;
 
+#if DEBUG
 [Application(Debuggable = true)]
 #else
-	[Application(Debuggable = false)]
+[Application(Debuggable = false)]
 #endif
 [MetaData("com.google.android.maps.v2.API_KEY",
 			  Value = "YOUR_GOOGLE_MAPS_API_KEY")]

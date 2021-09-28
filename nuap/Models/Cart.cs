@@ -7,6 +7,9 @@
         [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }
 
+        [JsonProperty(PropertyName = "stock")]
+        public int Stock { get; set; }
+
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
@@ -17,7 +20,7 @@
         public double Price { get; set; }
 
         [JsonProperty(PropertyName = "total_price")]
-        public double TotalPrice { get; set; }
+        public string TotalPrice { get; set; }
 
         [JsonProperty(PropertyName = "image")]
         public string Image { get; set; }

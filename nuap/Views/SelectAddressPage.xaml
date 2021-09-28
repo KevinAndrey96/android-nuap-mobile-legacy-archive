@@ -7,8 +7,20 @@
         <StackLayout
             BackgroundColor="White"
             BindingContext="{Binding SelectAddress}">
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,15,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flechaazul">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
             <Image
-                Margin="0,50,0,0"
+                Margin="0,30,0,0"
                 Source="confirmpayment"
                 WidthRequest="200">
             </Image>
