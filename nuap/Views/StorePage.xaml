@@ -8,6 +8,11 @@
         <StackLayout
             Background="White"
             BindingContext="{Binding Store}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,30,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout>
                 <Image
                     WidthRequest="30"

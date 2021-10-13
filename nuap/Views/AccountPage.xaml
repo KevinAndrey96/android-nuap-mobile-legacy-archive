@@ -9,6 +9,11 @@
         <StackLayout
             Padding="15,10,20,0"
             BindingContext="{Binding Account}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">15,32,0,5</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout
                 Orientation="Horizontal">
                 <Image

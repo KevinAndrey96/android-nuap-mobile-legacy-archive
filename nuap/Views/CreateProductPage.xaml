@@ -8,6 +8,24 @@
         <StackLayout
             BackgroundColor="#2a4d9c"
             BindingContext="{Binding CreateProduct}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,10,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <StackLayout
+                Orientation="Horizontal">
+                <Image
+                    WidthRequest="30"
+                    Margin="10,30,0,20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>    
             <StackLayout Padding="115,10,115,10">
                 <Frame
                     CornerRadius="25"

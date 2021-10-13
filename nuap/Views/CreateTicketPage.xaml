@@ -8,6 +8,11 @@
             BackgroundColor="#0274bc"
             Padding="20,0,20,40"
             BindingContext="{Binding CreateTicket}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">20,25,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout>
                 <Image
                     WidthRequest="30"

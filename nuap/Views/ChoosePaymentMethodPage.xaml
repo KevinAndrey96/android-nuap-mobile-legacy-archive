@@ -8,6 +8,11 @@
             Padding="0,10,0,50"
             BackgroundColor="#0274bc"
             BindingContext="{Binding CreateOrder}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,40,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout>
                 <Image
                     WidthRequest="30"

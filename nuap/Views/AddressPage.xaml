@@ -3,15 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="nuap.Views.AddressPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundImageSource="Register_2.png">
+             BackgroundImageSource="CategoriaProductos.png">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Address}"
             Padding="5,20,5,0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">5,38,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout>
                 <Image
                     WidthRequest="30"
-                    Margin="20,15,0,0"
+                    Margin="20,10,0,0"
                     VerticalOptions="Center"
                     HorizontalOptions="Start"
                     Source="flecha">
@@ -22,11 +27,16 @@
             </StackLayout>
             <Label
                 Text="Mis direcciones"
-                Padding="15,80,0,0"
+                Padding="15,70,0,0"
                 TextColor="#0274bc" 
                 FontFamily="Poppins-Bold"
                 FontSize="18"
                 VerticalOptions="Center">
+                <Label.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">15,100,0,0</On>
+                    </OnPlatform>
+                </Label.Padding>
             </Label>
             <ListView
                 HasUnevenRows="true" 

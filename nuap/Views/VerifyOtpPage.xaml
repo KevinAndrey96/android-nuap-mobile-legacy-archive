@@ -8,6 +8,11 @@
             BackgroundColor="#0274bc"
             Padding="20,0,20,40"
             BindingContext="{Binding VerifyOTP}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">20,45,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <Image
                 Source="logo"
                 WidthRequest="170">

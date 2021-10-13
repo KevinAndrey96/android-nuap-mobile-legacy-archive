@@ -4,11 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="nuap.Views.CategoryProductsPage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    BackgroundImageSource="Register_2.png">
+    BackgroundImageSource="CategoriaProductos.png">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding CategoryProduct}"
             Padding="5,10,0,0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">5,30,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout
                 Orientation="Horizontal">
                 <Image
@@ -45,6 +50,11 @@
                 Margin="5,58,0,0">
                 <StackLayout
                     Padding="5,0,0,0">
+                    <StackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS">5,50,0,0</On>
+                        </OnPlatform>
+                    </StackLayout.Padding>
                     <Label
                         Text="{Binding CategoryName}"
                         Padding="20,10,0,0"

@@ -9,6 +9,11 @@
             BackgroundColor="White"
             BindingContext="{Binding ProductCommerce}"
             Padding="5,0,5,0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">5,25,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout
                 Orientation="Horizontal">
                 <Image

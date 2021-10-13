@@ -3,17 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="nuap.Views.PaymentsPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundImageSource="BalancesyPagos.png">
+             BackgroundImageSource="Balances2.png">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Payments}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,25,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout>
                 <Image
-                        WidthRequest="30"
-                        Margin="20,20,0,20"
-                        VerticalOptions="Center"
-                        HorizontalOptions="Start"
-                        Source="flecha">
+                    WidthRequest="30"
+                    Margin="20,20,0,20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
                     </Image.GestureRecognizers>
@@ -29,6 +34,11 @@
                         FontFamily="Poppins-Bold"
                         FontSize="20"
                         VerticalOptions="Center">
+                        <Label.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS">20,100,0,0</On>
+                            </OnPlatform>
+                        </Label.Padding>
                     </Label>
                     <Label
                         Text="{Binding Balance}"

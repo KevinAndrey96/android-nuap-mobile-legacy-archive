@@ -9,6 +9,11 @@
             BindingContext="{Binding Home}"
             BackgroundColor="#0274bc"
             Padding="5,10,0,0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">5,50,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <ListView 
                 BackgroundColor="#0274bc"
                 HasUnevenRows="true" 

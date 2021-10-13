@@ -8,6 +8,11 @@
             BindingContext="{Binding PaymentRequest}"
             BackgroundColor="White"
             Padding="20,0,20,0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">20,25,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout>
                 <Image
                     WidthRequest="30"

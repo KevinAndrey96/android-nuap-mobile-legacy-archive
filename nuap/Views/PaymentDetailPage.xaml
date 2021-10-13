@@ -8,6 +8,11 @@
             BindingContext="{Binding PaymentDetail}"
             BackgroundColor="White"
             Padding="0,0,20,0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,25,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout>
                 <Image
                     WidthRequest="30"
@@ -96,7 +101,7 @@
                         Padding="10,30,0,0"
                         HorizontalOptions="End"
                         VerticalOptions="Center">
-                    <Label 
+                    <Label
                         Padding="0,0,0,0"
                         VerticalOptions="Center"
                         HorizontalOptions="StartAndExpand"

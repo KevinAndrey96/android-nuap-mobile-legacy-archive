@@ -3,11 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="nuap.Views.InventoryPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundImageSource="Inventario.png">
+             BackgroundImageSource="Inventario2.png">
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Inventory}"
             Padding="5,10,0,0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,35,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout>
                 <Image
                     WidthRequest="30"
@@ -27,6 +32,16 @@
                 FontFamily="Poppins-Bold"
                 FontSize="20"
                 VerticalOptions="Center">
+                <Label.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">0,200,0,0</On>
+                    </OnPlatform>
+                </Label.Padding>
+                <Label.Text>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="iOS"></On>
+                    </OnPlatform>
+                </Label.Text>
             </Label>
             <ListView 
                 HasUnevenRows="true" 

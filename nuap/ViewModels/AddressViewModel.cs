@@ -97,8 +97,20 @@
                     "Debes agregar una dirección para poder continuar",
                     "Aceptar");
 
-                mainViewModel.CreateAddress = new CreateAddressViewModel();
-                await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+                    string url = "https://thenuap.com/create-address?";
+                    string user = "user=" + mainViewModel.User.id;
+                    url += user;
+
+                    mainViewModel.PaymentGateway = new PaymentGatewayViewModel(url);
+                    await Application.Current.MainPage.Navigation.PushAsync(new PaymentGatewayPage());
+                }
+                else
+                {
+                    mainViewModel.CreateAddress = new CreateAddressViewModel();
+                    await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
+                }
             } else
             {
                 this.list = response.Data;
@@ -111,8 +123,20 @@
         private async void CreateAddress()
         {
             var mainViewModel = MainViewModel.GetInstance();
-            mainViewModel.CreateAddress = new CreateAddressViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                string url = "https://thenuap.com/create-address?";
+                string user = "user=" + mainViewModel.User.id;
+                url += user;
+
+                mainViewModel.PaymentGateway = new PaymentGatewayViewModel(url);
+                await Application.Current.MainPage.Navigation.PushAsync(new PaymentGatewayPage());
+            } else
+            {
+                mainViewModel.CreateAddress = new CreateAddressViewModel();
+                await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
+            }            
         }
 
         private IEnumerable<AddressItemViewModel> ToAddressItemViewModel(List<Address> list)

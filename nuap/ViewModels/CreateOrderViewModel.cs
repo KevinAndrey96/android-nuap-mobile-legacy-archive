@@ -130,7 +130,7 @@
             var response = await this.apiService.CreateOrder(
                  "https://thenuap.com",
                  mainViewModel.User.api_token,
-                 19,
+                 mainViewModel.AddressDetail.Id,
                  data);
 
             if (response == null)

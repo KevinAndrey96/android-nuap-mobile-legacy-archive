@@ -42,17 +42,6 @@
                         FontSize="15"
                         VerticalOptions="Center">
                     </Label>
-                    <!--<Image 
-                        Margin="50,0,0,0"
-                        HeightRequest="30"
-                        WidthRequest="30"
-                        Source="comprobado" 
-                        HorizontalOptions="EndAndExpand"
-                        VerticalOptions="CenterAndExpand">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding AddCartCommand}"/>
-                        </Image.GestureRecognizers>
-                    </Image>-->
                 </StackLayout>
                 <Image 
                     HeightRequest="150"

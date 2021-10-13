@@ -7,6 +7,11 @@
         <StackLayout
             BackgroundColor="#0274bc"
             BindingContext="{Binding ProductDetail}">
+           <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">5,30,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
             <StackLayout 
                 Padding="30,0,0,10">
                 <StackLayout>
