@@ -186,8 +186,9 @@
             var mainViewModel = MainViewModel.GetInstance();
 
             var response = await this.apiService.GetValidCategories(
-                mainViewModel.User.api_token,
-                "https://thenuap.com");
+               mainViewModel.User.api_token,
+               "https://thenuap.com",
+               mainViewModel.AddressDetail.Id);
 
             if (response == null)
             {

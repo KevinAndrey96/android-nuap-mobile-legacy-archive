@@ -66,6 +66,9 @@
                                 IsVisible="{Binding ViewAddressOne}"
                                 CornerRadius="25"
                                 BackgroundColor="{Binding AddressOneColor}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GetAddressCommand}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -113,6 +116,9 @@
                                 CornerRadius="30"
                                 BackgroundColor="{Binding AddressTwoColor}"
                                 VerticalOptions="FillAndExpand">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GetAddressCommand}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -160,6 +166,9 @@
                                 IsVisible="{Binding ViewAddressThree}"
                                 CornerRadius="25"
                                 BackgroundColor="{Binding AddressThreeColor}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GetAddressCommand}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -207,6 +216,9 @@
                                 CornerRadius="25"
                                 BackgroundColor="{Binding AddressFourColor}"
                                 VerticalOptions="FillAndExpand">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GetAddressCommand}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
@@ -254,6 +266,9 @@
                                 CornerRadius="25"
                                 BackgroundColor="{Binding AddressFiveColor}"
                                 VerticalOptions="FillAndExpand">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GetAddressCommand}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>

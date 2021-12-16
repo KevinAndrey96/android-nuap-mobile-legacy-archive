@@ -159,6 +159,20 @@
                             Text="{Binding ShippingCost, Mode=TwoWay}">
                         </Label>
                     </StackLayout>
+                    <Button
+                        Margin="20,15,20,15"
+                        Text="Recuperar contraseña"
+                        FontFamily="Poppins"
+                        TextTransform="None"
+                        BackgroundColor="#ffc33a"
+                        HeightRequest="60"
+                        TextColor="White"
+                        BorderRadius="20"
+                        Padding="0,15"
+                        FontSize="16"
+                        Command="{Binding ChangePasswordCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                    </Button>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

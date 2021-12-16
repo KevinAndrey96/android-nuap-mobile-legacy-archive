@@ -13,7 +13,8 @@
                     <On Platform="iOS">20,25,0,0</On>
                 </OnPlatform>
             </StackLayout.Padding>
-            <StackLayout>
+            <StackLayout
+                Padding="20,10,0,0">
                 <Image
                     WidthRequest="30"
                     Margin="0,20,0,0"
@@ -26,7 +27,7 @@
                 </Image>
             </StackLayout>
             <StackLayout 
-                    Padding="0,10,0,0"
+                    Padding="20,10,0,0"
                     HorizontalOptions="Start"
                     VerticalOptions="Center"
                     Orientation="Horizontal">
@@ -85,7 +86,7 @@
                 TextColor="#0274bc">
             </Label>
             <StackLayout 
-                Padding="0,30,0,0"
+                Padding="20,30,0,0"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="Center"
                 Orientation="Horizontal">

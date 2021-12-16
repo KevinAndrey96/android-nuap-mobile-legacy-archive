@@ -8,8 +8,7 @@
     using System.Linq;
     using Xamarin.Forms;
     using Models;
-    using Views;
-
+    
     public class SalesViewModel: BaseViewModel
     {
         private ApiService apiService;

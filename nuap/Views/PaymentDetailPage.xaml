@@ -97,12 +97,13 @@
                     </Label>
                 </StackLayout>
                 <StackLayout 
+                        Margin="20"
                         Grid.Column="2"
-                        Padding="10,30,0,0"
+                        Padding="10,30,0,10"
                         HorizontalOptions="End"
                         VerticalOptions="Center">
                     <Label
-                        Padding="0,0,0,0"
+                        Padding="0,0,0,10"
                         VerticalOptions="Center"
                         HorizontalOptions="StartAndExpand"
                         FontFamily="Poppins-Bold"

@@ -43,7 +43,8 @@
                     </OnPlatform>
                 </Label.Text>
             </Label>
-            <ListView 
+            <ListView
+                Margin="0,160,0,0"
                 HasUnevenRows="true" 
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"

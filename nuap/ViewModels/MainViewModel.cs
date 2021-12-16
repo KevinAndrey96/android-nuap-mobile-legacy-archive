@@ -23,6 +23,18 @@
             set;
         }
 
+        public TermsAndConditionsViewModel TermsAndConditions
+        {
+            get;
+            set;
+        }
+
+        public ChangePasswordViewModel ChangePassword
+        {
+            get;
+            set;
+        }
+
         public LoginViewModel Login
         {
             get;

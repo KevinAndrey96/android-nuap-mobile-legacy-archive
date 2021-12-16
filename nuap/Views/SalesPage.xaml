@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="nuap.Views.SalesPage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    BackgroundImageSource="Ventas2.png">
+    BackgroundImageSource="Ventas.png">
     <ContentPage.Content>
         <ScrollView
             Margin="20,8,0,0">
@@ -118,20 +118,12 @@
                     VerticalOptions="Center">
                 </Label>
                 <Label
+                    IsVisible="{Binding OrdersInitiatedList}"
                     Text="Iniciadas"
                     Padding="20,5,0,0"
                     TextColor="#0274bc" 
                     FontFamily="Poppins"
                     FontSize="20"
-                    VerticalOptions="Center">
-                </Label>
-                <Label
-                    Text=""
-                    IsVisible="{Binding OrdersInitiatedText}"
-                    Padding="20,0,0,0"
-                    TextColor="#3a3a3a" 
-                    FontFamily="Poppins"
-                    FontSize="14"
                     VerticalOptions="Center">
                 </Label>
                 <ListView 
@@ -204,20 +196,12 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Label
+                    IsVisible="{Binding OrdersAceptedList}"
                     Text="Aceptadas"
                     Padding="20,0,0,0"
                     TextColor="#0274bc" 
                     FontFamily="Poppins"
                     FontSize="20"
-                    VerticalOptions="Center">
-                </Label>
-                <Label
-                    Text=""
-                    IsVisible="{Binding OrdersAceptedText}"
-                    Padding="20,0,0,0"
-                    TextColor="#3a3a3a" 
-                    FontFamily="Poppins"
-                    FontSize="14"
                     VerticalOptions="Center">
                 </Label>
                 <ListView 
@@ -290,20 +274,12 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Label
+                    IsVisible="{Binding OrdersEnlistmentList}"
                     Text="Alistamiento"
                     Padding="20,0,0,0"
                     TextColor="#0274bc" 
                     FontFamily="Poppins"
                     FontSize="20"
-                    VerticalOptions="Center">
-                </Label>
-                <Label
-                    Text=""
-                    IsVisible="{Binding OrdersEnlistmentText}"
-                    Padding="20,0,0,0"
-                    TextColor="#3a3a3a" 
-                    FontFamily="Poppins"
-                    FontSize="14"
                     VerticalOptions="Center">
                 </Label>
                 <ListView 
@@ -376,20 +352,12 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Label
+                    IsVisible="{Binding OrdersCirculationList}"
                     Text="Circulación"
                     Padding="20,0,0,0"
                     TextColor="#0274bc" 
                     FontFamily="Poppins"
                     FontSize="20"
-                    VerticalOptions="Center">
-                </Label>
-                <Label
-                    Text=""
-                    IsVisible="{Binding OrdersCirculationText}"
-                    Padding="20,0,0,0"
-                    TextColor="#3a3a3a" 
-                    FontFamily="Poppins"
-                    FontSize="14"
                     VerticalOptions="Center">
                 </Label>
                 <ListView
@@ -462,20 +430,12 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Label
+                    IsVisible="{Binding OrdersDeliveredList}"
                     Text="Entregadas"
                     Padding="20,0,0,0"
                     TextColor="#0274bc" 
                     FontFamily="Poppins"
                     FontSize="20"
-                    VerticalOptions="Center">
-                </Label>
-                <Label
-                    Text=""
-                    IsVisible="{Binding OrdersDeliveredText}"
-                    Padding="20,0,0,0"
-                    TextColor="#3a3a3a" 
-                    FontFamily="Poppins"
-                    FontSize="14"
                     VerticalOptions="Center">
                 </Label>
                 <ListView 
@@ -548,20 +508,12 @@
                     </ListView.ItemTemplate>
                 </ListView>
                 <Label
+                    IsVisible="{Binding OrdersCanceledList}"
                     Text="Canceladas"
                     Padding="20,0,0,0"
                     TextColor="#0274bc" 
                     FontFamily="Poppins"
                     FontSize="20"
-                    VerticalOptions="Center">
-                </Label>
-                <Label
-                    Text=""
-                    IsVisible="{Binding OrdersCanceledText}"
-                    Padding="20,0,0,0"
-                    TextColor="#3a3a3a" 
-                    FontFamily="Poppins"
-                    FontSize="14"
                     VerticalOptions="Center">
                 </Label>
                 <ListView 

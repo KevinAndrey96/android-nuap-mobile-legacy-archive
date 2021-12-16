@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Windows.Input;
     using Xamarin.Forms;
+    using Views;
 
     public class CommerceProfileViewModel : BaseViewModel
     {
@@ -46,6 +47,14 @@
         {
             get { return this.companyName; }
             set { SetValue(ref this.companyName, value); }
+        }
+
+        public ICommand ChangePasswordCommand
+        {
+            get
+            {
+                return new RelayCommand(ChangePassword);
+            }
         }
 
         public ICommand ReturnCommand
@@ -123,6 +132,13 @@
         {
             var mainViewModel = MainViewModel.GetInstance();
             await Application.Current.MainPage.Navigation.PopAsync();
+        }
+
+        private async void ChangePassword()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.ChangePassword = new ChangePasswordViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new ChangePasswordPage());
         }
     }
 }

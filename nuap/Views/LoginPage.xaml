@@ -8,9 +8,16 @@
             BackgroundColor="#0274bc"
             Padding="20,0,20,40"
             BindingContext="{Binding Login}">
+            <Label
+                Text="Version: 1.0"
+                FontFamily="Poppins"
+                TextColor="#6a96fb"
+                FontSize="12"
+                HorizontalOptions="End">
+            </Label>
             <Image
                 Source="logo"
-                WidthRequest="170">
+                WidthRequest="155">
             </Image>
             <Label
                 Text="Inicia Sesión"
@@ -32,7 +39,7 @@
             <Frame
                 CornerRadius="35"
                 OutlineColor="White"
-                Padding="20,90,20,10"
+                Padding="20,70,20,10"
                 VerticalOptions="CenterAndExpand">
                 <StackLayout>
                     <Label
@@ -84,20 +91,50 @@
                         FontFamily="Poppins"
                         TextTransform="None"
                         BackgroundColor="#fd8700"
-                        HeightRequest="60"
+                        HeightRequest="50"
                         TextColor="White"
                         BorderRadius="20"
                         Padding="0,15"
-                        FontSize="17"
+                        FontSize="16"
                         Command="{Binding LoginCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
                     </Button>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="Center">
+                        <Label
+                            Text="Recuperar contraseña"
+                            FontFamily="Poppins-Bold"
+                            TextColor="#0274bc"
+                            FontSize="13"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ChangePasswordCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
                     <Label
-                        Text="Version: 1.5"
-                        FontFamily="Poppins"
-                        TextColor="#949494"
-                        FontSize="12"
-                        HorizontalOptions="End">
+                        Text="Al iniciar sesión estás aceptando nuestros"
+                        FontFamily="Poppins-Bold"
+                        TextColor="Gray"
+                        FontSize="10"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Padding="0,30,0,0">
+                    </Label>
+                    <Label
+                        Text="Términos y condiciones"
+                        FontFamily="Poppins-Bold"
+                        TextColor="#0274bc"
+                        FontSize="10"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Margin="0"
+                        Padding="0,0,0,10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TermsAndConditionsCommand}"/>
+                        </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
             </Frame>

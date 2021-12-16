@@ -55,6 +55,22 @@
             }
         }
 
+        public ICommand TermsAndConditionsCommand
+        {
+            get
+            {
+                return new RelayCommand(TermsAndConditions);
+            }
+        }
+
+        public ICommand ChangePasswordCommand
+        {
+            get
+            {
+                return new RelayCommand(ChangePassword);
+            }
+        }
+
         private async void Login()
         {
             if (string.IsNullOrEmpty(this.Email))
@@ -148,6 +164,20 @@
                 mainViewModel.HomeCommerce = new HomeCommerceViewModel();
                 await Application.Current.MainPage.Navigation.PushAsync(new HomeCommerceTabbedPage());
             }
+        }
+
+        private async void TermsAndConditions()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.TermsAndConditions = new TermsAndConditionsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new TermsAndConditionsPage());
+        }
+
+        private async void ChangePassword()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.ChangePassword = new ChangePasswordViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new ChangePasswordPage());
         }
     }
 }

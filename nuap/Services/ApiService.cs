@@ -533,15 +533,15 @@
 
         public async Task<CategoryResponse> GetValidCategories(
             string accessToken,
-            string urlBase
+            string urlBase,
+            int address
         )
         {
             try
             {
                 var client = new HttpClient();
-                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
                 client.BaseAddress = new Uri(urlBase);
-                var response = await client.GetAsync("/api/products/valid/categories?api_token=" + accessToken);
+                var response = await client.GetAsync("/api/products/valid/categories?address=" + address + "&&api_token=" + accessToken);
                 var resultJSON = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<CategoryResponse>(resultJSON);
 
