@@ -97,7 +97,7 @@
                     "Debes agregar una dirección para poder continuar",
                     "Aceptar");
 
-                if (Device.RuntimePlatform == Device.iOS)
+                /*if (Device.RuntimePlatform == Device.iOS)
                 {
                     string url = "https://thenuap.com/create-address?";
                     string user = "user=" + mainViewModel.User.id;
@@ -107,10 +107,10 @@
                     await Application.Current.MainPage.Navigation.PushAsync(new PaymentGatewayPage());
                 }
                 else
-                {
+                {*/
                     mainViewModel.CreateAddress = new CreateAddressViewModel();
                     await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
-                }
+                //}
             } else
             {
                 this.list = response.Data;
@@ -124,7 +124,7 @@
         {
             var mainViewModel = MainViewModel.GetInstance();
 
-            if (Device.RuntimePlatform == Device.iOS)
+            /*if (Device.RuntimePlatform == Device.iOS)
             {
                 string url = "https://thenuap.com/create-address?";
                 string user = "user=" + mainViewModel.User.id;
@@ -133,10 +133,10 @@
                 mainViewModel.PaymentGateway = new PaymentGatewayViewModel(url);
                 await Application.Current.MainPage.Navigation.PushAsync(new PaymentGatewayPage());
             } else
-            {
+            {*/
                 mainViewModel.CreateAddress = new CreateAddressViewModel();
                 await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
-            }            
+            //}            
         }
 
         private IEnumerable<AddressItemViewModel> ToAddressItemViewModel(List<Address> list)

@@ -10,7 +10,7 @@
             BackgroundColor="#f9f9f9">
             <StackLayout.Padding>
                 <OnPlatform x:TypeArguments="Thickness">
-                    <On Platform="iOS">0,25,0,0</On>
+                    <On Platform="iOS">0,28,0,0</On>
                 </OnPlatform>
             </StackLayout.Padding>
             <StackLayout>

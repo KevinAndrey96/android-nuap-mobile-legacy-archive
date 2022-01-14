@@ -142,7 +142,7 @@
 
                 if (resp.Data == null)
                 {
-                    if (Device.RuntimePlatform == Device.iOS)
+                    /*if (Device.RuntimePlatform == Device.iOS)
                     {
                         string url = "https://thenuap.com/create-address?";
                         string user = "user=" + mainViewModel.User.id;
@@ -152,10 +152,10 @@
                         await Application.Current.MainPage.Navigation.PushAsync(new PaymentGatewayPage());
                     }
                     else
-                    {
+                    {*/
                         mainViewModel.CreateAddress = new CreateAddressViewModel();
                         await Application.Current.MainPage.Navigation.PushAsync(new CreateAddressPage());
-                    }
+                    //}
 
                     return;
                 }

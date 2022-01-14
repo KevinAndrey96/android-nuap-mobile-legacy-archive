@@ -6,12 +6,17 @@
     xmlns:bindings="clr-namespace:Xamarin.Forms.GoogleMaps.Bindings;assembly=Xamarin.Forms.GoogleMaps.Bindings"
     xmlns:local="clr-namespace:nuap.ViewModels"
     x:Class="nuap.Views.CreateAddressPage"
-    BackgroundImageSource="register.png">
+    BackgroundImageSource="CategoriaProductos.png">
     <ContentPage.BindingContext>
         <local:CreateAddressViewModel/>
     </ContentPage.BindingContext>
     <StackLayout
         Padding="15,0,20,0">
+        <StackLayout.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS">5,38,0,0</On>
+            </OnPlatform>
+        </StackLayout.Padding>
         <StackLayout
             Orientation="Horizontal">
             <Image
@@ -38,6 +43,7 @@
         </StackLayout>
         <StackLayout>
             <Label
+                HorizontalTextAlignment="Center"
                 Text="Selecciona la ubicación en el mapa"
                 Padding="15,55,0,0"
                 TextColor="#3a3a3a" 
