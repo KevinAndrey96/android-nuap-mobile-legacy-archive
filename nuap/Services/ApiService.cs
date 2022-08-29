@@ -23,7 +23,7 @@
             }
 
             var isReachable = await CrossConnectivity.Current.IsRemoteReachable(
-                "67.205.184.22");
+                "164.92.68.92");
             if (!isReachable)
             {
                 return new Response

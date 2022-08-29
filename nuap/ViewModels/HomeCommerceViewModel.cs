@@ -1218,7 +1218,7 @@
                 {
                     await Application.Current.MainPage.DisplayAlert(
                         "Error",
-                        "Ha ocurrido un error",
+                        "Ha ocurrido un error C101",
                         "Aceptar");
                     return;
                 }
@@ -1329,7 +1329,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C102",
                     "Aceptar");
                 return;
             }
@@ -1386,7 +1386,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C103",
                     "Aceptar");
                 return;
             }
@@ -1444,7 +1444,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C104",
                     "Aceptar");
                 return;
             }
@@ -1502,7 +1502,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C105",
                     "Aceptar");
                 return;
             }
@@ -1560,7 +1560,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C106",
                     "Aceptar");
                 return;
             }
@@ -1618,7 +1618,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C107",
                     "Aceptar");
                 return;
             }
@@ -1676,7 +1676,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C108",
                     "Aceptar");
                 return;
             }
@@ -1733,7 +1733,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C109",
                     "Aceptar");
                 return;
             }
@@ -1791,7 +1791,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C110",
                     "Aceptar");
                 return;
             }
@@ -1848,7 +1848,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C111",
                     "Aceptar");
                 return;
             }
@@ -1942,7 +1942,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C112",
                     "Aceptar");
                 return;
             }
@@ -2008,7 +2008,7 @@
                 this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C113",
                     "Aceptar");
                 return;
             }
@@ -2040,7 +2040,7 @@
             {
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C114",
                     "Aceptar");
                 return;
             }
@@ -2116,7 +2116,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C115",
                     "Aceptar");
                 return;
             }
@@ -2225,7 +2225,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C116",
                     "Aceptar");
                 return;
             }
@@ -2314,7 +2314,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C117",
                     "Aceptar");
                 return;
             }
@@ -2392,7 +2392,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C118",
                     "Aceptar");
                 return;
             }
@@ -2489,7 +2489,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error",
+                    "Ha ocurrido un error C119",
                     "Aceptar");
                 return;
             }
