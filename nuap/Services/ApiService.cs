@@ -464,6 +464,7 @@
             }
         }
 
+        // Get commerce sales
         public async Task<OrderResponse> GetSales(
             string accessToken,
             string urlBase
@@ -576,7 +577,7 @@
             }
         }
 
-        /*public async Task<ProductResponse> GetSales(
+        public async Task<ProductResponse> GetProductSales(
             string accessToken,
             string urlBase,
             int address
@@ -597,7 +598,7 @@
             {
                 return null;
             }
-        }*/
+        }
 
         public async Task<ProductResponse> GetFeatured(
             string accessToken,
