@@ -576,7 +576,7 @@
             }
         }
 
-        public async Task<ProductResponse> GetSales(
+        /*public async Task<ProductResponse> GetSales(
             string accessToken,
             string urlBase,
             int address
@@ -597,7 +597,7 @@
             {
                 return null;
             }
-        }
+        }*/
 
         public async Task<ProductResponse> GetFeatured(
             string accessToken,
