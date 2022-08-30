@@ -1932,9 +1932,10 @@
             this.DisabledButtons();
             var mainViewModel = MainViewModel.GetInstance();
 
-            var response = await this.apiService.GetSales(
+            var response = await this.apiService.GetProductSales(
                 mainViewModel.User.api_token,
-                "https://thenuap.com");
+                "https://thenuap.com",
+                mainViewModel.AddressDetail.Id);
 
             if (response == null)
             {
@@ -2381,7 +2382,7 @@
 
             var mainViewModel = MainViewModel.GetInstance();
 
-            var response = await this.apiService.GetSales(
+            var response = await this.apiService.GetProductSales(
                 mainViewModel.User.api_token,
                 "https://thenuap.com",
                 mainViewModel.AddressDetail.Id);
