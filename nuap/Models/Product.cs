@@ -10,6 +10,9 @@
         [JsonProperty(PropertyName = "user_id")]
         public string UserId { get; set; }
 
+        [JsonProperty(PropertyName = "store_name")]
+        public string StoreName { get; set; }
+
         [JsonProperty(PropertyName = "category_id")]
         public int CategoryId { get; set; }
 
@@ -38,16 +41,16 @@
         public int Stock { get; set; }
 
         [JsonProperty(PropertyName = "weight")]
-        public int Weight { get; set; }
+        public float Weight { get; set; }
 
         [JsonProperty(PropertyName = "length")]
-        public int Length { get; set; }
+        public float Length { get; set; }
 
         [JsonProperty(PropertyName = "width")]
-        public int Width { get; set; }
+        public float Width { get; set; }
 
         [JsonProperty(PropertyName = "height")]
-        public int Height { get; set; }
+        public float Height { get; set; }
 
         [JsonProperty(PropertyName = "purchase_price")]
         public int PurchasePrice { get; set; }
@@ -56,7 +59,7 @@
         public int SalePrice { get; set; }
 
         [JsonProperty(PropertyName = "special_price")]
-        public int SpecialPrice { get; set; }
+        public float SpecialPrice { get; set; }
 
         [JsonProperty(PropertyName = "has_special_price")]
         public int HasSpecialPrice { get; set; }

@@ -292,7 +292,7 @@
                 if (item.HasSpecialPrice == 1)
                 {
                     this.SalesProductsVisibility = true;
-                    item.Status = item.SalePrice - (item.SalePrice * item.SpecialPrice / 100);
+                    item.Status = item.SalePrice - (item.SalePrice * (int) item.SpecialPrice / 100);
                     salesProductsList.Add(item);
                 }
             }

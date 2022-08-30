@@ -2392,7 +2392,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error C118",
+                    "Ha ocurrido un error C118 ID"+mainViewModel.AddressDetail.Id,
                     "Aceptar");
                 return;
             }
@@ -2489,7 +2489,7 @@
                 this.IsRefreshingInit = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
-                    "Ha ocurrido un error C119",
+                    "Ha ocurrido un error C119 ID" + mainViewModel.AddressDetail.Id,
                     "Aceptar");
                 return;
             }
