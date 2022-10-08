@@ -149,6 +149,14 @@
             }
         }
 
+        public ICommand UpdateDeliveryDateCommand
+        {
+            get
+            {
+                return new RelayCommand(UpdateDeliveryDate);
+            }
+        }
+
         public ICommand ViewSellerCommand
         {
             get
@@ -197,6 +205,11 @@
             mainViewModel.OrderAddress = this.Order.Address;
             mainViewModel.UpdateOrderStatus = new UpdateOrderStatusViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new UpdateOrderStatusPage());
+        }
+
+        private async void UpdateDeliveryDate()
+        {
+            var mainViewModel = MainViewModel.GetInstance();
         }
 
         private void LoadDetailOrder()

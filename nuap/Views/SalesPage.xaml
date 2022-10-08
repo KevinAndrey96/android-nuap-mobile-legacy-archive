@@ -156,14 +156,26 @@
                                             Grid.Column="1"
                                             HorizontalOptions="Start"
                                             VerticalOptions="Center">
-                                            <Label 
-                                                VerticalOptions="Center"
-                                                HorizontalOptions="StartAndExpand"
-                                                FontFamily="Poppins-Bold"
-                                                FontSize="18" 
-                                                Text="{Binding Id}"
-                                                TextColor="#8c8c8c">
-                                            </Label>
+                                            <StackLayout
+                                                Orientation="Horizontal">
+                                                <Label 
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    FontFamily="Poppins-Bold"
+                                                    FontSize="16" 
+                                                    Text="ID #"
+                                                    TextColor="#8c8c8c">
+                                                </Label>
+                                                <Label 
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    FontFamily="Poppins-Bold"
+                                                    FontSize="16" 
+                                                    Text="{Binding Id}"
+                                                    TextColor="#8c8c8c">
+                                                </Label>
+                                            </StackLayout>
+                                            
                                             <Label 
                                                 VerticalOptions="Center"
                                                 HorizontalOptions="StartAndExpand"

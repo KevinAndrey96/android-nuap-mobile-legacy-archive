@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -147,7 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nuap\nuap.csproj">
-      <Project>{9ADE2B6E-C119-4FA5-842B-32AD3A96BA1B}</Project>
+      <Project>{C987019B-D89A-4D06-A16E-9C4C061BD9BE}</Project>
       <Name>nuap</Name>
     </ProjectReference>
   </ItemGroup>

@@ -342,6 +342,12 @@
             set;
         }
 
+        public int CategoryStoreID
+        {
+            get;
+            set;
+        }
+
         public int SellerID
         {
             get;

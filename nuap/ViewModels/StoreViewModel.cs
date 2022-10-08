@@ -141,6 +141,9 @@
 
             this.apiService = new ApiService();
             this.LoadCategories();
+
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.CategoryStoreID = this.StoreID;
         }
 
         private void Search()
