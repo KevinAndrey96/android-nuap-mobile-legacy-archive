@@ -1322,7 +1322,9 @@
             var response = await this.apiService.GetValidCategories(
                mainViewModel.User.api_token,
                "https://thenuap.com",
-               mainViewModel.AddressDetail.Id);
+               mainViewModel.AddressDetail.Id,
+               0
+            );
 
             if (response == null)
             {
@@ -1379,7 +1381,9 @@
             var response = await this.apiService.GetValidCategories(
                mainViewModel.User.api_token,
                "https://thenuap.com",
-               mainViewModel.AddressDetail.Id);
+               mainViewModel.AddressDetail.Id,
+               0
+            );
 
             if (response == null)
             {
@@ -1437,7 +1441,9 @@
             var response = await this.apiService.GetValidCategories(
                mainViewModel.User.api_token,
                "https://thenuap.com",
-               mainViewModel.AddressDetail.Id);
+               mainViewModel.AddressDetail.Id,
+               0
+            );
 
             if (response == null)
             {
@@ -1495,7 +1501,9 @@
             var response = await this.apiService.GetValidCategories(
                mainViewModel.User.api_token,
                "https://thenuap.com",
-               mainViewModel.AddressDetail.Id);
+               mainViewModel.AddressDetail.Id,
+               0
+            );
 
             if (response == null)
             {
@@ -1553,7 +1561,9 @@
             var response = await this.apiService.GetValidCategories(
                mainViewModel.User.api_token,
                "https://thenuap.com",
-               mainViewModel.AddressDetail.Id);
+               mainViewModel.AddressDetail.Id,
+               0
+            );
 
             if (response == null)
             {
@@ -2218,7 +2228,9 @@
             var response = await this.apiService.GetValidCategories(
                mainViewModel.User.api_token,
                "https://thenuap.com",
-               mainViewModel.AddressDetail.Id);
+               mainViewModel.AddressDetail.Id,
+               0
+               );
 
             if (response == null)
             {
