@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.PaymentsPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImageSource="BalancesyPagos.png">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Payments}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,25,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <ScrollView
+                Margin="15,135,0,0">
+                <StackLayout>
+                    <Label
+                        Padding="20,150,0,0"
+                        Text="Balances Y Pagos"
+                        TextColor="#0274bc" 
+                        FontFamily="Poppins-Bold"
+                        FontSize="20"
+                        VerticalOptions="Center">
+                        <Label.Padding>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="iOS">20,100,0,0</On>
+                            </OnPlatform>
+                        </Label.Padding>
+                    </Label>
+                    <Label
+                        Text="{Binding Balance}"
+                        Padding="0,5,0,0"
+                        TextColor="#6fcf97" 
+                        FontFamily="Poppins-Bold"
+                        FontSize="34"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Text="Saldo disponible"
+                        Padding="15,0,0,0"
+                        TextColor="#494949" 
+                        FontFamily="Poppins-Bold"
+                        FontSize="15"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Label
+                        Text="Estás viendo el valor actual disponible para retiro, puedes revisar el detalle de tus ventas para obtener mayor información. Ten en cuenta que un retiro puede verse reflejado en hasta 5 días hábiles dependiendo de tu banco."
+                        Padding="70,3,50,0"
+                        TextColor="#494949" 
+                        FontFamily="Poppins"
+                        FontSize="15"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Button
+                        Text="Solicitar Retiro"
+                        FontFamily="Poppins-Bold"
+                        TextTransform="None"
+                        BackgroundColor="#ffc33a"
+                        HeightRequest="50"
+                        TextColor="#414b5a"
+                        BorderRadius="16"
+                        Margin="115,6,115,0"
+                        FontSize="16"
+                        Command="{Binding RequestPaymentCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                    </Button>
+                    <Label
+                        Text="Mis Pagos"
+                        Padding="10,5,0,0"
+                        TextColor="#0274bc" 
+                        FontFamily="Poppins-Bold"
+                        FontSize="20"
+                        VerticalOptions="Center">
+                    </Label>
+                    <ListView 
+                        HeightRequest="{Binding ListHeight}"
+                        HasUnevenRows="true" 
+                        IsPullToRefreshEnabled="true"
+                        IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                        ItemsSource="{Binding PaymentList}"
+                        SeparatorVisibility="None"
+                        RefreshCommand="{Binding RefreshCommand}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame
+                                        CornerRadius="20"
+                                        HasShadow="true"
+                                        Margin="15,8,15,5">
+                                        <StackLayout>
+                                            <StackLayout 
+                                                Padding="5,0,5,0"
+                                                Grid.Column="1"
+                                                HorizontalOptions="Start"
+                                                VerticalOptions="Center"
+                                                Orientation="Horizontal">
+                                                <Label 
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    FontFamily="Poppins-Bold"
+                                                    FontSize="18" 
+                                                    Text="ID PAGO"
+                                                    TextColor="#8c8c8c">
+                                                </Label>
+                                                <Label 
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    FontFamily="Poppins-Bold"
+                                                    FontSize="18" 
+                                                    Text="{Binding Id}"
+                                                    TextColor="#8c8c8c">
+                                                </Label>
+                                            </StackLayout>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout 
+                                                    Padding="0,0,5,0"
+                                                    Grid.Column="1"
+                                                    HorizontalOptions="Start"
+                                                    VerticalOptions="Center"
+                                                    Orientation="Vertical">
+                                                    <Label 
+                                                        Padding="0,2,0,0"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        FontFamily="Poppins-Bold"
+                                                        FontSize="16" 
+                                                        Text="Fecha"
+                                                        TextColor="#414b5a">
+                                                    </Label>
+                                                    <Label 
+                                                        Padding="0,2,0,0"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        FontFamily="Poppins-Bold"
+                                                        FontSize="16" 
+                                                        Text="Monto"
+                                                        TextColor="#414b5a">
+                                                    </Label>
+                                                    <Label 
+                                                        Padding="0,2,0,0"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        FontFamily="Poppins-Bold"
+                                                        FontSize="18" 
+                                                        Text="Estado"
+                                                        TextColor="#414b5a">
+                                                    </Label>
+                                                </StackLayout>
+                                                <StackLayout 
+                                                    Grid.Column="2"
+                                                    Padding="10,0,0,0"
+                                                    HorizontalOptions="End"
+                                                    VerticalOptions="Center">
+                                                    <Label 
+                                                        Padding="0,2,0,0"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        FontFamily="Poppins-Bold"
+                                                        FontSize="16" 
+                                                        Text="{Binding RequestDate}"
+                                                        TextColor="#414b5a">
+                                                    </Label>
+                                                    <Label 
+                                                        Padding="0,2,0,0"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="StartAndExpand"
+                                                        FontFamily="Poppins-Bold"
+                                                        FontSize="16" 
+                                                        Text="{Binding Value}"
+                                                        TextColor="#414b5a">
+                                                    </Label>
+                                                    <Button
+                                                        Padding="0,2,0,0"
+                                                        Text="{Binding Status}"
+                                                        FontFamily="Poppins-Bold"
+                                                        TextTransform="None"
+                                                        BackgroundColor="{Binding StatusColor}"
+                                                        HeightRequest="40"
+                                                        TextColor="#414b5a"
+                                                        BorderRadius="12"
+                                                        FontSize="14">
+                                                    </Button>
+                                                </StackLayout>
+                                            </Grid>
+                                            <Button
+                                                Text="Ver Detalle"
+                                                FontFamily="Poppins-Bold"
+                                                TextTransform="None"
+                                                BackgroundColor="#ffc33a"
+                                                HeightRequest="48"
+                                                TextColor="#414b5a"
+                                                BorderRadius="14"
+                                                Margin="90,15,90,0"
+                                                FontSize="14"
+                                                Command="{Binding PaymentDetailCommand}"
+                                                IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                                            </Button>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

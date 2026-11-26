@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.ProfileCommercePage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Perfil">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="#0274bc"
+            Padding="00,40,0,0" 
+            BindingContext="{Binding HomeCommerce}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,55,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <Label
+                Text="Hola,"
+                Padding="40,0,0,0"
+                TextColor="White" 
+                FontSize="25"
+                TextTransform="Uppercase"
+                FontFamily="Poppins-Bold"
+                FontAttributes="Bold"
+                VerticalOptions="Center">
+            </Label>
+            <Label
+                Padding="40,0,0,25"
+                TextColor="White" 
+                FontSize="25"
+                FontFamily="Poppins-Bold"
+                TextTransform="Uppercase"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                Text="{Binding CompanyName, Mode=TwoWay}">
+            </Label>
+            <Frame
+                CornerRadius="35"
+                OutlineColor="White"
+                Padding="20,20,20,0"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HeightRequest="35"
+                            HorizontalOptions="Start" 
+                            Source="Verperfil">
+                        </Image>
+                        <Button
+                            Text="Mi Perfil"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            HorizontalOptions="End"
+                            Command="{Binding ProfileCommand}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HeightRequest="35"
+                            HorizontalOptions="Start" 
+                            Source="MisUbicaciones">
+                        </Image>
+                        <Button
+                            Text="Mis Direcciones"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            HorizontalOptions="Start"
+                            Command="{Binding AddressCommand}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HeightRequest="35"
+                            HorizontalOptions="Start" 
+                            Source="balances">
+                        </Image>
+                        <Button
+                            Text="Cuenta Bancaria"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            HorizontalOptions="Start"
+                            Command="{Binding AccountCommand}">
+                        </Button>
+                    </StackLayout>
+                    <StackLayout
+                        Padding="0,0,0,30"
+                        Orientation="Horizontal"
+                        VerticalOptions="EndAndExpand">
+                        <Image 
+                            HeightRequest="35"
+                            HorizontalOptions="Start"
+                            Source="logout">
+                        </Image>
+                        <Button
+                            Text="Cerrar Sesión"
+                            FontFamily="Poppins-Bold"
+                            TextTransform="None"
+                            HeightRequest="60"
+                            TextColor="#2a4d9c"
+                            BackgroundColor="Transparent"
+                            Padding="0,15"
+                            FontSize="16"
+                            HorizontalOptions="Start"
+                            Command="{Binding LogoutCommand}">
+                        </Button>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

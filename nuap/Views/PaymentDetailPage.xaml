@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.PaymentDetailPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding PaymentDetail}"
+            BackgroundColor="White"
+            Padding="0,0,20,0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,25,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flechaazul">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <StackLayout 
+                    Padding="20,10,0,0"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Orientation="Horizontal">
+                <Label 
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"
+                    FontFamily="Poppins-Bold"
+                    FontSize="20" 
+                    Text="ID PAGO"
+                    TextColor="#8c8c8c">
+                </Label>
+                <Label 
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"
+                    FontFamily="Poppins-Bold"
+                    FontSize="20" 
+                    Text="{Binding PaymentID}"
+                    TextColor="#8c8c8c">
+                </Label>
+            </StackLayout>
+            <Label
+                Text="{Binding Value}"
+                Padding="20,20,0,0"
+                TextColor="#6fcf97" 
+                FontFamily="Poppins-Bold"
+                FontSize="38"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+            </Label>
+            <Label
+                Text="Valor retiro solicitado"
+                Padding="20,5,0,0"
+                TextColor="#414b5a" 
+                FontFamily="Poppins-Bold"
+                FontSize="18"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+            </Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout 
+                        Padding="0,20,5,0"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        Orientation="Vertical">
+                    <Label 
+                        Padding="20,10,0,0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand"
+                        FontFamily="Poppins-Bold"
+                        FontSize="16" 
+                        Text="Solicitud"
+                        TextColor="#414b5a">
+                    </Label>
+                    <Label 
+                        Padding="20,10,0,0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand"
+                        FontFamily="Poppins-Bold"
+                        FontSize="16" 
+                        Text="Fecha de pago"
+                        TextColor="#414b5a">
+                    </Label>
+                </StackLayout>
+                <StackLayout 
+                        Margin="20"
+                        Grid.Column="2"
+                        Padding="10,30,0,10"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center">
+                    <Label
+                        Padding="0,0,0,10"
+                        VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand"
+                        FontFamily="Poppins-Bold"
+                        FontSize="16" 
+                        Text="{Binding RequestDate}"
+                        TextColor="#414b5a">
+                    </Label>
+                    <Label 
+                        Padding="0,0,0,0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand"
+                        FontFamily="Poppins-Bold"
+                        FontSize="16" 
+                        Text="{Binding PaymentDate}"
+                        TextColor="#414b5a">
+                    </Label>
+                </StackLayout>
+            </Grid>
+            <Button
+                Margin="120,60,100,0"
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding Status}"
+                FontFamily="Poppins-Bold"
+                TextTransform="None"
+                BackgroundColor="{Binding StatusColor}"
+                HeightRequest="40"
+                TextColor="#414b5a"
+                BorderRadius="12"
+                FontSize="14">
+            </Button>
+            <Button
+                IsVisible="{Binding IsVisible}"
+                Text="Ver Voucher"
+                FontFamily="Poppins-Bold"
+                TextTransform="None"
+                BackgroundColor="#ffc33a"
+                HeightRequest="50"
+                TextColor="#414b5a"
+                BorderRadius="12"
+                HorizontalOptions="FillAndExpand"
+                Margin="40,80,20,0"
+                FontSize="15"
+                Command="{Binding VoucherCommand}"
+                IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

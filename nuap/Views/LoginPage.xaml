@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.LoginPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="#0274bc"
+            Padding="20,0,20,40"
+            BindingContext="{Binding Login}">
+            <Label
+                Text="Version: 1.0"
+                FontFamily="Poppins"
+                TextColor="#6a96fb"
+                FontSize="12"
+                HorizontalOptions="End">
+            </Label>
+            <Image
+                Source="logo"
+                WidthRequest="155">
+            </Image>
+            <Label
+                Text="Inicia Sesión"
+                TextColor="White" 
+                FontSize="25"
+                FontFamily="Poppins-Bold"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            </Label>
+            <Label
+                Text="Hola, gracias por volver"
+                TextColor="White" 
+                FontFamily="Poppins"
+                FontSize="16"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            </Label>
+            <Frame
+                CornerRadius="35"
+                OutlineColor="White"
+                Padding="20,70,20,10"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Label
+                        Text="Correo electrónico o celular"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_user">
+                        </Image>
+                        <Entry
+                            Keyboard="Email"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand"
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding Email, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
+                    <Label
+                        Text="Contraseña"
+                        TextColor="#949494"
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_lock">
+                        </Image>
+                        <Entry
+                            IsPassword="True"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand"
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding Password, Mode=TwoWay}">
+                        </Entry>
+                    </StackLayout>
+                    <Button
+                        Text="Inicia Sesión"
+                        FontFamily="Poppins"
+                        TextTransform="None"
+                        BackgroundColor="#fd8700"
+                        HeightRequest="50"
+                        TextColor="White"
+                        BorderRadius="20"
+                        Padding="0,15"
+                        FontSize="16"
+                        Command="{Binding LoginCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                    </Button>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="Center">
+                        <Label
+                            Text="Recuperar contraseña"
+                            FontFamily="Poppins-Bold"
+                            TextColor="#0274bc"
+                            FontSize="13"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ChangePasswordCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    <Label
+                        Text="Al iniciar sesión estás aceptando nuestros"
+                        FontFamily="Poppins-Bold"
+                        TextColor="Gray"
+                        FontSize="10"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Padding="0,30,0,0">
+                    </Label>
+                    <Label
+                        Text="Términos y condiciones"
+                        FontFamily="Poppins-Bold"
+                        TextColor="#0274bc"
+                        FontSize="10"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        Margin="0"
+                        Padding="0,0,0,10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TermsAndConditionsCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

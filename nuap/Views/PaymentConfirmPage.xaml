@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nuap.Views.PaymentConfirmPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            BackgroundColor="White"
+            BindingContext="{Binding PaymentConfirm}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,25,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flechaazul">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Image
+                Margin="0,20,0,0"
+                Source="confirmpayment"
+                WidthRequest="200">
+            </Image>
+            <Label
+                Text="Exitoso"
+                Padding="0,15,0,0"
+                TextColor="#0274bc" 
+                FontFamily="Poppins-Bold"
+                FontSize="30"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+            </Label>
+            <Label
+                Text="Tu solicitud ha sido recibida satisfactoriamente, el equipo de NuAp gestionara tu pago lo mas pronto posible"
+                Padding="20,10,20,0"
+                TextColor="#494949" 
+                FontFamily="Poppins-Bold"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center">
+            </Label>
+            <Label
+                Text="Valor solicitado"
+                Padding="0,10,0,0"
+                TextColor="#0274bc" 
+                FontFamily="Poppins-Bold"
+                FontSize="24"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+            </Label>
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Center"
+                Orientation="Horizontal">
+                <Label
+                    Text="$"
+                    Padding="0,10,0,0"
+                    TextColor="#6fcf97" 
+                    FontFamily="Poppins-Bold"
+                    FontSize="38"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                </Label>
+                <Label
+                    Text="{Binding Value}"
+                    Padding="0,10,0,0"
+                    TextColor="#6fcf97" 
+                    FontFamily="Poppins-Bold"
+                    FontSize="38"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                </Label>
+            </StackLayout>
+            <Label
+                Text="Fecha solicitud"
+                Padding="0,10,0,0"
+                TextColor="#0274bc" 
+                FontFamily="Poppins-Bold"
+                FontSize="24"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+            </Label>
+            <Label 
+                Padding="0,10,0,0"
+                VerticalOptions="Center"
+                HorizontalOptions="CenterAndExpand"
+                FontFamily="Poppins"
+                FontSize="20" 
+                Text="{Binding Date}"
+                TextColor="#494949">
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

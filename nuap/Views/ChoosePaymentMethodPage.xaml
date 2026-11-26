@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.ChoosePaymentMethodPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="0,10,0,50"
+            BackgroundColor="#0274bc"
+            BindingContext="{Binding CreateOrder}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,40,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <Frame
+                CornerRadius="35"
+                OutlineColor="White"
+                Padding="20,20,20,0"
+                VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Label
+                        Padding="0,80,0,0"
+                        Text="Elige tu medio de pago para continuar"
+                        TextColor="#3a3a3a" 
+                        HorizontalTextAlignment="Center"
+                        FontSize="20"
+                        FontFamily="Poppins-Bold"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                    </Label>
+                    <Label
+                        Text="Crearemos tu orden una vez elijas"
+                        TextColor="#3a3a3a" 
+                        FontFamily="Poppins"
+                        FontSize="18"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Padding="0,30,0,0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Frame 
+                            BackgroundColor="#f2f2f2"
+                            CornerRadius="20"
+                            Padding="90,10,90,10"
+                            HorizontalOptions="Start"
+                            IsClippedToBounds="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CreateOrderWithCashCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <Image 
+                                HeightRequest="140"
+                                WidthRequest="140"
+                                Source="contraentrega" 
+                                HorizontalOptions="Start"
+                                VerticalOptions="CenterAndExpand">
+                            </Image>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout
+                        Padding="0,10,0,0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Frame 
+                            Padding="90,10,90,10"
+                            BackgroundColor="#f2f2f2"
+                            CornerRadius="20"
+                            HorizontalOptions="Start"
+                            IsClippedToBounds="True">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CreateOrderWithCardCommand}"/>
+                            </Frame.GestureRecognizers>
+                            <Image 
+                                HeightRequest="140"
+                                WidthRequest="140"
+                                Source="online" 
+                                HorizontalOptions="Start"
+                                VerticalOptions="CenterAndExpand">
+                            </Image>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

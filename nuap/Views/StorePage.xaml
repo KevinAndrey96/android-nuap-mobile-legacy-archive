@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             x:Class="nuap.Views.StorePage"
+             Title="Info">
+    <ContentPage.Content>
+        <StackLayout
+            Background="White"
+            BindingContext="{Binding Store}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,30,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,20,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flechaazul">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <!--<StackLayout>
+                <Frame CornerRadius="0"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True">
+                    <Image 
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="185"
+                        Source="{Binding Header}" 
+                        VerticalOptions="FillAndExpand">
+                    </Image>
+                </Frame>
+            </StackLayout>-->
+            <StackLayout Padding="40,20,40,10">
+                <Frame CornerRadius="100"
+                    Padding="0"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True">
+                    <Image 
+                        HeightRequest="140"
+                        WidthRequest="140"
+                        Source="{Binding Logo}" 
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                    </Image>
+                </Frame>
+            </StackLayout>
+            <ScrollView>
+                <StackLayout
+                    Padding="20,20,20,50">
+                    <Label
+                        Text="Nombre"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_user">
+                        </Image>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand" 
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding CompanyName, Mode=TwoWay}">
+                        </Label>
+                    </StackLayout>
+                    <Label
+                        Text="E-mail"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_envelope">
+                        </Image>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand" 
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding Email, Mode=TwoWay}">
+                        </Label>
+                    </StackLayout>
+                    <Label
+                        Text="Teléfono"
+                        TextColor="#949494"
+                        FontFamily="Poppins"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_smartphone">
+                        </Image>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Poppins"
+                            FontSize="16"
+                            HorizontalOptions="FillAndExpand" 
+                            TextColor="#3a3a3a"
+                            Text="{Binding Phone, Mode=TwoWay}">
+                        </Label>
+                    </StackLayout>
+                    <Label
+                        Text="Costo de Envio"
+                        FontFamily="Poppins"
+                        TextColor="#949494"
+                        FontSize="16"
+                        VerticalOptions="Center">
+                    </Label>
+                    <StackLayout
+                        Orientation="Horizontal">
+                        <Image 
+                            HorizontalOptions="Start" 
+                            Source="ic_entrega">
+                        </Image>
+                        <Label
+                            VerticalOptions="Center"
+                            FontFamily="Poppins"
+                            HorizontalOptions="FillAndExpand" 
+                            FontSize="16"
+                            TextColor="#3a3a3a"
+                            Text="{Binding ShippingCost, Mode=TwoWay}">
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

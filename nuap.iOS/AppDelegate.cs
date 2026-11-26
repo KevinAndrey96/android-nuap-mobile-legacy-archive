@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
 namespace nuap.iOS
@@ -23,6 +19,15 @@ namespace nuap.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            Xamarin.Forms.Application.Current = new Xamarin.Forms.Application();
+
+            Rg.Plugins.Popup.Popup.Init();
+            Xamarin.FormsMaps.Init();
+
+            Xamarin.FormsGoogleMaps.Init("YOUR_GOOGLE_MAPS_API_KEY");
+            Xamarin.FormsGoogleMapsBindings.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

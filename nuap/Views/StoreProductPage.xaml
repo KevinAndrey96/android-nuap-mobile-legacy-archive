@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nuap.Views.StoreProductPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImageSource="Caegorias.png"
+             Title="Productos">
+    <ContentPage.Content>
+        <StackLayout
+            BindingContext="{Binding Store}"
+            Padding="0,10,0,0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS">0,30,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <StackLayout>
+                <Image
+                    WidthRequest="30"
+                    Margin="20,10,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    Source="flecha">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ReturnCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <StackLayout Padding="40,0,40,10">
+                <Frame CornerRadius="100"
+                    Padding="0"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True">
+                    <Image 
+                        HeightRequest="140"
+                        WidthRequest="140"
+                        Source="{Binding Logo}" 
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+                    </Image>
+                </Frame>
+            </StackLayout>
+            <StackLayout
+                Margin="20,15,20,0">
+                <Frame
+                    BorderColor="#e2e2e2"
+                    CornerRadius="20"
+                    HasShadow="true"
+                    Padding="5"
+                    BackgroundColor="#f6f8f9">
+                    <SearchBar
+                        FontFamily="Poppins"
+                        FontSize="15"
+                        TextColor="#3a3a3a"
+                        PlaceholderColor="#3a3a3a"
+                        Placeholder="Busca tu categoria"
+                        Text="{Binding Filter, Mode=TwoWay}"
+                        SearchCommand="{Binding SearchCommand}" InputTransparent="False">
+                    </SearchBar>
+                </Frame>
+            </StackLayout>
+            <Label
+                Text="Categorias"
+                Padding="20,15,0,0"
+                TextColor="#0274bc" 
+                FontFamily="Poppins-Bold"
+                FontSize="18"
+                VerticalOptions="Center">
+            </Label>
+            <StackLayout
+                Padding="0,15,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout 
+                        Padding="5,0,5,0"
+                        Grid.Column="0"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center">
+                        <ListView 
+                            HasUnevenRows="true" 
+                            IsPullToRefreshEnabled="false"
+                            ItemsSource="{Binding CategoriesLeft}"
+                            SeparatorVisibility="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout
+                                            Padding="0,0,15,0"
+                                            IsVisible="{Binding C1}">
+                                            <Frame 
+                                                CornerRadius="20"
+                                                Padding="0"
+                                                HorizontalOptions="Center"
+                                                IsClippedToBounds="True">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GetCategoryProductsCommand}"/>
+                                                </Frame.GestureRecognizers>
+                                                <Image 
+                                                    HeightRequest="120"
+                                                    WidthRequest="120"
+                                                    Source="{Binding Image}" 
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    VerticalOptions="CenterAndExpand">
+                                                </Image>
+                                            </Frame>
+                                            <Label 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"
+                                                FontFamily="Poppins-Bold"
+                                                FontSize="13" 
+                                                Text="{Binding Name}"
+                                                TextColor="#3a3a3a">
+                                            </Label>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <StackLayout 
+                        Padding="20,0,5,0"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center">
+                        <ListView 
+                            HasUnevenRows="true"
+                            ItemsSource="{Binding Categories}"
+                            SeparatorVisibility="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout
+                                            Padding="0,0,15,0"
+                                            IsVisible="{Binding C1}">
+                                            <Frame 
+                                                CornerRadius="20"
+                                                Padding="0"
+                                                HorizontalOptions="Center"
+                                                IsClippedToBounds="True">
+                                                <Frame.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding GetCategoryProductsCommand}"/>
+                                                </Frame.GestureRecognizers>
+                                                <Image 
+                                                    HeightRequest="120"
+                                                    WidthRequest="120"
+                                                    Source="{Binding Image}" 
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    VerticalOptions="CenterAndExpand">
+                                                </Image>
+                                            </Frame>
+                                            <Label 
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"
+                                                FontFamily="Poppins-Bold"
+                                                FontSize="13" 
+                                                Text="{Binding Name}"
+                                                TextColor="#3a3a3a">
+                                            </Label>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
