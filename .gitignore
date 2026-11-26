@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Dependencies, build output and local files
+*.apk
+*.aab
+*.keystore
+.DS_Store
